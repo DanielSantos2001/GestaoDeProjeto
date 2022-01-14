@@ -1,0 +1,1008 @@
+input {
+ border-color: #d5dadf;
+}
+
+/*------------------------ Global ------------------------*/
+body {
+	background-color: #eef3f6;
+	color: #000;
+}
+
+/*------------------------ Hyperlink ------------------------*/
+a {
+	color: #2db88c;
+}
+
+.selectedStep {
+	border-color: #2db88c;
+	font-weight: bold;
+}
+
+a:hover.iconpesquisa {
+	color: #CCCCCC;
+}
+
+a:hover {
+	color: #28807d;
+}
+
+.linkFerramentas a:link {
+	background-color: #889595;
+	color: #fff;
+}
+
+.linkFerramentas a:hover {
+	background-color: #889595;
+	color: #fff;
+}
+
+.tabledefault a:link:not(.botaoDownload, .mceButton), .tabledefault a:visited:not(.botaoDownload, .mceButton) {
+	background-color: #889595;
+	color: #fff;
+}
+
+.tabledefault a:hover:not(.botaoDownload, .mceButton), .tabledefault a:active:not(.botaoDownload, .mceButton) {
+	background-color: #2f323a;
+	color: #fff;	
+}
+
+
+.successMessageContent a:link, .successMessageContent a:active {
+	color: #fff;
+	background-color: transparent !important;
+	text-decoration: underline !important;
+	padding: 0  !important;
+	font-weight: bold;
+}
+
+.successMessageContent a:hover {
+	color: #2e8c58 !important;
+}
+
+.botaodetalhes a:link, .botaodetalhes a:hover {
+	color: #000;
+}
+
+.botaodetalhes {
+	color: #000;
+	background-color: #aabfc8;
+}
+
+.botaodetalhes:hover {
+	background-color: #839ba5;
+	color: #000;
+}
+
+.botaoDownload {
+	color: #fff;
+	background-color: #41ae72;	
+}
+
+
+.botaoDownload a:link, .botaoDownload a:visited, .botaoDownload a:hover, .botaoDownload a:active {
+	color: #fff;
+}
+	
+.botaoDownload:hover {
+	background-color: #2e8c58;
+	color: #fff;
+}
+
+.linkIdioma a:link, .linkIdioma a:hover {
+	color: #fff;
+}
+
+.linkIdioma {
+	color: #fff;
+	background-color: #999;
+}
+
+.linkIdioma:hover {
+	color: #fff;
+	background-color: #888;
+}
+
+.linkIdiomaSemInfo {
+	background-color: #C14A28;
+}
+
+/*------------------------ Header ------------------------*/
+#header {
+	background-color: #fff;
+	color: #212121;
+	border-bottom: 1px solid #d5dadf;
+}
+
+#navigation {
+	background-color: #e4e9ed;
+}
+
+.headerTableRight {
+	color: #212121;
+}
+
+.headerTableRight a {
+	color: #2db88c;
+}
+
+.headerTableRight a:hover {
+	color: #aaa;
+}
+
+.UFshow-on-hover {
+    background-color: rgba(46,184,141,0.7);
+    color: #fff;
+    
+    /*override para a demo*/
+    height: 25px;
+    padding: 0.3rem; 
+}
+
+/*override para a demo*/
+.userFoto {
+	
+}
+
+.userFoto-wrap a:hover {
+	color: #fff;
+	
+}
+.headerTagLibErrors{
+	color: white; 
+}
+
+/*------------------------ Navigation ------------------------*/
+/*#centralareaLog a {
+	color: #2db88c;
+}*/
+
+.contentLogin {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contentLoginContainer {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+#contentLoginContainerLeft {
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	filter: alpha(opacity=90);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contentLoginContainerLeft {
+	background: #fff;
+}
+
+.logintableSpan a{
+	color: #fff;
+}
+
+.logintableSpan a:hover{
+	color: #ccc;
+}
+
+#divAliasUsername a {
+    color: #fff;
+}
+#divAliasUsername a:hover {
+    color: #ccc;
+}
+
+span.logintableSpan {
+	color: #fff;
+}
+
+.tituloSeccaoLogin {
+	color: #fff;
+}
+
+.captchaSpan {
+	color: #2db88c;
+}
+
+.navtableLight {
+	background-color: #e4e9ed;
+}
+
+/*------------------------ Menu ------------------------*/
+.menu {
+	background-color: #fff;
+	/*override da demo*/
+	border-right: 1px solid #d5dadf;
+}
+
+.menuTitle {
+	color: #2db88c;
+}
+
+.menuTitle:hover {
+	background-color: #2db88c;
+	color: #fff;
+}
+
+.menuGroup {
+	color: #212121;
+}
+
+.menuGroup li a {
+	color: #2db88c;
+}
+
+.menuGroup li a:hover {
+	color: #fff;
+}
+
+ul.menu-list li:hover {
+	background-color: #2db88c;
+	color: #fff;
+}
+
+ul.menu-list li:hover a{
+	color: #fff;
+}
+
+li.menuItemTitle:hover {
+	background-color: transparent !important;
+	color: #212121 !important;
+}
+
+ul.menu-list li.selectedOptionMenu {
+	background-color: #2db88c;
+	color: #fff;
+}
+ul.menu-list li.selectedOptionMenu a {
+	color: #fff;
+}
+
+/*------------------------ Context ------------------------*/
+#context {
+	background-color: #e4e9ed;
+}
+
+#contentalunos {
+	border-color: #666666;
+}
+
+/*------------------------ Separator ------------------------*/
+#separators {
+	/*color: #000;*/
+	border-color: #2db88c !important;
+}
+
+.separators {
+	color: #000;
+	border-bottom: 0.3rem solid #2db88c !important;
+}
+
+.separatorsInt {
+	/*color: #000;*/
+}
+
+.closedtab_dl {
+	background-color: #2db88c;
+	color: #fff;
+}
+
+.closedtabdiv {
+	background-color: transparent;
+}
+
+.closedtab_sl {
+	background-color: #2db88c;
+	color: #fff;
+}
+
+.openedtab_sl {
+	color: #000;
+	background-color: #e4e9ed;
+	
+}
+
+.openedtab_sl:hover {
+	background-color: #aabfc8;
+}
+
+.openedtab_sl a {
+	/*color: #000;*/
+}
+
+.openedtab_dl {
+	color: #000;
+	background-color: #e4e9ed;
+}
+
+.openedtab_dl:hover {
+	background-color: #aabfc8;
+}
+
+.openedtab_dl a {
+	/*color: #000;*/
+}
+
+.separadorNoMenu {
+	color: #2db88c;
+}
+
+/*------------------------ Content ------------------------*/
+#contentContactos {
+	background-color: #fff !important;
+	border-color: #d5dadf;
+}
+
+#contentContactos table {
+	background-color: none;
+}
+
+/*------------------------ Footer ------------------------*/
+
+.footer {
+	height: 4rem;
+	background-color: #2db88c;
+}
+
+.navtable {
+	background-color: #212121;
+	color: #fff;
+}
+
+
+
+.roundedBorder, .fieldsetRoundedBorder {
+	border-color: #ccc;
+}
+
+.navtableDarkContent {
+	color: #fff;
+}
+
+.navtableLightContent {
+	background-color: none;
+	/*color: #000;*/
+}
+
+.navtableGo {
+	color: #2db88c;
+}
+
+.footerTable {
+	color: #fff;
+	background-color: #2db88c;
+}
+
+.footerTableDark, .footerUltimoAcesso {
+	background-color: transparent;
+	/*override para demo*/
+	width: 25%;
+}
+
+/*logotipo da xws no footer - versao demo*/
+.footerLogo {
+	width: 100%;
+	/*padding-top: 0.4rem;*/
+}
+
+/*link para o nonio no footer - versao demo*/
+.linkFooter {
+	color: #fff;
+}
+
+.linkFooter:hover {
+	color: #ccc;
+}
+
+
+.zone {
+	border-color: #d5dadf;
+	background-color: #fff;
+}
+
+.horizontalline-inside {
+	border-color: #000;
+}
+
+.subtitle, .subtitleExtra {
+	color: #2db88c;
+}
+
+.zonelinks a:link, .zonelinks a:visited {
+	background-color: #889595;
+	color: #fff;
+}
+
+.zonelinks a:hover, .zonelinks a:active {
+	background-color: #2f323a;
+}
+
+.label {
+	/*color: #000;*/	
+}
+
+.labelLarge {
+	/*color: #000;*/	
+}
+
+.radio {
+	background-color: #E4E4E4;
+}
+
+.lastradio {
+	background-color: #E4E4E4;
+}
+
+.tabledefault a:link, .tabledefault a:visited {
+
+	
+}
+
+.tabledefault a:hover, .tabledefault a:active {
+
+	
+}
+
+.inputText {
+	/*color: #000;*/
+	border-color: #d5dadf;
+}
+
+.inputLogin {
+	/*color: #000;*/	
+}
+
+.inputText:hover {
+	border-color: #2db88c;
+}
+
+.inputText:focus {
+	border-color: #2db88c;
+}
+
+::selection {
+	color: #fff;
+	background-color: #2db88c;
+}
+
+option:hover {
+	background-color: #2db88c;
+}
+
+[disabled] { /*para disabled IE*/
+	color: #000; /* color n�o faz nada no IE */
+	background-color: #E6E6E6;
+}
+
+.button, .botaoVoltar, .botaoGravar, .buttonFront, .buttonBack {
+	color: #fff;
+	background-color: #2db88c;
+}
+
+.buttonBack {
+	background-color: #aabfc8;
+	color: #000;
+}
+
+.button:hover, .botaoVoltar:hover, .botaoGravar:hover {
+	color: #fff;
+	background-color: #28807d;
+}
+
+.button:hover, .botaoVoltar:hover, .botaoGravar:hover {
+	background-color: #28807d;
+}
+
+.buttonBack:hover {
+	background-color: #839ba5;
+	color: #000;
+}
+
+/*------------------------ Tabelas ------------------------*/
+.mandatory {
+	color: #bc3a2d;
+}
+
+.remember {
+	color: #999999;
+}
+
+.darkRemember {
+	color: #555555;
+}
+
+.cellheader {
+	color: #889595;
+}
+
+.cellheaderleft {
+	color: #889595;
+}
+
+.cellheaderRight {
+	color: #889595;
+}
+
+.darkrow {
+	border-color: #ccc;
+}
+
+.simplerow:hover {
+	background-color: #edeff5;
+}
+
+.lightrow {
+	border-color: #ccc;
+}
+
+.lightrowHover {
+	background-color: #edeff5;
+}
+
+.darkrowHover {
+	background-color: #edeff5;
+}
+
+.lightrow:hover {
+	border-color: #ccc;
+	background-color: #edeff5;
+}
+
+.darkrow:hover {
+	border-color: #ccc;
+	background-color: #edeff5;
+}
+
+.currentrow:hover {
+	border-color: #ccc;
+	background-color: #edeff5;
+}
+
+#perTable .currentrow:hover {
+	border-top: 1px solid #ccc;
+}
+
+.selectedrow {
+	border-color: #ccc;
+	background-color: #beddef;
+}
+
+.yellowrow {
+	background-color: #F5DA81;
+}
+
+.greenrow {
+	background-color: #77dd77;
+}
+
+#errorMessage {
+	color: #FF0000;
+}
+
+.validationError {
+	color: #ff0000;
+}
+
+.errorStyleClass {
+	/*color: #000000;*/
+}
+
+.errorStyleClass {
+	/*border-color: #000;*/
+}
+
+.validationError {
+	color: #ff0000;
+}
+
+.validationWarning {
+	color: #ffa500;
+}
+
+.openedtab {
+	background-color: #000000;
+	color: white;
+}
+
+.closedtab {
+	background-color: white;
+	border-color: #000000;
+}
+
+.openedtab a span {
+	color: white;
+}
+
+.greenBoldLabel {
+	color: green;
+}
+
+.orangeBoldLabel {
+	color: orange;
+}
+
+.redBoldLabel {
+	color: red;
+}
+
+.labelRequerimentoAnulado {
+	color: #fff;
+	background-color: #2c3e50;
+}
+
+/*------------------------ Setas da Barra de Navegação ------------------------*/
+.navtableGo:hover {
+	color: #28807d;
+}
+
+.ancora {
+	color: #000;
+}
+
+.mensagemSucessoOperacao {
+	color: green;
+}
+
+.tooltipsy {
+	color: #fff;
+	background-color: #707070;
+}
+
+.commonCSSBadge, .badge, .badgeBold, .badgeGreenBold,
+	.badgeGreenBoldNormal, .badgeRed, .badgeRedBold, .badgeOrange,
+	.badgeOrangeBold, .badgeTomatoBold, .badgeBlue, .badgeBlueSkyBold {
+	background-color: #dcc6e0;
+}
+
+.badge, .badgeBold {
+	color: #fff;
+	background-color: #93a2ab;
+}
+
+.badgeTomatoBold  {
+	color: #fff;
+	background-color: #FF6347;
+}
+
+.badgeGreenBold {
+	color: #fff;
+	background-color: #2ecc71;
+}
+
+.badgeBlueSkyBold {
+	color: #000;
+	background-color: #beddef;
+}
+
+.badgeBlue {
+	color: #fff;
+	background-color: #4b77be;
+}
+
+.badgeGreenBoldNormal {
+	color: #fff;
+	background-color: #41ae72;
+}
+
+.badgeRed, .badgeRedBold {
+	color: #fff;
+	background-color: #bc3a2d;
+}
+
+.badgeOrange, .badgeOrangeBold {
+	color: #fff;
+	background-color: #eb974e;
+}
+
+.numOrdem {
+	background-color: #538cc6;
+	color: #fff;
+}
+
+.numOrdemDisabled {
+	background-color: #949494;
+	color: #fff;
+}
+
+.tabelaOrderColocado {
+	background-color: #d5eac8;
+	border-color: #aad590;
+}
+
+.mensagemPrincipalEcraErro {
+	color: #AB1125;
+}
+
+.mensagemPrincipalEcraTokenInvalido {
+	color: #3366CC;
+}
+
+.mensagemSecundariaEcraErro {
+	color: #999999;
+}
+
+#div_erros_preenchimento_formulario {
+	color: #fff;
+	background-color: #bc3a2d !important;
+	border-color: #dad5df !important;
+}
+
+.logAltRegistoBoxTitle {
+	color: #2db88c;
+}
+
+.tituloSeccaoLogin2 {
+	color: #2db88c;
+}
+
+/*------------------------ Imagens ------------------------*/
+.contentLogin {
+	background-image: url("../../images/images-PRT-CLOUD/login/loginimg2.jpg");
+}
+
+#imgLogAltCand {
+	background: url('../../images/images-PRT-CLOUD/login/registo/cand.jpg') no-repeat 0% 0%;
+	background-size: cover;
+}
+
+#imgLogAltMob {
+	background: url('../../images/images-PRT-CLOUD/login/registo/mob.jpg') no-repeat 0% 0%;
+	background-size: cover;
+}
+
+#imgLogAltDisc {
+	background: url('../../images/images-PRT-CLOUD/login/registo/isol.jpg') no-repeat 0% 0%;
+	background-size: cover;
+}
+
+#imgLogAltRede {
+	background: url('../../images/images-PRT-CLOUD/login/registo/rede.jpg') no-repeat 50% 0%;
+	background-size: cover;
+}
+
+#imgLogAltRequerimentosNaoEstudante {
+	background: url('../../images/images-PRT-CLOUD/login/registo/reqNaoEstudantes.jpg') no-repeat 0% 0%;
+	background-size: cover;
+}
+
+/*------------------------ Dashboard ------------------------*/
+.dashWidgetShadow {
+	background-color: #FFF;
+	border-color: #d5dadf;
+}
+
+.dashWidgetHeader {
+	color: #2db88c;
+}
+
+.dashWidgetPlaceholder {
+	border-color: #dad5df;
+}
+
+.dashWidgetContent td.link:hover {
+	background-color: #edeff5;
+	
+}
+
+/*----------------------- Modal -----------------------*/
+.ui-widget-content {
+	background-color: #FFF;
+	color: #222222;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	color: #2db88c;
+}
+
+.dashWidgetContent .smallSliderContainer {
+	background-color: lightgrey;
+	border-color: gray;
+}
+
+.smallSliderContainer .ui-slider-handle {
+	background-color: darkgray;
+}
+
+.dashWidgetContent .ui-widget-content {
+	background-color: lightgrey;
+}
+
+/*----------------------- Ferramentas -----------------------*/
+.dashFerramentas {
+	border-color: #dad5df;
+}
+
+.bigSliderContainer {
+	background-color: lightgrey;
+}
+
+.bigContainer .slider {
+	background: blue;
+}
+
+.bigSliderSubContainer .ui-slider-handle {
+	background-color: darkgray;
+}
+
+/*----------------------- Mini Widget -----------------------*/
+.miniWidget {
+	background-color: #E6ECED;
+	border-color: #FFF;
+}
+
+.miniWidgetHeader {
+	background-color: #FFF;
+	border-color: #999;
+}
+
+.miniWidget:hover {
+	border-color: darkgray;
+}
+
+.horizontalline strong {
+	color: #000;
+}
+
+/*-------------------Mudar Disc--------------------*/
+
+.mdAnoSel {
+	
+}
+
+/*-----------Verificacao de Documentos ----------------*/
+
+.tituloSeccao {
+	color: #2db88c;
+}
+
+/*--------------------diarios------------------------*/
+.dataHoraMsgDiario{
+	color: #666666
+}
+
+.msgDocentes {
+	background-color:#d5dadf; 
+	border-color:#ccc;
+}
+
+.msgAluno {
+	background-color: #ecf2f7;
+	border-color: #ccc;
+}
+
+/*-------------------outros-----------------------*/
+fieldset {
+	border-color: #ccc;
+}
+
+/*--------------------responsive------------------*/
+
+/*----menu------*/
+
+li.menuListMobile-links a{
+  color: #2db88c;
+}
+
+li.menuListMobile-links a:hover {
+  background-color: #2db88c;
+  color: #fff;
+}
+
+li.menuListMobile-links a:active {
+  background-color: #2db88c;
+  color: #fff;
+}
+
+.menu-mob-title {
+  color: #000;
+}
+
+
+.dropdown-menu-tablet .menu-list {
+	background-color: /*#e4e9ed*/ #fff;
+	box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.1);    
+}
+
+
+.menu-tablet {
+  background-color: #e4e9ed;
+  border-bottom: 1px solid #d5dadf;
+}
+
+
+.menu-mob {
+	background-color: #e4e9ed;
+}
+
+button {
+	background-color: transparent;
+}
+
+.button-menu-bar {
+	background-color: #2db88c;
+}
+
+button.link-menu-mob:hover div {
+	background-color: #28807d;
+}
+
+/*--------------------*/
+
+/* MOBILE */
+@media (max-width: 768px) {
+ 
+  .menu-mob:hover div {
+   /* background-color: #eef3f6;
+    color: #fff;*/
+  }
+
+  .footerTable {
+    background-color: #2db88c;
+  }
+}
+
+
+/* TABLET */
+@media ( min-width : 769px) and (max-width: 979px) {
+	
+	.menuGroup li:hover {
+		background-color: #2db88c;
+		cursor: pointer;
+	}
+	
+	.menuGroup li.active {
+		background-color: #2db88c;
+	}
+	
+	.menuItemTitle {
+		color: #2db88c;
+	}
+	
+	.menuItem.active > .menuItemTitle{
+		color: #fff;
+	}
+}
+
+
+
+
+a.link-menu-mob  {
+  color: #000;
+}
+a.link-menu-mob {
+  color: #000;
+}
+
+.dropdown-menu-tablet {
+  color: #2db88c;
+}
+
+.dropdown-menu-tablet span:active, .dropdown-menu-tablet span:hover {
+	color: #fff;
+}
+
+/*-------ajuste menu tablet--------*/
+
+@media (max-width: 979px) and (min-width: 874px){
+	.menu-last-dropdown {
+		margin-left: -80px;
+	}
+}
+.header-normal,
+.header-mobile {
+	/*height: 70px;*/
+	height: 100px;
+}
+
+span.menuItemTitle {
+	font-weight: 600;
+}
+
+td.header-idiomas {
+	color: #2db88c;
+}
+
+td.header-idiomas a {
+	color: #2db88c;
+}
+
+.selected {
+	font-weight: 600;
+}

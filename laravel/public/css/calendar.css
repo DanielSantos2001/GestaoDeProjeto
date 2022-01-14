@@ -1,0 +1,112 @@
+/* start of calendar styles config */
+#calendar { /*a ver*/
+    position: absolute;
+    visibility: hidden;
+    background-color: #FFFFFF; 
+    z-index:2;
+}
+
+.calendarcpYearNavigation,
+    .calendarcpMonthNavigation { /*a ver*/
+	background-color: #ACACAC;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.calendarcpYearNavigation:focus,
+	.calendarcpMonthNavigation:focus { /*a ver*/
+	background-color: #FFFFFF;
+	text-align: center;
+	text-decoration: none;
+	color: #ACACAC;
+}
+
+.calendarcpDayColumnHeader,
+    .calendarcpYearNavigation,
+    .calendarcpMonthNavigation,
+    .calendarcpCurrentMonthDate,
+    .calendarcpCurrentMonthDateDisabled,
+    .calendarcpOtherMonthDate,
+    .calendarcpOtherMonthDateDisabled,
+    .calendarcpCurrentDate,
+    .calendarcpCurrentDateDisabled,
+    .calendarcpTodayText,
+    .calendarcpTodayTextDisabled,
+    .calendarcpText { /*a ver*/
+    font-family: arial;
+    font-size: 8pt;
+	font-weight: bold;
+}
+
+TD.calendarcpDayColumnHeader { /*a ver*/
+    text-align: right;
+    border: solid thin #ACACAC;	
+    border-width: 0px 0px 1px 0px;
+}
+
+.calendarcpCurrentMonthDate,
+    .calendarcpOtherMonthDate,
+    .calendarcpCurrentDate { /* a ver*/
+    text-align: right;
+    text-decoration: none;
+}
+
+.calendarcpCurrentMonthDateDisabled,
+    .calendarcpOtherMonthDateDisabled,
+    .calendarcpCurrentDateDisabled {/*a ver*/
+    color: #D0D0D0;
+    text-align: right;
+    text-decoration: line-through;
+}
+
+.calendarcpCurrentMonthDate { /*a ver*/
+    color: #ACACAC;
+    font-weight: bold;
+}
+
+.calendarcpCurrentDate {/* a ver*/
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.calendarcpOtherMonthDate { /*a ver*/
+    color: #808080;
+}
+
+TD.calendarcpCurrentDate { /*a ver*/
+    color: #FFFFFF;
+    background-color: #ACACAC;
+    border-width: 1px;
+    border: solid thin #000000;
+}
+
+TD.calendarcpCurrentDateDisabled {/*a ver*/
+    border-width: 1px;
+    border: solid thin #FFAAAA;
+}
+
+TD.calendarcpTodayText,
+    TD.calendarcpTodayTextDisabled {/*a ver*/
+    border: solid thin #ACACAC;
+    border-width: 1px 0px 0px 0px;
+}
+
+A.calendarcpTodayText,
+    SPAN.calendarcpTodayTextDisabled {/*a ver*/
+    height: 20px;
+}
+
+A.calendarcpTodayText {/*a ver*/
+    color: #000000;
+    font-weight: bold;
+}
+
+SPAN.calendarcpTodayTextDisabled {/*a ver*/
+    color: #D0D0D0;
+}
+
+.calendarcpBorder {/*a ver*/
+    border: solid thin #ACACAC;
+}
+/* end of calendar styles config */

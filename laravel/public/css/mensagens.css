@@ -1,0 +1,185 @@
+/*
+table,th,tr,td,div {
+	border: 1px solid black;
+}*/
+
+.messageHeader  {
+	padding: 0 0 0 1rem;
+}
+
+.successMessage {
+	padding: 0.25rem 0.5rem;
+	width: 100%;
+	background-color:#41ae72;
+	border:  1px solid #dad5df;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	margin-bottom: 1rem;
+}
+
+.successMessageHeader  {
+	color: #fff;
+	font-weight: 600;
+	padding: 1rem 0 0 0;
+	font-size: 1.225rem;
+}
+.successMessageHeader a:link, .successMessageHeader a:visited, .successMessageHeader a:hover, .successMessageHeader a:active{  
+	background-color:#fff;
+	margin-left:0.5rem;
+	font-size: 0.875rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	border-radius: 0.25rem;
+	padding: 0.2rem 0.8rem;
+	font-weight: 600;
+}
+
+
+
+.errorMessage {
+	padding: 0.25rem 0.5rem;
+	width: 100%;
+	background-color: #bc3a2d;
+	border: 1px solid #dad5df;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;	
+	border-radius: 3px 3px 3px 3px;
+	margin-bottom: 1rem;
+}
+
+.errorMessageHeader  {
+	color: #fff;
+	font-weight: 600 !important;
+	font-size: 1.225rem;
+	padding-left: 0;
+}
+.errorMessageHeader a:link, .successMessageHeader a:visited, .successMessageHeader a:hover, .successMessageHeader a:active{  
+	background-color:#fff;
+	margin-left:0.5rem;
+	font-size: 0.875rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	border-radius: 0.25rem;
+	padding: 0.2rem 0.8rem;
+	font-weight: 600;
+}
+.infoMessage {
+	padding: 0.25rem 0.5rem;
+	width:100%;
+	color: #000;
+	border: 1px solid #dad5df;
+	background-color: #beddef;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	margin-bottom: 1rem;
+}
+
+
+.infoMessageHeader  {
+	color: #000;
+	font-weight: 600 !important;
+	font-size: 1.225em;
+	padding:0;
+}
+.infoMessageHeader a:link, .successMessageHeader a:visited, .successMessageHeader a:hover, .successMessageHeader a:active{  
+	background-color:#fff;
+	margin-left:0.5rem;
+	font-size: 0.875rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	border-radius: 0.25rem;
+	padding: 0.2rem 0.8rem;
+	font-weight: 600;
+}
+
+/*.infoMessageHeader > .messageHeader {
+	font-weight: normal;
+}*/
+
+.bigHeader {
+    font-family: Verdana;
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold
+}
+
+.successMessageTitle  {
+	text-color: #0E6937;
+	font-weight: bold;
+	padding: 10px 10px 10px 40px;
+	display: inline;
+}
+
+.successMessageHeader  {
+	text-color: #0E6937;
+	font-weight: bold;
+	left: 5px;
+	padding-left: 5px;
+	font-size: 1.225rem;
+}
+
+.successMessageContent  {
+	color: #fff;
+	padding: 0rem 0 0 1rem;
+}
+.errorMessageContent  {
+	color: #fff;
+	padding: 0rem 0 0 1rem;
+}
+.warningMessageContent  {
+	color: #fff;
+	padding: 0rem 0 0 1rem;
+}
+.infoMessageContent  {
+	color: #000;
+	padding: 0rem 0 0 1rem;
+}
+.messageContent  {
+	color: #000;
+	padding: 0rem 0 0 1rem;
+}
+.alertMessage {
+	padding: 0.25rem 0.5rem;
+	width: 100%;
+	background-color: #ffc031;
+	border:  1px solid #dad5df;
+	-moz-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;	
+	border-radius: 3px 3px 3px 3px;
+	margin-bottom: 1rem;
+}
+
+.alertMessageHeader  {
+	color: #000;
+	font-weight: 600;
+	padding: 1rem 0 0 0;
+	font-size: 1.225rem;
+}
+.alertMessageHeader a:link, .successMessageHeader a:visited, .successMessageHeader a:hover, .successMessageHeader a:active{  
+	background-color:#fff;
+	margin-left:0.5rem;
+	font-size: 0.875rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	border-radius: 0.25rem;
+	padding: 0.2rem 0.8rem;
+	font-weight: 600;
+}
+
+.alertMessageContent {
+	color: #000;
+	padding: 0rem 0 0 1rem;
+}
+
+.avisoResMobile {
+	padding: 1rem 0.5rem;
+	width:auto;
+	color: #000;
+	border: 1px solid #dad5df;
+	background-color: #fff;
+	-moz-border-radius:0.3rem;
+	-webkit-border-radius: 0.3rem;
+	border-radius: 0.3rem;
+}
