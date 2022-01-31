@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Http\Controllers\ProposalController;
+
+Route::get('/', [ProposalController::class, 'index']);
+
+
+Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
+
+Route::get('/proposals/createProposal', function () {
+   return view('/proposals/createProposal');
 });
+
+Route::post('/proposals', [ProposalController::class, 'store' ]);
