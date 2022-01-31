@@ -1,29 +1,6 @@
-<html xmlns:v="”urn:schemas-microsoft-com:vml”" lang="PT" xml:lang="PT">
-    
-  <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=9">  <!-- IE 9 -->
-		<meta name="viewport" content="width=device-width">
-		<link rel="shortcut icon" href="../util/obtemConteudoFicheiroImagemDadosLayoutInstituicao.do?codigo=IMAGEM_FAVICON&amp;v=1643324209026">
-		<link rel="stylesheet" type="text/css" href="../css/nonio_alunos.css?v=1643324203147">
-		<link rel="stylesheet" type="text/css" href="../css/css-PRT-CLOUD/nonio_alunos.css?v=1643324203147">
-		<link rel="stylesheet" type="text/css" href="../css/calendar.css?v=1643324203147">
-		<link rel="stylesheet" type="text/css" href="../css/chosen.css?v=1643324203147">
-		<link rel="stylesheet" type="text/css" href="../css/mensagens.css?v=1643324203147">
-		<link rel="stylesheet" type="text/css" href="../util/obtemConteudoTextoLayoutInstituicao.do?codigo=CSS_INFORESTUDANTE&amp;v=1643324209026">	
-		<script language="javascript" type="text/javascript" src="../js/functions.js?v=1643324203147"></script>
-		<script language="javascript" type="text/javascript" src="../js/jquery.js?v=1643324203147"></script>
-		<script language="javascript" type="text/javascript" src="../js/DynamicOptionList.js?v=1643324203147"></script>
-		<script language="javascript" type="text/javascript" src="../js/calendar.js?v=1643324203147"></script>
-		<script language="javascript" type="text/javascript" src="../js/chosen.jquery.js?v=1643324203147"></script>
-		<title>GEA - Gestor Estagios Academicos</title>
-		
-					
-		
-		
-	<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+@extends('header')
 	
-	<body onload="initDynamicOptionLists();">
+	<body >
 		<div id="master">
 			<div id="container">
 				<div id="header">
@@ -71,7 +48,8 @@
 					<div id="contentGlobal">
 						<div id="content" class="conteudo2">
    	<table class="page" style="padding: 0px;">
-			<tbody><tr>
+			<tbody>
+            <tr>
 				<td>
 					<table class="zone">
 						<tbody><tr>
@@ -79,7 +57,7 @@
 								<table class="horizontalline">
 									<tbody><tr>
 										<td class="subtitle">
-											<h1>Alunos Com conta de e-mail do Instituto Politécnico de Coimbra ou Empresas com Registo de email na plataforma</h1>
+											<h1>Alunos Com conta de e-mail do Instituto Politécnico de Coimbra</h1>
 										</td>
 									</tr>
 								</tbody></table>
@@ -109,18 +87,57 @@
 					</tbody></table>
 				</td>
 			</tr>
+            <tr>
+            <td>
+					<table class="zone">
+						<tbody><tr>
+							<td>
+								<table class="horizontalline">
+									<tbody><tr>
+										<td class="subtitle">
+											<h1>Empresas com conta de e-mail registada no sistema</h1>
+										</td>
+									</tr>
+								</tbody></table>
+							</td>		
+						</tr>
+						<tr>
+							<td>
+								<table class="zonecontent cellcontent" style="width: 100%;">
+									<tbody><tr>
+										<td style="padding-bottom: 10px;">
+											Todos os utilizadores empresa com conta de e-mail registada podem autenticar-se no sistema utilizando:
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-bottom: 10px;">
+											<b>Utilizador:</b> Endereço de e-mail registado no sistema
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<b>Palavra-chave:</b> Palavra-chave que inseriram no seu registo de conta
+										</td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+            </tr>
 		<tr>
 			<td>
 				<table class="zonebuttons">
-					<tbody><tr>
+		<tbody><tr>
 						<td>	
-							<a href="/log" class="buttonBack"><span>Voltar à Página de Autenticação</span></a>
+							<a href="/" class="buttonBack"><span>Voltar à Página de Autenticação</span></a>
 						</td>
 					</tr>
 				</tbody></table>
 			</td>
 		</tr>
-	</tbody></table>  
+	</tbody>
+</table>  
     
 							<div id="calendar"></div>
 						</div>
