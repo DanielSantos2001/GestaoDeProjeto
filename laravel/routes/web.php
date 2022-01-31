@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('autenticacao.log');
+});
+
+Route::get('/firstTime', function () {
+    return view('autenticacao.linkWarning');
+});
+
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-
-Route::get('/autenticacao/login', function () {
-    return view('autenticacao.log');
-});
