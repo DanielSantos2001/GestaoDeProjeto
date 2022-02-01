@@ -6,20 +6,6 @@
         <div id="contentLogin" class="contentLogin" style="display: block;" bis_skin_checked="1">
             <div id="contentLoginMessageContainer" bis_skin_checked="1">
                 <div id="contentLoginMessage" bis_skin_checked="1">
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
             <div id="contentLoginContainer" class="contentLoginContainer" bis_skin_checked="1">
@@ -143,21 +129,6 @@
                     
 </div>			
 </div>
-</div>
-        
-        
-        
-
-
-<div id="avisoJavaScript" style="margin-left: auto; margin-right: auto; display: none;" bis_skin_checked="1">
-<script type="text/javascript">
-<!--
-document.getElementById ("avisoJavaScript").style.display='none';
-if(document.getElementById ("contentLogin"))
-document.getElementById ("contentLogin").style.display='block';
--->
-</script>
-
 </div>
 
         <div class="clear" bis_skin_checked="1">&nbsp;</div>

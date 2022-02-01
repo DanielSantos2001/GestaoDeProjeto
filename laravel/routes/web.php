@@ -26,3 +26,4 @@ Route::get('/welcome', [AutenticationController::class, 'index']);
 
 
 Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
+Route::post('/users.create.student', [AutenticationController::class, 'createStudentAcc']);
