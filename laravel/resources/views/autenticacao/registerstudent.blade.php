@@ -23,12 +23,6 @@
 						</td>
 						<td>	
 						</td>
-						<td class="header-idiomas">
-							
-								
-									&nbsp;|&nbsp;<a href="../util/mudarLingua.do?args=12641723864064280">EN</a>&nbsp;<span class="selected">PT</span>&nbsp;
-		
-						</td>
 						
 					</tr>
 				</tbody></table>
@@ -63,7 +57,7 @@
 						</div>
 						
 						<div id="separatorsArea" class="separadorNoMenu">
-							<div id="separators">Registo On-line - Instituto Politécnico de Coimbra</div>
+							<div id="separators">Registo On-line - Gestão de Estágios Académicos</div>
 						</div>
 											
 						<div id="contentGlobal">
@@ -109,7 +103,7 @@
 											</td>
 										</tr>
 										
-										<tr id="trRegisto">
+										<tr>
 											<td class="label" style="width:29%">
 												<span class="mandatory" id="mandatorynome">
 													*
@@ -124,7 +118,7 @@
 											</td>
 										</tr>
 
-										<tr id="trRegisto">
+										<tr>
 											<td class="label" style="width:29%">
 												<span class="mandatory" id="mandatorynome">
 													*
@@ -139,7 +133,7 @@
 											</td>
 										</tr>
 
-										<tr id="trRegisto">
+										<tr>
 											<td class="label" style="width:29%">
 												<span class="mandatory" id="mandatorynome">
 													*
@@ -158,8 +152,18 @@
 												
 											</td>
 										</tr>
-
-
+										<tr>
+											<td class="label" style="width:29%">
+											<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm">
+											</span>
+											</td>
+											<td class="cellcontent cellcontentwithinputtext">
+											<span class="mandatory" id="mandatorynome">
+													*
+												</span>
+												Li e Aceito os <a href="#">termos e condições</a>
+											</td>
+										</tr>
 									</tbody>
 								</table>
 								</td>
