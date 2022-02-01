@@ -127,7 +127,8 @@
                                 <td>
                                     <div style="margin-bottom: 10px;" bis_skin_checked="1">Caso necessite de ajuda, por favor não hesite em contactar-nos:</div>
                                         <div bis_skin_checked="1">
-                                            <a href="https://www.ipc.pt/pt/o-ipc/localizacao-e-contactos" target="_blank" bis_skin_checked="1"><img border="0" width="18" height="14" align="center" style="vertical-align: sub;" src="../images/email.png?v=1641501089115"> Contactos do Instituto Politécnico de Coimbra</a></div>
+                                             <p>gp2021grupob@gmail.com</p>
+                                        </div>
 
                                 </td>
                             </tr>

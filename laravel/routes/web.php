@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutenticationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('autenticacao.log');
-});
+Route::get('/', [AutenticationController::class, 'inspect']);
 
-Route::get('/firstTime', function () {
-    return view('autenticacao.linkWarning');
-});
+Route::get('/login', [AutenticationController::class, 'login']);
+
+Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/welcome', [AutenticationController::class, 'index']);
 
