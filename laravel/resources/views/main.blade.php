@@ -22,28 +22,39 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="http://inforestudante.ipc.pt/nonio/security/init.do">
+                            <a href="#">
                                 <img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
                                 <img src="/img/IPC-PRETO.png" class="hidden-desktop header-mobile" border="0">
                             </a>
                         </td>
                         <td>
-                            <table>
+                        <table>
+                            <tbody>
                                 <tr>
+                                    <td class="hidden-tablet hidden-phone">
+                                        <div class="userFoto-wrap">		
+											<img class="userFoto" src="">
+										</div>		
+                                    </td>
                                     <td class="hidden-phone">
-                                        <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="../security/logout.do">Sair</a>
+                                        <span class="hidden-tablet">Utilizador Exemplo&nbsp;|&nbsp;</span><a class="navtableGo" href="#">Sair</a>
                                     </td>
                                     <td>
+
+                                    </td>
+                                    <td class="header-idiomas">
+                                        &nbsp;|&nbsp;<span class="selected">PT</span>&nbsp;<a href="#">EN</a>&nbsp;
                                     </td>
                                     <td class="hidden-tablet hidden-desktop">
                                         <button id="link-menu-mob" class="link-menu-mob" href="#">
                                             <div class="button-menu-bar"></div>
                                             <div class="button-menu-bar"></div>
                                             <div class="button-menu-bar"></div>
-                                        </button>
-                                    </td>
+								        </button>
+							        </td>
                                 </tr>
-                            </table>
+                            </tbody>
+                        </table>
                         </td>
                     </tr>
                 </tbody>
@@ -52,11 +63,29 @@
         <div id="flxContainer" style="display: block;">
             <div class="flxContainer" id="areaMenuConteudo">
                 <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
-                    <div class="menuTitle handMouseCursor" onclick="window.location ='../security/init.do'">
+                    <div class="menuTitle handMouseCursor">
                         <p>Menu</p>
                     </div>
                     <ul class="menuGroup">
-                        @include('menu.menuAdministrador')
+                        @php
+                        $tipo = 'Docente'; //Inicializar var tipo de utilizador (TESTE)
+                        $admin = false; //Inicializar var bool administrador (TESTE)
+                        @endphp
+
+                        @include('scripts.userSideMenu')
+                        <div style="position: relative; bottom:0;">
+                            <ul class="menuGroup">
+                                <li class="menuItem">
+                                    <ul class="menu-list" style="list-style: none;">
+                                        <li>
+                                            <a onclick="abrirEcraModalPrivacidade();">					
+                                                <span class="hand" id="politicaPrivacidade">Política de Privacidade</span>
+						                    </a>
+					                    </li>
+				                    </ul>
+			                    </li>
+		                    </ul>
+	                    </div>
                     </ul>         
                 </div>
                 <div class="countainermain">
