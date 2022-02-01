@@ -55,7 +55,7 @@
 				</div>
 
 				<div id="separatorsArea" class="separadorNoMenu">
-					<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Estudante</div>
+					<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Empresa</div>
 				</div>
 
 				<div id="contentGlobal">
@@ -77,7 +77,7 @@
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Nome Completo:
+																			Nome Empresa:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanTextPessNome">
@@ -137,24 +137,34 @@
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Curso:
+																			Contacto:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<select name="chosenCourse" id="idcourse" class="inputText">
-																				<option value="Sistemas e Tecnologias da Informação" selected="selected">Sistemas e Tecnologias da Informação</option>
-																				<option value="Engenharia Informática">Engenharia Informática</option>
-																				<option value="Marketing">Marketing</option>
-																				<option value="Finanças">Finanças</option>
-																				<option value="Gestão">Gestão</option>
-																				<option value="Contabilidade">Contabilidade</option>
-																			</select>
+																			<span id="spanTextContact">
+																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
+																			</span>
 
 																		</td>
 																	</tr>
+
 																	<tr>
 																		<td class="label" style="width:29%">
-																			<span>
-																				<input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
+																			<span class="mandatory" id="mandatorynome">
+																				*
+																			</span>
+																			Morada:
+																		</td>
+																		<td class="cellcontent cellcontentwithinputtext">
+																			<span id="spanTextAddress">
+																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
+																			</span>
+
+																		</td>
+																	</tr>
+
+																	
+																		<td class="label" style="width:29%">
+																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
 																			</span>
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
@@ -205,7 +215,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="student">
+							<input type="hidden" name="typeUser" value="company">
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>

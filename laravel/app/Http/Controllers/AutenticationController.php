@@ -29,21 +29,61 @@ class AutenticationController extends Controller
         return view('autenticacao.registerstudent');
     }
 
-    public function createStudentAcc(Request $request){
+    public function createAcc(Request $request){
+        $user = new User;
+        
+        $user->USER_NAME = $request->USER_NAME;
+        $user->USER_MAIL = $request->USER_MAIL;
+        $user->USER_PWD = $request->USER_PWD;
+        if($request->USER_TYPE == "estudante"){
+            $user->USER_COURSE = $request->USER_COURSE;
+            $user->USER_TYPE = "estudante";
+            $user->USER_ADDRESS = "";
+            $user->USER_CONTACT = "";
+            $user->USER_ADMIN = 0;
+            $user->USER_FPERM = 0;
+        }else{
+            $user->USER_COURSE = "";
+            $user->USER_TYPE = "empresa";
+            $user->USER_ADDRESS = $request->USER_ADDRESS;
+            $user->USER_CONTACT = $request->USER_CONTACT;
+            $user->USER_ADMIN = 0;
+            $user->USER_FPERM = 0;
+        }
+
+        $user->save();
+        return redirect("/");
+    }
+
+    public function registercompany(){
+        return view('autenticacao.registercompany');
+    }
+
+    public function registerconfirm(Request $request){
         $user = new User;
         
         $user->USER_NAME = $request->pessNome;
         $user->USER_MAIL = $request->pessEmail;
         $user->USER_PWD = $request->passwd;
-        $user->USER_COURSE = $request->chosenCourse;
-        $user->USER_TYPE = "estudante";
-        $user->USER_ADDRESS = "";
-        $user->USER_CONTACT = "";
-        $user->USER_ADMIN = 0;
-        $user->USER_FPERM = 0;
+        if($request->typeUser == "student"){
+            $user->USER_COURSE = $request->chosenCourse;
+            $user->USER_TYPE = "estudante";
+            $user->USER_ADDRESS = "";
+            $user->USER_CONTACT = "";
+            $user->USER_ADMIN = 0;
+            $user->USER_FPERM = 0;
+        }else{
+            $user->USER_COURSE = "";
+            $user->USER_TYPE = "empresa";
+            $user->USER_ADDRESS = $request->address;
+            $user->USER_CONTACT = $request->contact;
+            $user->USER_ADMIN = 0;
+            $user->USER_FPERM = 0;
+        }
+        
 
-        $user->save();
-        return redirect("/");
+        return view("/autenticacao.registerconfirm", ['user' => $user]);
+
     }
 
     public function index(){

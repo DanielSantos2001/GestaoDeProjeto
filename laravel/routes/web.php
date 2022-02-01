@@ -26,4 +26,8 @@ Route::get('/welcome', [AutenticationController::class, 'index']);
 
 
 Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
-Route::post('/users.create.student', [AutenticationController::class, 'createStudentAcc']);
+
+Route::post('/users.create.acc', [AutenticationController::class, 'createAcc']);
+Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
+
+Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
