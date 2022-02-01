@@ -23,9 +23,15 @@ class AutenticationController extends Controller
         return view('autenticacao.linkWarning');
     }
 
+    public function registerstudent(){
+        return view('autenticacao.registerstudent');
+    }
+
     public function index(){
         return view('welcome');
     }
+
+   
 
     
 }

@@ -24,3 +24,5 @@ Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
 Route::get('/welcome', [AutenticationController::class, 'index']);
 
+
+Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
