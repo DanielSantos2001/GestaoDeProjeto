@@ -25,7 +25,6 @@
                 <tbody>
                     <tr>
                         <td>
-
                             <a href="http://inforestudante.ipc.pt/nonio/security/init.do">
                                 <img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
                                 <img src="/img/IPC-PRETO.png" class="hidden-desktop header-mobile" border="0">
@@ -34,7 +33,6 @@
                         <td>
                             <table>
                                 <tr>
-
                                     <td class="hidden-phone">
                                         <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="../security/logout.do">Sair</a>
                                     </td>
@@ -47,7 +45,6 @@
                                             <div class="button-menu-bar"></div>
                                         </button>
                                     </td>
-
                                 </tr>
                             </table>
                         </td>
