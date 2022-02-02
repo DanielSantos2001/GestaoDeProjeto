@@ -65,9 +65,23 @@
 
 				<div id="contentGlobal">
 					<div id="content" class="conteudo">
-						<form id="" method="post" action="/users.create.acc">
+						@if ($user->USER_TYPE == "empresa")
+							<form id="register" method="post" action="/users.create.acccompany">
+						@endif	
+						@if ($user->USER_TYPE == "estudante")
+							<form id="register" method="post" action="/users.create.accstudent">
+						@endif
 							@csrf
-							
+							<input type="hidden" name="username" value="{{$user->USER_NAME}}">
+							<input type="hidden" name="email" value="{{$user->USER_MAIL}}">
+							<input type="hidden" name="userpass" value="{{$user->USER_PWD}}">
+							@if($user->USER_TYPE == "estudante")
+								<input type="hidden" name="usercourse" value="{{$user->USER_COURSE}}">
+							@endif
+							@if($user->USER_TYPE == "empresa")
+								<input type="hidden" name="usercontact" value="{{$user->USER_CONTACT}}">
+								<input type="hidden" name="useraddress" value="{{$user->USER_ADDRESS}}">
+							@endif
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>

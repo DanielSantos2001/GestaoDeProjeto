@@ -62,6 +62,7 @@
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
 							@csrf
+							
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>

@@ -29,30 +29,44 @@ class AutenticationController extends Controller
         return view('autenticacao.registerstudent');
     }
 
-    public function createAcc(Request $request){
+    public function createAccCompany(Request $request){
         $user = new User;
         
-        $user->USER_NAME = $request->USER_NAME;
-        $user->USER_MAIL = $request->USER_MAIL;
-        $user->USER_PWD = $request->USER_PWD;
-        if($request->USER_TYPE == "estudante"){
-            $user->USER_COURSE = $request->USER_COURSE;
-            $user->USER_TYPE = "estudante";
-            $user->USER_ADDRESS = "";
-            $user->USER_CONTACT = "";
-            $user->USER_ADMIN = 0;
-            $user->USER_FPERM = 0;
-        }else{
-            $user->USER_COURSE = "";
-            $user->USER_TYPE = "empresa";
-            $user->USER_ADDRESS = $request->USER_ADDRESS;
-            $user->USER_CONTACT = $request->USER_CONTACT;
-            $user->USER_ADMIN = 0;
-            $user->USER_FPERM = 0;
-        }
+        $user->USER_NAME = $request->username;
+        $user->USER_MAIL = $request->email;
+        $user->USER_PWD = $request->userpass;
+        
+        $user->USER_COURSE = "";
+        $user->USER_TYPE = "empresa";
+        $user->USER_ADDRESS = $request->useraddress;
+        $user->USER_CONTACT = $request->usercontact;
+        $user->USER_ADMIN = 0;
+        $user->USER_FPERM = 0;
 
         $user->save();
+        
         return redirect("/");
+        
+    }
+
+    public function createAccStudent(Request $request){
+        $user = new User;
+        
+        $user->USER_NAME = $request->username;
+        $user->USER_MAIL = $request->email;
+        $user->USER_PWD = $request->userpass;
+        $user->USER_COURSE = $request->usercourse;
+        $user->USER_TYPE = "estudante";
+        $user->USER_ADDRESS = "";
+        $user->USER_CONTACT = "";
+        $user->USER_ADMIN = 0;
+        $user->USER_FPERM = 0;
+        
+
+        $user->save();
+        
+        return redirect("/");
+        
     }
 
     public function registercompany(){
