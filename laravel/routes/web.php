@@ -34,3 +34,7 @@ Route::post('/users.create.accstudent', [AutenticationController::class, 'create
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
 Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
+
+Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+

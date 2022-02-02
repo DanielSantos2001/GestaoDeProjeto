@@ -45,7 +45,7 @@ class AutenticationController extends Controller
 
         $user->save();
         
-        return redirect("/");
+        return redirect("/")->with('msg', 'Registo criado com sucesso!');
         
     }
 
@@ -65,7 +65,7 @@ class AutenticationController extends Controller
 
         $user->save();
         
-        return redirect("/");
+        return redirect("/")->with('msg', 'Registo criado com sucesso!');
         
     }
 
@@ -101,7 +101,25 @@ class AutenticationController extends Controller
         
 
         return view("/autenticacao.registerconfirm", ['user' => $user]);
+            
+    }
 
+    public function autentication(Request $request){
+
+        $user = User::where('USER_MAIL', $request->username)->first();
+        
+        if($user != null){
+            if($user->USER_MAIL == $request->username && $user->USER_PWD == $request->password){
+                return redirect("/welcome")->with('user', $user->USER_ID);
+            }else{
+                return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
+            }
+        }else{
+            return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
+        }
+        
+        
+        
     }
 
     public function index(){
