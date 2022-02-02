@@ -12,15 +12,20 @@ class AutenticationController extends Controller
 {
     public function inspect()
     { //basicamente é para verificar se existe conta já com login iniciado ou não para enviar para a pagina inicial
-        if (true) {
-            return view('autenticacao.log');
+        if (FacadesSession::get('id')!= null && FacadesSession::get('id') > 0) {
+            return view('main');
         } else {
-            return view('welcome');
+            return view('autenticacao.log');
         }
     }
 
     public function login()
     {
+        return view('autenticacao.log');
+    }
+
+    public function logout(){
+        FacadesSession::flush();
         return view('autenticacao.log');
     }
 
@@ -48,6 +53,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = $request->usercontact;
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
+        $user->USER_STATE = 0;
 
         $user->save();
 
@@ -67,6 +73,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
+        $user->USER_STATE = 0;
 
 
         $user->save();
@@ -126,7 +133,7 @@ class AutenticationController extends Controller
                 FacadesSession::put('userfinalist', $user->USER_FPERM);
                 FacadesSession::put('usercourse', $user->USER_COURSE);
 
-                return redirect("/welcome");
+                return redirect("/main");
             } else {
                 return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
             }
@@ -137,6 +144,6 @@ class AutenticationController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        return view('main');
     }
 }

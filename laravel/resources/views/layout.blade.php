@@ -18,7 +18,7 @@
                                     <tr>
                         
                                         <td class="hidden-phone">
-                                             <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="../security/logout.do">Sair</a>   
+                                             <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="/logout">Sair</a>   
                                         </td>
                                         <td>     
                                         </td>

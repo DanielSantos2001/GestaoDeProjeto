@@ -18,11 +18,12 @@ use App\Http\Controllers\AutenticationController;
 Route::get('/', [AutenticationController::class, 'inspect']);
 
 Route::get('/login', [AutenticationController::class, 'login']);
+Route::get('/logout', [AutenticationController::class, 'logout']);
 
 Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
 
-Route::get('/welcome', [AutenticationController::class, 'index']);
+Route::get('/main', [AutenticationController::class, 'index']);
 
 
 Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
