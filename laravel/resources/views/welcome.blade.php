@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     <table class="page">
 
 
@@ -674,7 +675,11 @@
         <tbody>
             <tr>
                 <td>
-                    <span>{{session('user')}}</span>
+                    <span>{{Session::get('id')}}</span>
+                    <span>{{Session::get('username')}}</span>
+                    <span>{{Session::get('usertype')}}</span>
+                    <span>{{Session::get('useradmin')}}</span>
+                    <span>{{Session::get('usercourse')}}</span>
                 </td>
             </tr>
         </tbody>
