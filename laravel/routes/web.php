@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutenticationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AutenticationController::class, 'inspect']);
+
+Route::get('/login', [AutenticationController::class, 'login']);
+
+Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
+
+
+Route::get('/welcome', [AutenticationController::class, 'index']);
+
+
+Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
+
+Route::get('/registerpage', [AutenticationController::class, 'registerpage']);
+
+Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
+Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
+Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
+
+Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
+
+Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+
