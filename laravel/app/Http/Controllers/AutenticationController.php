@@ -15,7 +15,7 @@ class AutenticationController extends Controller
         if (true) {
             return view('autenticacao.log');
         } else {
-            return view('welcome');
+            return view('main');
         }
     }
 
@@ -48,6 +48,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = $request->usercontact;
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
+        $user->USER_STATE = 1;
 
         $user->save();
 
@@ -67,6 +68,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
+        $user->USER_STATE = 1;
 
 
         $user->save();
@@ -126,7 +128,7 @@ class AutenticationController extends Controller
                 FacadesSession::put('userfinalist', $user->USER_FPERM);
                 FacadesSession::put('usercourse', $user->USER_COURSE);
 
-                return redirect("/welcome");
+                return redirect("/main");
             } else {
                 return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
             }
@@ -137,6 +139,6 @@ class AutenticationController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        return view('main');
     }
 }
