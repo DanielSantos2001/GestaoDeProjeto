@@ -73,6 +73,10 @@ class AutenticationController extends Controller
         return view('autenticacao.registercompany');
     }
 
+    public function registerpage(){
+        return view('autenticacao.registerpage');
+    }
+
     public function registerconfirm(Request $request){
         $user = new User;
         
