@@ -1,0 +1,18 @@
+.registerPageImgA img{
+	height: 80%;
+	width: 100%;
+	max-height: 425px;
+}
+
+.registerPageImgB img{
+	height: 425px;
+	width: 100%;
+	max-height: 500px;
+}
+
+
+.contentLoginContainerA {
+    background-image: url("/img/uni.png");
+}
+
+

@@ -26,15 +26,15 @@ Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 Route::get('/main', [AutenticationController::class, 'index']);
 
 
-Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
+Route::post('/registerstudent', [AutenticationController::class, 'registerstudent']);
 
-Route::get('/registerpage', [AutenticationController::class, 'registerpage']);
+Route::post('/registerpage', [AutenticationController::class, 'registerpage']);
 
 Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
 Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
-Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
+Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
