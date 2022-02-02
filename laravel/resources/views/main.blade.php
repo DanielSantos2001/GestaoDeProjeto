@@ -68,11 +68,21 @@
                     </div>
                     <ul class="menuGroup">
                         @php
-                        $tipo = 'Docente'; //Inicializar var tipo de utilizador (TESTE)
-                        $admin = false; //Inicializar var bool administrador (TESTE)
+                        $tipo = 'NDocente'; //Inicializar var tipo de utilizador (TESTE)
+                        $admin = true; //Inicializar var bool administrador (TESTE)
                         @endphp
 
-                        @include('scripts.userSideMenu')
+                        @if($tipo == 'Aluno')
+                            @include('sidemenu.aluno')
+                        @elseif($tipo == 'Docente')
+                            @include('sidemenu.docente')
+                        @elseif($tipo == 'Empresa')
+                            @include('sidemenu.empresa')
+                        @endif
+
+                        @if($admin)
+                            @include('sidemenu.administrador')
+                        @endif
                         <div style="position: relative; bottom:0;">
                             <ul class="menuGroup">
                                 <li class="menuItem">
@@ -90,7 +100,7 @@
                 </div>
                 <div class="countainermain">
                     <div class="wrap">
-                        @yield('content')
+                        @include('users.admin.index')
                     </div>
                 </div>
             </div>
