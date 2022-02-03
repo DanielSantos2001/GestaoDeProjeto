@@ -36,3 +36,16 @@ Route::post('/registerconfirm', [AutenticationController::class, 'registerconfir
 Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+use App\Http\Controllers\ProposalController;
+
+//Route::get('/', [ProposalController::class, 'index']);
+
+
+Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
+
+Route::get('/proposals/createProposal', function () {
+   return view('/proposals/createProposal');
+});
+
+Route::post('/proposals', [ProposalController::class, 'store']);
