@@ -26,7 +26,7 @@ class AutenticationController extends Controller
 
     public function logout(){
         FacadesSession::flush();
-        return view('autenticacao.log');
+        return redirect()->route('login');
     }
 
     public function firstTime()
@@ -42,10 +42,10 @@ class AutenticationController extends Controller
     public function createAccCompany(Request $request)
     {
         $user = new User;
-
+        $hashpass = md5($request->userpass);
         $user->USER_NAME = $request->username;
         $user->USER_MAIL = $request->email;
-        $user->USER_PWD = $request->userpass;
+        $user->USER_PWD = $hashpass;
 
         $user->USER_COURSE = "";
         $user->USER_TYPE = "empresa";
@@ -63,10 +63,11 @@ class AutenticationController extends Controller
     public function createAccStudent(Request $request)
     {
         $user = new User;
+        $hashpass = md5($request->userpass);
 
         $user->USER_NAME = $request->username;
         $user->USER_MAIL = $request->email;
-        $user->USER_PWD = $request->userpass;
+        $user->USER_PWD = $hashpass;
         $user->USER_COURSE = $request->usercourse;
         $user->USER_TYPE = "estudante";
         $user->USER_ADDRESS = "";
@@ -93,15 +94,16 @@ class AutenticationController extends Controller
 
     public function registerconfirm(Request $request)
     {
-        if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){
-            return redirect('/autenticacao.registerstudent')->with('msgmail', 'Email de aluno tem de ser institucional');
-        }
+        
         $user = new User;
 
         $user->USER_NAME = $request->pessNome;
         $user->USER_MAIL = $request->pessEmail;
         $user->USER_PWD = $request->passwd;
         if ($request->typeUser == "student") {
+            if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){
+                return view('/autenticacao.registerstudent')->with('msgmail', 'Email de aluno tem de ser institucional');
+            }
             $user->USER_COURSE = $request->chosenCourse;
             $user->USER_TYPE = "estudante";
             $user->USER_ADDRESS = "";
@@ -125,9 +127,10 @@ class AutenticationController extends Controller
     {
 
         $user = User::where('USER_MAIL', $request->username)->first();
+        $hashpass = md5($request->password);
 
         if ($user != null) {
-            if ($user->USER_MAIL == $request->username && $user->USER_PWD == $request->password) {
+            if ($user->USER_MAIL == $request->username && $user->USER_PWD == $hashpass) {
                 FacadesSession::put('id', $user->USER_ID);
                 FacadesSession::put('username', $user->USER_NAME);
                 FacadesSession::put('useradmin', $user->USER_ADMIN);

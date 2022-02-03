@@ -1,6 +1,19 @@
 @extends('header')
 
 <body>
+	<script>
+		function verifyRegex(){
+			
+			var mail = String(document.getElementById("pessEmail").value);
+			if(String(mail).includes("@alunos.estgoh.ipc.pt")){
+				document.getElementById("warningJS").style.display = "none";
+			}else{
+				document.getElementById("warningJS").style.display = "inline";
+				document.getElementById("warningJS").style.color = "red";
+			}
+			
+		}
+	</script>
 	<div id="master">
 		<div id="header">
 
@@ -95,7 +108,7 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanTextPessEmail">
-																				<input type="text" name="pessEmail" id="pessEmail" value="" style="width:80%;" class="inputText" required onchange="verifyRegex()">
+																				<input type="text" name="pessEmail" id="pessEmail" value="" style="width:80%;" class="inputText" onchange="verifyRegex()" required>
 																			</span>
 																			<br>Principal forma de contacto utilizada pelo GEA.
 																			<span id="warningJS" style="display: none">
@@ -237,19 +250,5 @@
 
 	</div>
 	</div>
-	<script>
-		function verifyRegex(){
-			
-			var mail = String(document.getElementById("pessEmail"));
-			
-			if(mail.includes("@alunos.estgoh.ipc.pt")){
-				alert("aqui")
-				document.getElementById("warningJS").style.display = "none";
-			}else{
-				document.getElementById("warningJS").style.display = "inline";
-				document.getElementById("warningJS").style.color = "red";
-			}
-			
-		}
-	</script>
+	
 </body>
