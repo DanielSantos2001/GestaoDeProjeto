@@ -61,6 +61,9 @@
 					@if ($user->USER_TYPE == "estudante")
 						<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Estudante</div>	
 					@endif
+					@if ($user->USER_TYPE == "admin")
+						<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Administrador</div>	
+					@endif
 				</div>
 
 				<div id="contentGlobal">
@@ -70,6 +73,9 @@
 						@endif	
 						@if ($user->USER_TYPE == "estudante")
 							<form id="register" method="post" action="/users.create.accstudent">
+						@endif
+						@if ($user->USER_TYPE == "admin")
+							<form id="register" method="post" action="/users.create.accadmin">
 						@endif
 							@csrf
 							<input type="hidden" name="username" value="{{$user->USER_NAME}}">

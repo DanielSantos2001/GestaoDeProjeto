@@ -62,7 +62,7 @@
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
 							@csrf
-							
+
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -99,7 +99,7 @@
 																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
 
-																			<br>Principal forma de contacto utilizada pelo GEA.
+																			<br><a style="color:grey;">Principal forma de contacto utilizada pelo GEA.</a>
 																		</td>
 																	</tr>
 
@@ -135,80 +135,43 @@
 
 																	<tr>
 																		<td class="label" style="width:29%">
-																			<span class="mandatory" id="mandatorynome">
-																				*
+																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTermDocente" onclick="utilizadordocente()" required>
 																			</span>
-																			Contacto:
 																		</td>
-																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanTextContact">
-																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
-																			</span>
-
+																		<td class="cellcontent cellcontentwithinputtext"> <br style="line-height:7px;">
+																			É um Utilizador Docente
 																		</td>
 																	</tr>
-
-																	<tr>
+																	<tr id="tabelaEscondida" style="display:none;">
 																		<td class="label" style="width:29%">
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Morada:
+																			Curso:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanTextAddress">
-																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
-																			</span>
+																			<select name="chosenCourse" id="idcourse" class="inputText">
+																				<option value="Sistemas e Tecnologias da Informação">Sistemas e Tecnologias da Informação</option>
+																				<option value="Engenharia Informática">Engenharia Informática</option>
+																				<option value="Marketing">Marketing</option>
+																				<option value="Finanças">Finanças</option>
+																				<option value="Gestão">Gestão</option>
+																				<option value="Contabilidade">Contabilidade</option>
+																			</select>
 
 																		</td>
 																	</tr>
 
-																	
-																		<td class="label" style="width:29%">
-																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
-																			</span>
-																		</td>
-																		<td class="cellcontent cellcontentwithinputtext">
-																			<span class="mandatory" id="mandatorynome">
-																				*
-																			</span>
-																			Li e Aceito os <a href="#">termos e condições</a>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table class="zonemandatory" style="margin-left: 29%;">
-												<tbody>
-													<tr>
-														<td>
-															<span class="mandatory" id="lblmandatorySymbol">
-																*
-															</span>
-															<label id="lblmandatory">Campos de preenchimento obrigatório.</label>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table class="zoneformbuttons" style="margin-left: 29%;">
-												<tbody>
-													<tr id="trBotaoPesquisar">
-														<td>
-															
-															<input type="submit" value="Registar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
-														</td>
+																	<td class="label" style="width:29%">
+																		<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
+																		</span>
+																	</td>
+																	<td class="cellcontent cellcontentwithinputtext"> <br style="line-height:8px;">
+																		<span class="mandatory" id="mandatorynome">
+																			*
+																		</span>
+																		Li e Aceito os <a href="#">termos e condições</a>
+																	</td>
 													</tr>
 												</tbody>
 											</table>
@@ -216,7 +179,42 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="company">
+							</td>
+							</tr>
+							<tr>
+								<td>
+									<table class="zonemandatory" style="margin-left: 29%;">
+										<tbody>
+											<tr>
+												<td>
+													<span class="mandatory" id="lblmandatorySymbol">
+														*
+													</span>
+													<label id="lblmandatory">Campos de preenchimento obrigatório.</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table class="zoneformbuttons" style="margin-left: 29%;">
+										<tbody>
+											<tr id="trBotaoPesquisar">
+												<td>
+
+													<input type="submit" value="Registar" class="button buttonFront">
+													<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							</tbody>
+							</table>
+							<input type="hidden" name="typeUser" value="admin">
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>
@@ -242,3 +240,16 @@
 	</div>
 	</div>
 </body>
+
+<script>
+	function utilizadordocente() {
+		var cb = document.getElementById("checkTermDocente");
+		var curso = document.getElementById("tabelaEscondida");
+		if (cb.checked == true) {
+			curso.style.display = "inline-block";
+		} else {
+			curso.style.display = "none";
+
+		}
+	}
+</script>
