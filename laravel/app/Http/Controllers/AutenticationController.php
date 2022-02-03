@@ -93,6 +93,9 @@ class AutenticationController extends Controller
 
     public function registerconfirm(Request $request)
     {
+        if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){
+            return redirect('/autenticacao.registerstudent')->with('msgmail', 'Email de aluno tem de ser institucional');
+        }
         $user = new User;
 
         $user->USER_NAME = $request->pessNome;
