@@ -91,6 +91,11 @@ class AutenticationController extends Controller
         return view('autenticacao.registerpage');
     }
 
+    public function registeradmin()
+    {
+        return view('autenticacao.registeradmin');
+    }
+
     public function registerconfirm(Request $request)
     {
         if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){

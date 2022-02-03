@@ -30,6 +30,8 @@ Route::post('/registerstudent', [AutenticationController::class, 'registerstuden
 
 Route::post('/registerpage', [AutenticationController::class, 'registerpage']);
 
+Route::get('/registeradmin', [AutenticationController::class, 'registeradmin']);
+
 Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
 Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
