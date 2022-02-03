@@ -257,7 +257,7 @@ ul.menu-list li.selectedOptionMenu a {
 
 /*------------------------ Context ------------------------*/
 #context {
-	background-color: #e4e9ed;
+	background-color: #eef3f6;
 }
 
 #contentalunos {
@@ -391,6 +391,9 @@ ul.menu-list li.selectedOptionMenu a {
 	color: #ccc;
 }
 
+.line {
+	border: 1px solid #ff0000;
+}
 
 .zone {
 	border-color: #d5dadf;

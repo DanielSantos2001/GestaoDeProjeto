@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="/css/nonio_alunos2.css">
     <link rel="stylesheet" href="/css/obtemConteudoTextoLayoutInstituicao.css">
     <!-- Styles -->
-
 </head>
 
 <body>
@@ -98,9 +97,9 @@
                         </div>
                     </ul>
                 </div>
-                <div class="countainermain">
+                <div class="containermain">
                     <div class="wrap">
-                        @include('users.admin.index')
+                        @include('users.student.index')
                     </div>
                 </div>
             </div>
@@ -136,5 +135,4 @@
         </div>
     </div>
 </body>
-
 </html>
