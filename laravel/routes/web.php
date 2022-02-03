@@ -17,7 +17,7 @@ use App\Http\Controllers\AutenticationController;
 
 Route::get('/', [AutenticationController::class, 'inspect']);
 
-Route::get('/login', [AutenticationController::class, 'login']);
+Route::get('/login', [AutenticationController::class, 'login'])->name('login');
 Route::get('/logout', [AutenticationController::class, 'logout']);
 
 Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
