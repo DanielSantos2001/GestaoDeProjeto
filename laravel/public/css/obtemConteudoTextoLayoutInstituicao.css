@@ -1,1 +1,181 @@
-a{color:#91a2b4}a:hover{color:#425974}.selectedStep{border-color:#91a2b4}.captchaSpan,.headerTableRight a,.menuTitle{color:#91a2b4}.menuTitle:hover{background-color:#425974;color:#fff}.botaoGravar,.botaoVoltar,.button,.buttonBack,.buttonFront,.closedtab_dl,.closedtab_sl,.footerTable,.menu-list li.active,.menu-list li:hover,.menuGroup li a li:hover,option:hover{background-color:#91a2b4}.menuGroup a,.menuGroup li a{color:#91a2b4}li a .selectedOptionMenu,ul.menu-list li.selectedOptionMenu{background-color:#91a2b4;color:#fff}ul.menu-list li.selectedOptionMenu a{color:#fff}#separators{border-color:#91a2b4!important}.closedtab_dl,.closedtab_sl{color:#fff}.navtableGo{color:#91a2b4}.footerTable{color:#fff}.subtitle,.subtitle2,.subtitleECTS{color:#91a2b4}.inputText:focus,.inputText:hover{border-color:#91a2b4}::selection{color:#fff;background-color:#91a2b4}.botaoGravar,.botaoVoltar,.button,.buttonBack,.buttonFront{color:#fff}.botaoGravar:hover,.botaoVoltar:hover,.button:hover{color:#fff;background-color:#425974}.botaoVoltar,.buttonBack{background-color:#aabfc8}.botaoVoltar:hover,.buttonBack:hover{background-color:#839ba5}.navtableGo:hover{color:#425974}.dashWidgetHeader,.logAltRegistoBoxTitle,.tituloSeccaoLogin2{color:#91a2b4}.dashWidgetContent td.link:hover{background-color:#91a2b4;color:#fff}.legendDarkRemember,.tituloSeccao,.ui-dialog .ui-dialog-titlebar{color:#91a2b4}#docTable .docTr:hover,#docTable td.selected{background-color:#91a2b4;color:#fff}li.menuListMobile-links a{color:#91a2b4}li.menuListMobile-links a:active,li.menuListMobile-links a:hover{background-color:#91a2b4;color:#fff}.menu-mob-title,a.link-menu-mob{color:#000}.dropdown-menu-tablet .menu-list{background-color:#fff;box-shadow:0 2px 14px 1px rgba(0,0,0,.1)}.menu-mob,.menu-tablet{background-color:#e4e9ed}.menu-tablet{border:1px solid #d5dadf}.button-menu-bar{background-color:#91a2b4}button.link-menu-mob:hover div{background-color:#425974}@media (max-width:768px){.footerTable{background-color:#91a2b4}}@media (min-width :769px) and (max-width:979px){.menuGroup li.active,.menuGroup li:hover{background-color:#91a2b4}}.dropdown-menu-tablet{color:#91a2b4}.dropdown-menu-tablet span:active,.dropdown-menu-tablet span:hover,td.header-idiomas,td.header-idiomas a{color:#fff}.selectedStep,.separadorNoMenu{color:#91a2b4}.footer{background-color:#91a2b4}@media (max-width:979px) and (min-width:769px){.menuItemTitle{color:#91a2b4}}td.header-idiomas{color:#000}td.header-idiomas a{color:#91a2b4}
+a {
+    color:#91a2b4
+}
+
+a:hover {
+    color:#425974
+}
+
+.selectedStep {
+    border-color:#91a2b4
+}
+
+.captchaSpan, .headerTableRight a, .menuTitle {
+    color:#91a2b4
+}
+
+.menuTitle:hover {
+    background-color:#425974;
+    color:#fff
+}
+
+.botaoGravar, .botaoVoltar, .button, .buttonBack,
+.buttonFront, .closedtab_dl, .closedtab_sl, .footerTable,
+.menu-list li.active, .menu-list li:hover,
+.menuGroup li a li:hover, option:hover {
+    background-color:#91a2b4
+}
+
+.menuGroup a, .menuGroup li a {
+    color:#91a2b4
+}
+
+li a .selectedOptionMenu, ul.menu-list li.selectedOptionMenu {
+    background-color:#91a2b4;
+    color:#fff
+}
+
+ul.menu-list li.selectedOptionMenu a {
+    color:#fff
+}
+
+#separators {
+    border-color:#91a2b4!important
+}
+
+.closedtab_dl, .closedtab_sl {
+    color:#fff
+}
+
+.navtableGo {
+    color:#91a2b4
+}
+
+.footerTable {
+    color:#fff
+}
+
+.subtitle, .subtitle2, .subtitleECTS {
+    color:#91a2b4
+}
+
+.inputText:focus, .inputText:hover {
+    border-color:#91a2b4
+}::selection {
+    color:#fff;
+    background-color:#91a2b4
+}
+
+.botaoGravar, .botaoVoltar, .button, .buttonBack, .buttonFront {
+    color:#fff
+}
+
+.botaoGravar:hover, .botaoVoltar:hover, .button:hover {
+    color:#fff;
+    background-color:#425974
+}
+
+.botaoVoltar, .buttonBack {
+    background-color:#aabfc8
+}
+
+.botaoVoltar:hover,.buttonBack:hover {
+    background-color:#839ba5
+}
+
+.navtableGo:hover {
+    color:#425974
+}
+
+.dashWidgetHeader, .logAltRegistoBoxTitle, .tituloSeccaoLogin2 {
+    color:#91a2b4
+}
+
+.dashWidgetContent td.link:hover {
+    background-color:#91a2b4;
+    color:#fff
+}
+
+.legendDarkRemember, .tituloSeccao, .ui-dialog .ui-dialog-titlebar {
+    color:#91a2b4
+}
+
+#docTable .docTr:hover, #docTable td.selected {
+    background-color:#91a2b4;
+    color:#fff
+}
+
+li.menuListMobile-links a {
+    color:#91a2b4
+}
+
+li.menuListMobile-links a:active, li.menuListMobile-links a:hover {
+    background-color:#91a2b4;
+    color:#fff
+}
+
+.menu-mob-title, a.link-menu-mob {
+    color:#000
+}
+
+.dropdown-menu-tablet .menu-list {
+    background-color:#fff;
+    box-shadow:0 2px 14px 1px rgba(0,0,0,.1)
+}
+
+.menu-mob, .menu-tablet {
+    background-color:#e4e9ed
+}
+
+.menu-tablet {
+    border:1px solid #d5dadf
+}
+
+.button-menu-bar {
+    background-color:#91a2b4
+}
+
+button.link-menu-mob:hover div {
+    background-color:#425974
+}
+
+@media (max-width:768px) {
+    .footerTable {
+        background-color:#91a2b4
+    }
+}
+
+@media (min-width :769px) and (max-width:979px) {
+    .menuGroup li.active, .menuGroup li:hover {
+        background-color:#91a2b4
+    }
+}
+
+.dropdown-menu-tablet {
+    color:#91a2b4
+}
+
+.dropdown-menu-tablet span:active,
+.dropdown-menu-tablet span:hover,
+td.header-idiomas,
+td.header-idiomas a {
+    color:#fff
+}
+
+.selectedStep, .separadorNoMenu {
+    color:#91a2b4
+}
+
+@media (max-width:979px) and (min-width:769px) {
+    .menuItemTitle {
+        color:#91a2b4
+    }
+}
+
+td.header-idiomas {
+    color:#000
+}
+
+td.header-idiomas a {
+    color:#91a2b4
+}

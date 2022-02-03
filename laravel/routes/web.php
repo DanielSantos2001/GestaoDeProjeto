@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticationController;
-
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +21,7 @@ Route::get('/login', [AutenticationController::class, 'login']);
 
 Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
-
-Route::get('/main', [AutenticationController::class, 'index']);
-
+Route::get('/main', [PageController::class, 'definirPagina']);
 
 Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
 
