@@ -3,6 +3,33 @@
 <body>
 
 
+<div id="header">
+    <table class="headerTable">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="">
+                            <img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
+                        </a>
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="hidden-tablet hidden-phone">
+                                    </td>
+                                    <td class="hidden-phone">
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="" bis_skin_checked="1">
         <div class="wrap" bis_skin_checked="1">
 
@@ -11,14 +38,14 @@
                     <div id="contentLoginMessage" bis_skin_checked="1">
                     </div>
                 </div>
-                <div id="contentLoginContainer" class="contentLoginContainer" bis_skin_checked="1">
+                <div id="contentLoginContainerA" class="contentLoginContainerA" bis_skin_checked="1">
 
                     <div class="contentLoginContainerRight" bis_skin_checked="1">
                         <table>
                             <tbody>
                                 <tr>
                                     <td class="tituloSeccaoLogin">
-                                        Bem-Vindo ao GEA
+                                        Bem-vindo ao GEA
                                     </td>
 
                                 </tr>
@@ -112,7 +139,8 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <form action="novoRegisto.do" target="_parent" method="POST">
+                                                        <form action="/registerpage" method="post">
+                                                        @csrf
                                                             <input type="submit" name="voltar" value="Registar"
                                                                 class="button"></form>
                                                     </td>

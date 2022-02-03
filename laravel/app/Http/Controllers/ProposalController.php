@@ -8,52 +8,50 @@ use App\Models\Proposal;
 
 class ProposalController extends Controller
 {
-    public function index(){
-          $proposals = Proposal::all();
+  public function index()
+  {
 
-        return view('welcome', ['proposals'=>$proposals]);
-    }
+    $proposals = Proposal::all();
 
-    public function create(){
-      return view('proposal.createProposal');
-    }
+    return view('main', ['proposals' => $proposals]);
+  }
 
-    public function store(Request $request){
-          $proposals = new Proposal;
+  public function create()
+  {
+    return view('proposal.createProposal');
+  }
 
-          $proposals->PROP_TITLE = $request->titulo;
-          $proposals->PROP_JOBS = $request->vagas;
-          $proposals->PROP_COURSE = $request->curso;
-          $proposals->PROP_INTERESTED = 0;
+  public function store(Request $request)
+  {
+    $proposals = new Proposal;
 
-
-          if ($request->hasFile('image') && $request->file('image')->isValid()) {
-
-            $requestImage = $request->image;
-
-            $extension = $requestImage->extension();
-
-            $imgName = $requestImage->getClientOriginalName().".".$extension;
-
-            $request->image->move(public_path('/img/proposals/'),$imgName);
-
-            $imgName="/img/proposals/"."$imgName";
-
-            $proposals->PROP_PHOTO = $imgName;
-
-          }else {
-                    $proposals->PROP_PHOTO = "/img/proposals/default.jpg";
-          }
+    $proposals->PROP_TITLE = $request->titulo;
+    $proposals->PROP_JOBS = $request->vagas;
+    $proposals->PROP_COURSE = $request->curso;
+    $proposals->PROP_INTERESTED = 0;
 
 
+    if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
-          $proposals->save();
+      $requestImage = $request->image;
 
-          return redirect('/');
+      $extension = $requestImage->extension();
 
+      $imgName = $requestImage->getClientOriginalName() . "." . $extension;
 
+      $request->image->move(public_path('/img/proposals/'), $imgName);
+
+      $imgName = "/img/proposals/" . "$imgName";
+
+      $proposals->PROP_PHOTO = $imgName;
+    } else {
+      $proposals->PROP_PHOTO = "/img/proposals/default.jpg";
     }
 
 
 
+    $proposals->save();
+
+    return redirect('/');
+  }
 }

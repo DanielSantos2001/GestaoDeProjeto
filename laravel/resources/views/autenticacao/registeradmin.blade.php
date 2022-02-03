@@ -1,19 +1,6 @@
 @extends('header')
 
 <body>
-	<script>
-		function verifyRegex(){
-			
-			var mail = String(document.getElementById("pessEmail").value);
-			if(String(mail).includes("@alunos.estgoh.ipc.pt")){
-				document.getElementById("warningJS").style.display = "none";
-			}else{
-				document.getElementById("warningJS").style.display = "inline";
-				document.getElementById("warningJS").style.color = "red";
-			}
-			
-		}
-	</script>
 	<div id="master">
 		<div id="header">
 
@@ -68,13 +55,14 @@
 				</div>
 
 				<div id="separatorsArea" class="separadorNoMenu">
-					<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Estudante</div>
+					<div id="separators">Registo On-line - Gestão de Estágios Académicos - Registo Administrativo</div>
 				</div>
 
 				<div id="contentGlobal">
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
 							@csrf
+							
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -108,17 +96,10 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanTextPessEmail">
-																				<input type="text" name="pessEmail" id="pessEmail" value="" style="width:80%;" class="inputText" onchange="verifyRegex()" required>
+																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
+
 																			<br>Principal forma de contacto utilizada pelo GEA.
-																			<span id="warningJS" style="display: none">
-																			<br>*Use o seu E-mail institucional!
-																			</span>
-																			@if(session('msgmail'))
-																				<span style="color: red">
-																					<br>*Use o seu E-mail institucional!
-																				</span>
-																			@endif
 																		</td>
 																	</tr>
 
@@ -157,24 +138,34 @@
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Curso:
+																			Contacto:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<select name="chosenCourse" id="idcourse" class="inputText">
-																				<option value="Sistemas e Tecnologias da Informação" selected="selected">Sistemas e Tecnologias da Informação</option>
-																				<option value="Engenharia Informática">Engenharia Informática</option>
-																				<option value="Marketing">Marketing</option>
-																				<option value="Finanças">Finanças</option>
-																				<option value="Gestão">Gestão</option>
-																				<option value="Contabilidade">Contabilidade</option>
-																			</select>
+																			<span id="spanTextContact">
+																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
+																			</span>
 
 																		</td>
 																	</tr>
+
 																	<tr>
 																		<td class="label" style="width:29%">
-																			<span>
-																				<input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
+																			<span class="mandatory" id="mandatorynome">
+																				*
+																			</span>
+																			Morada:
+																		</td>
+																		<td class="cellcontent cellcontentwithinputtext">
+																			<span id="spanTextAddress">
+																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
+																			</span>
+
+																		</td>
+																	</tr>
+
+																	
+																		<td class="label" style="width:29%">
+																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
 																			</span>
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
@@ -225,7 +216,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="student">
+							<input type="hidden" name="typeUser" value="company">
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>
@@ -250,5 +241,4 @@
 
 	</div>
 	</div>
-	
 </body>

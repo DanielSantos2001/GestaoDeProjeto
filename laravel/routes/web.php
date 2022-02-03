@@ -17,21 +17,24 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [AutenticationController::class, 'inspect']);
 
-Route::get('/login', [AutenticationController::class, 'login']);
+Route::get('/login', [AutenticationController::class, 'login'])->name('login');
+Route::get('/logout', [AutenticationController::class, 'logout']);
 
 Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
 Route::get('/main', [PageController::class, 'definirPagina']);
 
-Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
+Route::post('/registerstudent', [AutenticationController::class, 'registerstudent']);
 
-Route::get('/registerpage', [AutenticationController::class, 'registerpage']);
+Route::post('/registerpage', [AutenticationController::class, 'registerpage']);
+
+Route::get('/registeradmin', [AutenticationController::class, 'registeradmin']);
 
 Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
 Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
-Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
+Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
