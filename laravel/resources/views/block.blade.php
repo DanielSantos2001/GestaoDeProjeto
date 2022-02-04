@@ -25,25 +25,16 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="divider">
                     <table class="mini-zone">
                         <tbody>
                             <tr>
                                 <td>
-                                    <table class="infoMessage">
+                                    <table>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <table style="background-color: inherit; width: 100%;">
-                                                        <tbody>
-                                                            <tr class="infoMessageHeader">
-                                                                <td class="messageHeader">Configurar Redes</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="infoMessageContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget risus aliquam, suscipit turpis imperdiet, consequat augue. Phasellus mattis, nisl eu aliquam condimentum, tellus tortor consequat urna, nec consequat dui est eu quam.</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    <img src="https://sapucaiaseguros.com.br/wp-content/uploads/2020/07/ee.jpg" alt="">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -59,10 +50,10 @@
                                         <tbody>
                                             <tr>
                                                 <td class="subtitle">
-                                                    Empresa exemplo 1
+                                                    Configurar Redes
                                                 </td>
                                                 <td class="zonelinks" style="width: 20%;">
-                                                    <a href="novaCandidaturaGestaoOpcoesMultiCurso.do?args=12822737733448453" class="botaodetalhes"><span>Detalhes</span></a>
+                                                    <a href="#" class="botaodetalhes"><span>Detalhes</span></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -72,25 +63,16 @@
                         </tbody>
                     </table>
                 </td>
-                <td>
+                <td class="divider">
                     <table class="mini-zone">
                         <tbody>
                             <tr>
                                 <td>
-                                    <table class="infoMessage">
+                                    <table>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <table style="background-color: inherit; width: 100%;">
-                                                        <tbody>
-                                                            <tr class="infoMessageHeader">
-                                                                <td class="messageHeader">Gestão Organizacional do grupo de Armazenamento</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="infoMessageContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget risus aliquam, suscipit turpis imperdiet, consequat augue. Phasellus mattis, nisl eu aliquam condimentum, tellus tortor consequat urna, nec consequat dui est eu quam.</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    <img src="https://blog.idwall.co/wp-content/uploads/2020/09/pexels-paul-loh-233698.jpg" alt="">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -106,10 +88,10 @@
                                         <tbody>
                                             <tr>
                                                 <td class="subtitle">
-                                                    Empresa exemplo 2
+                                                    Gestão Organizacional do grupo de Armazenamento	
                                                 </td>
                                                 <td class="zonelinks" style="width: 20%;">
-                                                    <a href="novaCandidaturaGestaoOpcoesMultiCurso.do?args=12822737733448453" class="botaodetalhes"><span>Detalhes</span></a>
+                                                    <a href="#" class="botaodetalhes"><span>Detalhes</span></a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -119,25 +101,16 @@
                         </tbody>
                     </table>
                 </td>
-                <td>
+                <td class="divider">
                     <table class="mini-zone">
                         <tbody>
                             <tr>
                                 <td>
-                                    <table class="infoMessage">
+                                    <table>
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <table style="background-color: inherit; width: 100%;">
-                                                        <tbody>
-                                                            <tr class="infoMessageHeader">
-                                                                <td class="messageHeader">Contabilidade no mini-mercado local</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td align="left" class="infoMessageContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget risus aliquam, suscipit turpis imperdiet, consequat augue. Phasellus mattis, nisl eu aliquam condimentum, tellus tortor consequat urna, nec consequat dui est eu quam.</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSJteafmRV2Qy0ZTRCgCFcsL9okLEltxj9BFky1gncbb3qGuNqQr2Ic2t96EcyEnbYdWY&usqp=CAU" alt="">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -153,10 +126,10 @@
                                         <tbody>
                                             <tr>
                                                 <td class="subtitle">
-                                                    Empresa exemplo 3
+                                                    Contabilidade no mini-mercado local	
                                                 </td>
                                                 <td class="zonelinks" style="width: 20%;">
-                                                    <a href="novaCandidaturaGestaoOpcoesMultiCurso.do?args=12822737733448453" class="botaodetalhes"><span>Detalhes</span></a>
+                                                    <a href="#" class="botaodetalhes"><span>Detalhes</span></a>
                                                 </td>
                                             </tr>
                                         </tbody>

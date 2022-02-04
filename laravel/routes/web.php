@@ -21,8 +21,6 @@ Route::get('/login', [AutenticationController::class, 'login']);
 
 Route::get('/firstTime', [AutenticationController::class, 'firstTime']);
 
-Route::get('/main', [PageController::class, 'definirPagina']);
-
 Route::get('/registerstudent', [AutenticationController::class, 'registerstudent']);
 
 Route::get('/registerpage', [AutenticationController::class, 'registerpage']);
@@ -34,3 +32,5 @@ Route::post('/registerconfirm', [AutenticationController::class, 'registerconfir
 Route::get('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+Route::get('/main', [PageController::class, 'definirPagina']);
