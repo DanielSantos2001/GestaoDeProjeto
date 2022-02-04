@@ -39,10 +39,24 @@
 
     <form action="/proposals" method="POST" enctype="multipart/form-data">
       @csrf
-
+  <tr>
       <div class="input-group mb-3">
         <span class="input-group-text" id="titulo">Titulo</span>
         <input type="text" class="form-control" placeholder="Titulo" name="titulo" aria-describedby="basic-addon1">
+      </div>
+  </tr>
+  <tr>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="descricao">Descrição</span>
+        <textarea name="descricao" rows="6" cols="30"></textarea>
+        <!--<input type="text" class="form-control" placeholder="Descrição" name="descricao" aria-describedby="basic-addon1">-->
+      </div>
+  </tr>
+  <tr>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="perfil">Perfil do candidato</span>
+        <textarea name="perfil" rows="4" cols="20"></textarea>
+        <!--<input type="text" class="form-control" placeholder="Perfil" name="perfil" aria-describedby="basic-addon1">-->
       </div>
   </tr>
   <tr>

@@ -28,6 +28,8 @@ class ProposalController extends Controller
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_JOBS = $request->vagas;
     $proposals->PROP_COURSE = $request->curso;
+    $proposals->PROP_DESCRIPTION = $request->descricao;
+    $proposals->PROP_PROFILE = $request->perfil;
     $proposals->PROP_INTERESTED = 0;
 
 
