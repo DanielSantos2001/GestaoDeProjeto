@@ -64,6 +64,9 @@
 					@if ($user->USER_TYPE == "admin")
 						<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Administrador</div>	
 					@endif
+					@if ($user->USER_TYPE == "admindocente")
+						<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Administrador Docente</div>	
+					@endif
 				</div>
 
 				<div id="contentGlobal">
@@ -77,6 +80,9 @@
 						@if ($user->USER_TYPE == "admin")
 							<form id="register" method="post" action="/users.create.accadmin">
 						@endif
+						@if ($user->USER_TYPE == "admindocente")
+							<form id="register" method="post" action="/users.create.accadmindocente">
+						@endif
 							@csrf
 							<input type="hidden" name="username" value="{{$user->USER_NAME}}">
 							<input type="hidden" name="email" value="{{$user->USER_MAIL}}">
@@ -87,6 +93,9 @@
 							@if($user->USER_TYPE == "empresa")
 								<input type="hidden" name="usercontact" value="{{$user->USER_CONTACT}}">
 								<input type="hidden" name="useraddress" value="{{$user->USER_ADDRESS}}">
+							@endif
+							@if($user->USER_TYPE == "admindocente")
+								<input type="hidden" name="usercourse" value="{{$user->USER_COURSE}}">
 							@endif
 							<table class="page" style="padding: 0px;">
 								<tbody>
@@ -148,6 +157,20 @@
 																			</td>
 																		</tr>
 																	@endif		
+																	@if($user->USER_TYPE == "admindocente")		
+																		<tr>
+																			<td class="label" style="width:29%">
+																				
+																				Curso: 
+																			</td>
+																			<td class="cellcontent">
+																				<span id="spanTextCurso">
+																					{{$user->USER_COURSE}}
+																				</span>
+
+																			</td>
+																		</tr>
+																	@endif	
 																	</tr>
 																</tbody>
 															</table>

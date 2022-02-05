@@ -104,6 +104,28 @@ class AutenticationController extends Controller
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
 
+    public function createAccAdminDocente(Request $request)
+    {
+        $user = new User;
+        $hashpass = md5($request->userpass);
+
+        $user->USER_NAME = $request->username;
+        $user->USER_MAIL = $request->email;
+        $user->USER_PWD = $hashpass;
+        $user->USER_COURSE = $request->usercourse;
+        $user->USER_TYPE = "admindocente";
+        $user->USER_ADDRESS = "";
+        $user->USER_CONTACT = "";
+        $user->USER_ADMIN = 0;
+        $user->USER_FPERM = 0;
+        $user->USER_STATE = 0;
+
+
+        $user->save();
+
+        return redirect("/")->with('msg', 'Registo criado com sucesso!');
+    }
+
     public function registercompany()
     {
         return view('autenticacao.registercompany');
@@ -147,6 +169,14 @@ class AutenticationController extends Controller
         } else if($request->typeUser == "admin"){
             $user->USER_COURSE = "";
             $user->USER_TYPE = "admin";
+            $user->USER_ADDRESS = "";
+            $user->USER_CONTACT = "";
+            $user->USER_ADMIN = 0;
+            $user->USER_FPERM = 0;
+        } 
+        else if($request->typeUser == "admindocente"){
+            $user->USER_COURSE =  $request->cursoInput;
+            $user->USER_TYPE = "admindocente";
             $user->USER_ADDRESS = "";
             $user->USER_CONTACT = "";
             $user->USER_ADMIN = 0;

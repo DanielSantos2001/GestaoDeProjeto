@@ -35,6 +35,7 @@ Route::get('/registeradmin', [AutenticationController::class, 'registeradmin']);
 Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
 Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
 Route::post('/users.create.accadmin', [AutenticationController::class, 'createAccAdmin']);
+Route::post('/users.create.accadmindocente', [AutenticationController::class, 'createAccAdminDocente']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
 Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
