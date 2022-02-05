@@ -181,7 +181,7 @@
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Li e Aceito os <a href="#">termos e condições</a>
+																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
 																		</td>
 																	</tr>
 																</tbody>

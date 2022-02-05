@@ -186,4 +186,8 @@ class AutenticationController extends Controller
     {
         return view('main');
     }
+
+    public function termandconditions(){
+        return view("autenticacao.termandconditions");
+    }
 }
