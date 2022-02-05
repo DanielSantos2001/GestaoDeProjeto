@@ -94,7 +94,7 @@ class AutenticationController extends Controller
         $user->USER_TYPE = "admin";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
-        $user->USER_ADMIN = 0;
+        $user->USER_ADMIN = 1;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 0;
 
@@ -116,7 +116,7 @@ class AutenticationController extends Controller
         $user->USER_TYPE = "admindocente";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
-        $user->USER_ADMIN = 0;
+        $user->USER_ADMIN = 1;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 0;
 
