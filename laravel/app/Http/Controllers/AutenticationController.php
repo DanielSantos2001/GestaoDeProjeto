@@ -142,7 +142,8 @@ class AutenticationController extends Controller
     }
 
     public function registerconfirm(Request $request)
-    {
+    {   
+        
         
         $user = new User;
 
