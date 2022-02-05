@@ -135,7 +135,7 @@
 
 																	<tr>
 																		<td class="label" style="width:29%">
-																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTermDocente" onclick="utilizadordocente()" required>
+																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTermDocente" onclick="utilizadordocente()">
 																			</span>
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext"> <br style="line-height:7px;">
@@ -150,7 +150,7 @@
 																			Curso:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<select name="chosenCourse" id="idcourse" class="inputText">
+																			<select name="cursoDocente" id="cursoDocente" class="inputText">
 																				<option value="Sistemas e Tecnologias da Informação">Sistemas e Tecnologias da Informação</option>
 																				<option value="Engenharia Informática">Engenharia Informática</option>
 																				<option value="Marketing">Marketing</option>
@@ -214,7 +214,9 @@
 							</tr>
 							</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="admin">
+							<input id="typeUser" type="hidden" name="typeUser" value="admin">
+							<input id="cursoInput" type="hidden" name="cursoInput" value="">
+
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>
@@ -245,10 +247,18 @@
 	function utilizadordocente() {
 		var cb = document.getElementById("checkTermDocente");
 		var curso = document.getElementById("tabelaEscondida");
+		var typeUser = document.getElementById("typeUser");
+		var e = document.getElementById("cursoDocente");
+		var cursoInput = document.getElementById("cursoInput");
+
 		if (cb.checked == true) {
-			curso.style.display = "inline-block";
+			curso.style.display = "";
+			typeUser.value = "admindocente"
+			cursoInput.value = e.value;
 		} else {
 			curso.style.display = "none";
+			typeUser.value = "admin"
+			cursoInput.value = "";
 
 		}
 	}
