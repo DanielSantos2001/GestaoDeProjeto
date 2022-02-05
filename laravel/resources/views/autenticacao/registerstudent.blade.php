@@ -96,6 +96,11 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -133,6 +138,11 @@
 																			<span id="spanPassword">
 																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -148,6 +158,11 @@
 																			<span id="spanCheckPassword">
 																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -168,6 +183,11 @@
 																				<option value="Gestão">Gestão</option>
 																				<option value="Contabilidade">Contabilidade</option>
 																			</select>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -182,6 +202,11 @@
 																				*
 																			</span>
 																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																		</td>
 																	</tr>
 																</tbody>

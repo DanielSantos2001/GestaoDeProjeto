@@ -143,16 +143,35 @@ class AutenticationController extends Controller
 
     public function registerconfirm(Request $request)
     {   
-        
+
         
         $user = new User;
 
         $user->USER_NAME = $request->pessNome;
         $user->USER_MAIL = $request->pessEmail;
         $user->USER_PWD = $request->passwd;
+        //verificação de campos vazios de variaveis gerais
         if ($request->typeUser == "student") {
+            if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
+                return view('/autenticacao.registerstudent')->with('msgerror', '*Campo Obrigatório');
+            }
+        }if ($request->typeUser == "empresa") {
+            if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
+                return view('/autenticacao.registercompany')->with('msgerror', '*Campo Obrigatório');
+            }
+        } else {
+            if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
+                return view('/autenticacao.register')->with('msgerror', '*Campo Obrigatório');
+            }
+        }
+        //fim de verificação de campos vazios de variaveis gerais
+        
+        if ($request->typeUser == "student") { //campos especificos de estudante
             if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){
                 return view('/autenticacao.registerstudent')->with('msgmail', 'Email de aluno tem de ser institucional');
+            }
+            if(strlen($request->chosenCourse) == 0){
+                return view('/autenticacao.registerstudent')->with('msgerror', '*Campo Obrigatório');
             }
             $user->USER_COURSE = $request->chosenCourse;
             $user->USER_TYPE = "estudante";
@@ -160,14 +179,17 @@ class AutenticationController extends Controller
             $user->USER_CONTACT = "";
             $user->USER_ADMIN = 0;
             $user->USER_FPERM = 0;
-        } else if($request->typeUser == "empresa"){
+        } else if($request->typeUser == "empresa"){ //campos especificos de empresa
+            if(strlen($request->address) == 0 || strlen($request->contact) == 0 ){
+                return view('/autenticacao.registercompany')->with('msgerror', '*Campo Obrigatório');
+            }
             $user->USER_COURSE = "";
             $user->USER_TYPE = "empresa";
             $user->USER_ADDRESS = $request->address;
             $user->USER_CONTACT = $request->contact;
             $user->USER_ADMIN = 0;
             $user->USER_FPERM = 0;
-        } else if($request->typeUser == "admin"){
+        } else if($request->typeUser == "admin"){ //campos especificos de admin não docente
             $user->USER_COURSE = "";
             $user->USER_TYPE = "admin";
             $user->USER_ADDRESS = "";
@@ -175,7 +197,7 @@ class AutenticationController extends Controller
             $user->USER_ADMIN = 0;
             $user->USER_FPERM = 0;
         } 
-        else if($request->typeUser == "admindocente"){
+        else if($request->typeUser == "admindocente"){ //campos especificos de admin que é docente
             $user->USER_COURSE =  $request->cursoInput;
             $user->USER_TYPE = "admindocente";
             $user->USER_ADDRESS = "";
