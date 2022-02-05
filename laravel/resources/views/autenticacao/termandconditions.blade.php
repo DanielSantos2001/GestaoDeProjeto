@@ -1,8 +1,7 @@
-@extends('header')
-
-    <div class="ui-widget ui-widget-content ui-corner-all " tabindex="-1" 
+<dialog>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog"
         aria-labelledby="ui-dialog-title-ecraModalPoliticaPrivacidade"
-        style="display: block; outline: 0px; height: auto;">
+        style="display: block; z-index: 1002; outline: 0px; height: auto; width: 1141.8px; top: 100px; left: 381px;">
         <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title"
                 id="ui-dialog-title-ecraModalPoliticaPrivacidade"><strong>Política de Privacidade</strong></span><a href="#"
                 class="ui-dialog-titlebar-close ui-corner-all" role="button" style="display: none;"><span
@@ -11,7 +10,7 @@
             class="ui-dialog-content ui-widget-content">
             <div id="ecraModalPoliticaPrivacidadeConteudo">
                 <form id="formPoliticaDePrivacidade">
-                    <div id="divFormPoliticaDePrivacidade" style="overflow-y: auto; ">
+                    <div id="divFormPoliticaDePrivacidade" style="overflow-y: auto; max-height: 639.6px;">
                         <div id="div_erros_preenchimento_formulario" class="boxTagLibErrors" style="display: none;">
                             <div class="contentTagLibErrors" align="left">
                                 <ul id="errorList"></ul>
@@ -214,4 +213,4 @@
             </div>
         </div>
     </div>
-
+</dialog>

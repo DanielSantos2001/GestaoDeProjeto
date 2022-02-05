@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="/css/nonio_alunos2.css">
         <link rel="stylesheet" href="/css/nonio_alunos3.css">
         <link rel="stylesheet" href="/css/obtemConteudoTextoLayoutInstituicao.css">
-        <link rel="stylesheet" href="/css/autentication.css">
-        
         <!-- Styles -->
         
     </head>

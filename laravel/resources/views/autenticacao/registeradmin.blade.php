@@ -60,7 +60,7 @@
 
 				<div id="contentGlobal">
 					<div id="content" class="conteudo">
-						<form id="" method="post" action="/registerconfirm">
+						<form id="form" method="post" action="/registerconfirm">
 							@csrf
 
 							<table class="page" style="padding: 0px;">
@@ -150,7 +150,7 @@
 																			Curso:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<select name="cursoDocente" id="cursoDocente" class="inputText">
+																			<select name="cursoDocente" id="cursoDocente" class="inputText" onchange="saveValue()">
 																				<option value="Sistemas e Tecnologias da Informação">Sistemas e Tecnologias da Informação</option>
 																				<option value="Engenharia Informática">Engenharia Informática</option>
 																				<option value="Marketing">Marketing</option>
@@ -204,8 +204,8 @@
 											<tr id="trBotaoPesquisar">
 												<td>
 
-													<input type="submit" value="Registar" class="button buttonFront">
-													<a type="submit" class="button buttonBack" href="/">Cancelar</a>
+													<input type="submit" value="Registar" class="button buttonFront" >
+													<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
 												</td>
 											</tr>
 										</tbody>
@@ -244,22 +244,34 @@
 </body>
 
 <script>
+	var value = "";
+	var flag = false;
+
+	function saveValue() {
+		value = document.getElementById("cursoDocente").value;
+		var cursoInput = document.getElementById("cursoInput");
+
+		if(flag){
+			cursoInput.value = value;
+		} else {
+			cursoInput.value = "";
+		}
+	}
+
 	function utilizadordocente() {
 		var cb = document.getElementById("checkTermDocente");
 		var curso = document.getElementById("tabelaEscondida");
 		var typeUser = document.getElementById("typeUser");
-		var e = document.getElementById("cursoDocente");
-		var cursoInput = document.getElementById("cursoInput");
 
 		if (cb.checked == true) {
 			curso.style.display = "";
-			typeUser.value = "admindocente"
-			cursoInput.value = e.value;
+			typeUser.value = "admindocente";
+			flag = true;
 		} else {
 			curso.style.display = "none";
 			typeUser.value = "admin"
-			cursoInput.value = "";
-
 		}
 	}
+
+	
 </script>
