@@ -10,9 +10,9 @@ class PageController extends Controller
 {
     public function show()
     {
-        $user = User::where('id', Session::get('id'))->first()->toArray();
+        $user = User::findOrFail(Session::get('id'));
 
-        return view('main', ['user' => $user]);
+        return view('users.commonFile.personalInfo', ['user' => $user]);
     }
 
     public function definirPagina() 

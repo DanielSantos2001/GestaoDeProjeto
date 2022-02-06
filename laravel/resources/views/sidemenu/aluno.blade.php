@@ -1,6 +1,6 @@
 <li class="menuItem">
     <ul class="menu-list">
-        <a href="">
+        <a href="/perfil">
             <li class="">
                 Informação Pessoal
             </li>

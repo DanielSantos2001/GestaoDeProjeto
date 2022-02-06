@@ -40,7 +40,7 @@ Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
 use App\Http\Controllers\ProposalController;
 
-//Route::get('/', [ProposalController::class, 'index']);
+//Route::get('/main', [ProposalController::class, 'index']);
 
 
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
@@ -51,3 +51,9 @@ Route::get('/proposals/createProposal', function () {
 
 Route::post('/proposals', [ProposalController::class, 'store']);
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+Route::get('/perfil', [PageController::class, 'show']);
+
+Route::get('/preview', function () {
+    return view('/users/teacher/createAta');
+});

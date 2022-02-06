@@ -55,7 +55,10 @@
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
                                             </tr>
                                             @endforeach
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                                         </tbody>
                                     </table>
                                 </td>

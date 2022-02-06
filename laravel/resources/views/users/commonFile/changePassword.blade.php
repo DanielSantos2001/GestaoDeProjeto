@@ -1,0 +1,134 @@
+@extends('main')
+
+@section('title', 'Alterar Palavra-Chave')
+
+@section('content')
+
+@php
+$info = ['nome' => 'Nome do utilizador exemplo']
+@endphp
+
+<div class="navtableLight">
+    <a href="#">
+        <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
+            Início
+            <span class="arrow"></span>
+        </span>
+    </a>
+    <a href="#">
+        <span style="z-index: 2;" class="lightArrow clickArrow">
+            Informação Pessoal
+            <span class="arrow"></span>
+        </span>
+    </a>
+    <span style="z-index: 1;" class=" lastArrow">
+        Alterar Palavra-Chave
+        <span class="arrow"></span>
+    </span>
+    <br>
+</div>
+<br>
+<div id="context" class="contextOverflow"></div>
+<div id="content">
+    <table class="page zone">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="horizontalline">
+                        <tbody>
+                            <tr>
+                                <td class="subtitle">
+                                    Alterar Palavra-Chave
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="zonecontent">
+                        <tbody>
+                            <tr>
+                                <td class="label">
+                                    Utilizador:
+                                </td>
+                                <td class="cellcontentLarge">
+                                    {{ $info['nome'] }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <span class="mandatory" id="mandatorycodigo4">
+                                        *
+                                    </span>
+                                    Palavra-chave Atual:
+                                </td>
+                                <td class="cellcontent cellcontentwithinputtext">
+                                    <input type="password" name="passwordOriginal" value="" style="width:100%;" class="inputText">
+                                    Indique a palavra-chave atual como medida de segurança.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <span class="mandatory" id="mandatorycodigo3">
+                                        *
+                                    </span>
+                                    Nova Palavra-chave:
+                                </td>
+                                <td class="cellcontent cellcontentwithinputtext">
+                                    <input type="password" name="novaPassword" value="" style="width:100%;" class="inputText">
+                                    Deve ter 8 ou mais caracteres, pelo menos uma letra maiúscula, uma minúscula e pelo menos um número.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <span class="mandatory" id="mandatorycodigo2">
+                                        *
+                                    </span>
+                                    Confirme a Palavra-chave:
+                                </td>
+                                <td class="cellcontent cellcontentwithinputtext">
+                                    <input type="password" name="confirmacaoPassword" value="" style="width:100%;" class="inputText">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="zonemandatoryinterno">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="mandatory" id="lblmandatorySymbol">*</span>
+                                    <label id="lblmandatory">Campos de preenchimento obrigatório.</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="page">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="zoneformbuttons">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span id="spanSubmitTag" style="display:none;"><img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">&nbsp;&nbsp;A processar. Por favor aguarde.</span> <input type="submit" value="Alterar" onclick="escondeBotoesTagLib(this);" class="button buttonFront">
+                                    <input type="submit" name="org.apache.struts.taglib.html.CANCEL" value="Voltar" onclick="bCancel=true;" class="button buttonBack">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+@endsection

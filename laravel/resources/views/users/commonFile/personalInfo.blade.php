@@ -40,10 +40,10 @@
                         <tbody>
                             <tr>
                                 <td class="label" id="lblnome">
-                                    Nome da Empresa:
+                                    Nome Completo:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                    Nome do utilizador exemplo
+                                    {{ Session::get('username') }}
                                 </td>
                             </tr>
                             <tr>
@@ -55,29 +55,40 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">
-                                    Contacto:
-                                </td>
-                                <td class="cellcontentLarge">
-                                    999 999 999
-                                </td>
-                            </tr>
-                            <tr>
                                 <td class="label" id="lblmailOficial">
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                    utilizadorexemplo@email.com
+                                    {{ Session::get('usermail') }}
+                                </td>
+                            </tr>
+                            @if(Session::get('usertype') == 'estudante')
+                            <tr>
+                                <td class="label">
+                                    Curso:
+                                </td>
+                                <td class="cellcontentLarge">
+                                    {{ Session::get('usercourse') }}
+                                </td>
+                            </tr>
+                            @elseif(Session::get('usertype') == 'empresa')
+                            <tr>
+                                <td class="label">
+                                    Contacto:
+                                </td>
+                                <td class="cellcontentLarge">
+                                    {{ $info['contacto'] }}
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label">
-                                    Modata:
+                                    Morada:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    Rua Exemplo
+                                    {{ $info['morada'] }}
                                 </td>
                             </tr>
+                            @endif
                         </tbody>
                     </table>
                 </td>

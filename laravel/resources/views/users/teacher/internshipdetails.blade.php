@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Meu Estágio')
+@section('title', 'Acompanhamento de Estágio')
 
 @section('content')
 
@@ -17,7 +17,16 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
             <span class="arrow"></span>
         </span>
     </a>
-    <span style="z-index: 1;" class=" lastArrow">Meu Estágio<span class="arrow"></span></span>
+    <a href="#">
+        <span style="z-index: 2;" class="lightArrow clickArrow">
+            Acompanhamento de Estágio
+            <span class="arrow"></span>
+        </span>
+    </a>
+    <span style="z-index: 1;" class=" lastArrow">
+        Detalhes
+        <span class="arrow"></span>
+    </span>
     <br>
 </div>
 <br>
@@ -31,7 +40,16 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                         <tbody>
                             <tr>
                                 <td class="subtitle">
-                                    Meu Estágio
+                                    Acompanhamento de Estágio
+                                </td>
+                                <td class="contentRight">
+                                    <a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                                        </svg>
+                                    </a>&nbsp;&nbsp;
+                                    <a href="#" class="botaodetalhes"><span>Adicionar Ata</span></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -56,6 +74,7 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                                                     </a>
                                                 </th>
                                                 <th class="cellheader">Descrição da Ata</th>
+                                                <th class="cellheader contentRight"><input type="checkbox"></th> <!-- Para botão de selecionar -->
                                                 <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
                                             </tr>
                                         </thead>
@@ -64,7 +83,8 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                                             <tr class="lightrow">
                                                 <td class="contentLeft">{{ $data['date'] }}</td>
                                                 <td class="contentCenter" style="width: 70%">{{ $data['descricao'] }}</td>
-                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#">Detalhes</a></td>
+                                                <td class="contentRight" style="width: 10%"><input type="checkbox"></td>
+                                                <td class="contentRight" style="width: 5%"><a class="botaodetalhes" href="#">Detalhes</a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

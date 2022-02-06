@@ -1,14 +1,11 @@
 @extends('main')
 
-@section('title', 'Minhas Preferências')
+@section('title', 'Minhas Candidaturas')
 
 @section('content')
-
 @php
-$info = [['empresa' => 'Cisco Enterprise', 'descricao' => 'Configurar Redes'],
-         ['empresa' => 'Sonae', 'descricao' => 'Gestão Organizacional do grupo de Armazenamento']];
+$var = ['Configurar Redes', 'Gestão Organizacional do grupo de Armazenamento', '-']; //TESTE
 @endphp
-
 <div class="navtableLight">
     <a href="#">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
@@ -16,12 +13,12 @@ $info = [['empresa' => 'Cisco Enterprise', 'descricao' => 'Configurar Redes'],
             <span class="arrow"></span>
         </span>
     </a>
-    <span style="z-index: 1;" class=" lastArrow">Minhas Preferências<span class="arrow"></span></span>
+    <span style="z-index: 1;" class=" lastArrow">Minhas Candidaturas<span class="arrow"></span></span>
     <br>
 </div>
 <br>
+<div id="context" class="contextOverflow"></div>
 <div id="content">
-    @include('searchTab')
     <table class="page zone">
         <tbody>
             <tr>
@@ -30,7 +27,7 @@ $info = [['empresa' => 'Cisco Enterprise', 'descricao' => 'Configurar Redes'],
                         <tbody>
                             <tr>
                                 <td class="subtitle">
-                                    Minhas Preferências
+                                    Propostas de Estágio
                                 </td>
                             </tr>
                         </tbody>
@@ -46,21 +43,21 @@ $info = [['empresa' => 'Cisco Enterprise', 'descricao' => 'Configurar Redes'],
                                     <table style="width: 100%" class="displaytable">
                                         <thead>
                                             <tr>
-                                                <th class="cellheaderleft">Nome da Empresa</th>
+                                                <th class="cellheaderleft">Ordem de preferência</th>
                                                 <th class="cellheader">Oferta de Estágio</th>
                                                 <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
-                                                <th class="cellheader">&nbsp;</th> <!-- Para botão de remover -->
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($info as $data)
+                                            @for($i = 0; $i < count($var); $i++)
                                             <tr class="lightrow">
-                                                <td class="contentLeft">{{ $data['empresa'] }}</td>
-                                                <td class="contentCenter" style="width: 60%">{{ $data['descricao'] }}</td>
-                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#">Detalhes</a></td>
-                                                <td class="contentRight" style="width: 1%"><a class="botaodetalhes" href="#">-</a></td>
+                                                <td class="contentLeft">{{ $i+1 }}</td>
+                                                <td class="contentCenter" style="width: 70%">{{ $var[$i] }}</td>
+                                                @if($var[$i] != '-')
+                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#">-</a></td>
+                                                @endif
                                             </tr>
-                                            @endforeach
+                                            @endfor
                                         </tbody>
                                     </table>
                                 </td>

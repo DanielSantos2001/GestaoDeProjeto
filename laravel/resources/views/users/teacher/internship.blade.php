@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Meu Estágio')
+@section('title', 'Acompanhamento de Estágio')
 
 @section('content')
 
 @php
-$info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
-         ['date' => '02-02-02', 'descricao' => 'Ata 2'],
-         ['date' => '03-03-03', 'descricao' => 'Ata 3']];
+$info = [['name' => 'Aluno exemplo 1', 'curso' => 'Licenciatura em Sistemas e Tecnologias de Informação'],
+         ['name' => 'Aluno exemplo 2', 'curso' => 'Licenciatura em Sistemas e Tecnologias de Informação'],
+         ['name' => 'Aluno exemplo 3', 'curso' => 'Licenciatura de Engenharia Informática']];
 @endphp
 
 <div class="navtableLight">
@@ -17,7 +17,10 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
             <span class="arrow"></span>
         </span>
     </a>
-    <span style="z-index: 1;" class=" lastArrow">Meu Estágio<span class="arrow"></span></span>
+    <span style="z-index: 1;" class=" lastArrow">
+        Acompanhamento de Estágio
+        <span class="arrow"></span>
+    </span>
     <br>
 </div>
 <br>
@@ -31,7 +34,7 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                         <tbody>
                             <tr>
                                 <td class="subtitle">
-                                    Meu Estágio
+                                    Acompanhamento de Estágio
                                 </td>
                             </tr>
                         </tbody>
@@ -47,23 +50,16 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                                     <table style="width: 100%" class="displaytable">
                                         <thead>
                                             <tr>
-                                                <th class="cellheaderleft">
-                                                    Data
-                                                    <a href="">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down-alt" viewBox="0 0 16 16">
-                                                            <path d="M3.5 3.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 12.293V3.5zm4 .5a.5.5 0 0 1 0-1h1a.5.5 0 0 1 0 1h-1zm0 3a.5.5 0 0 1 0-1h3a.5.5 0 0 1 0 1h-3zm0 3a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1h-5zM7 12.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5z" />
-                                                        </svg>
-                                                    </a>
-                                                </th>
-                                                <th class="cellheader">Descrição da Ata</th>
+                                                <th class="cellheaderleft">Nome do Aluno</th>
+                                                <th class="cellheader">Curso</th>
                                                 <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($info as $data)
                                             <tr class="lightrow">
-                                                <td class="contentLeft">{{ $data['date'] }}</td>
-                                                <td class="contentCenter" style="width: 70%">{{ $data['descricao'] }}</td>
+                                                <td class="contentLeft">{{ $data['name'] }}</td>
+                                                <td class="contentCenter" style="width: 50%">{{ $data['curso'] }}</td>
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#">Detalhes</a></td>
                                             </tr>
                                             @endforeach
