@@ -43,7 +43,7 @@
                                     Nome Completo:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                    {{ Session::get('username') }}
+                                    {{$user->USER_NAME}}
                                 </td>
                             </tr>
                             <tr>
@@ -59,7 +59,7 @@
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                    {{ Session::get('usermail') }}
+                                    {{$user->USER_MAIL}}
                                 </td>
                             </tr>
                             @if(Session::get('usertype') == 'estudante')

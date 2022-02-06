@@ -38,15 +38,7 @@
 
                                         <?php $proposals = App\Http\Controllers\ProposalController::index(); ?>
 
-                                            @foreach ($proposals as $proposal)
-                                            <tr class="lightrow">
-                                                <td class="contentLeft">{{$proposal->PROP_TITLE}}</td>
-                                                <td class="contentCenter" style="width: 50%">{{$proposal->PROP_DESCRIPTION}}</td>
-                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+
                                         @if(count($proposals) == 0)
                                         <p>Não existe estágios disponíveis</p>
 

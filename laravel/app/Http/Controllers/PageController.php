@@ -8,24 +8,25 @@ use App\Models\User;
 
 class PageController extends Controller
 {
-    public function show()
+    public function verPerfil()
     {
-        $user = User::findOrFail(Session::get('id'));
+        $user = User::where('USER_ID', Session::get('id'))->first();
 
         return view('users.commonFile.personalInfo', ['user' => $user]);
     }
 
-    public function definirPagina() 
+
+    public function definirPagina()
     {
-        if(Session::get('usertype') == 'estudante') {
+        if (Session::get('usertype') == 'estudante') {
             return view('users.student.index');
-        } elseif(Session::get('usertype') == 'docente') {
+        } elseif (Session::get('usertype') == 'docente') {
             return view('users.teacher.index');
-        } elseif(Session::get('usertype') == 'empresa') {
+        } elseif (Session::get('usertype') == 'empresa') {
             return view('users.business.index');
         }
-        
-        if(Session::get('useradmin')) {
+
+        if (Session::get('useradmin')) {
             return view('users.admin.index');
         }
     }

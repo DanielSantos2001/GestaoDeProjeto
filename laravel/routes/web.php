@@ -52,7 +52,7 @@ Route::get('/proposals/createProposal', function () {
 Route::post('/proposals', [ProposalController::class, 'store']);
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
-Route::get('/perfil', [PageController::class, 'show']);
+Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 
 Route::get('/preview', function () {
     return view('/users/teacher/createAta');
