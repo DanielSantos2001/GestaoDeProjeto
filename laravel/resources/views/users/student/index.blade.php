@@ -6,7 +6,7 @@
 <div id="context" class="contextOverflow"></div>
 <div id="content">
     @include('searchTab')
-    <table class="page zone">
+    <table class="zone">
         <tbody>
             <tr>
                 <td>
@@ -34,19 +34,9 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <table style="width: 100%" class="displaytable">
-                                        <thead>
-                                            <tr>
-                                                <th class="cellheaderleft">Empresa</th>
-                                                <th class="cellheader">Descrição de Estágio</th>
-                                                <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    <div id="notificacoes">
 
-                                            @php
-                                            $proposals = App\Http\Controllers\ProposalController::index();
-                                            @endphp
+                                        <?php $proposals = App\Http\Controllers\ProposalController::index(); ?>
 
                                             @foreach ($proposals as $proposal)
                                             <tr class="lightrow">
@@ -55,12 +45,36 @@
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
                                             </tr>
                                             @endforeach
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                                         </tbody>
                                     </table>
+                                        @if(count($proposals) == 0)
+                                        <p>Não existe estágios disponíveis</p>
+
+                                        @else
+                                        <table style="width: 100%" class="displaytable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cellheaderleft">Empresa</th>
+                                                    <th class="cellheader">Descrição de Estágio</th>
+                                                    <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach ($proposals as $proposal)
+
+                                                @if($proposal->PROP_COURSE == Session::get('usercourse'))
+                                                <tr class="lightrow">
+                                                    <td class="contentLeft" style="width: 60%">{{$proposal->PROP_TITLE}}</td>
+                                                    <td class="contentCenter" style="width: 30%">{{$proposal->PROP_DESCRIPTION}}</td>
+                                                    <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
+                                                </tr>
+                                                @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
