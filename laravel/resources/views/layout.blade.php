@@ -25,7 +25,9 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="http://inforestudante.ipc.pt/nonio/security/init.do">
+
+                            {{--<a href="http://inforestudante.ipc.pt/nonio/security/init.do">--}}
+                            <a href="/">
                                 <img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
                                 <img src="/img/IPC-PRETO.png" class="hidden-desktop header-mobile" border="0">
                             </a>
@@ -33,8 +35,9 @@
                         <td>
                             <table>
                                 <tr>
+
                                     <td class="hidden-phone">
-                                        <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="../security/logout.do">Sair</a>
+                                        <span class="hidden-tablet">Nome do Utilizador/Numero&nbsp;|&nbsp;</span><a class="navtableGo" href="/logout">Sair</a>
                                     </td>
                                     <td>
                                     </td>
@@ -45,6 +48,7 @@
                                             <div class="button-menu-bar"></div>
                                         </button>
                                     </td>
+
                                 </tr>
                             </table>
                         </td>
@@ -55,8 +59,12 @@
         <div id="flxContainer" style="display: block;">
             <div class="flxContainer" id="areaMenuConteudo">
                 <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
-                    <div class="menuTitle handMouseCursor" onclick="window.location ='../security/init.do'">
-                        <p>GEA</p>
+                    {{--<div class="menuTitle handMouseCursor" onclick="window.location ='../security/init.do'">--}}
+
+                    <div class="menuTitle handMouseCursor">
+                        <a href="/">
+                            <p>GEA</p>
+                        </a>
                     </div>
                     <ul class="menuGroup">
                         <li class="menuItem">
@@ -64,9 +72,9 @@
                                 Administrador
                             </span>
                             <ul class="menu-list">
-                                <a href="../util/menu.do?menu=5">
+                                <a href="/proposals/createProposal">
                                     <li class="menu_5">
-                                        1
+                                        Cria Proposta de Estágio
                                     </li>
                                 </a>
                                 <a href="../util/menu.do?menu=6">
@@ -98,18 +106,18 @@
                             <ul class="menu-list">
                                 <a href="../util/menu.do?menu=20">
                                     <li class="menu_20">
-                                        Edgay
+                                        1
                                     </li>
                                 </a>
                                 <a href="../util/menu.do?menu=25">
                                     <li class="menu_25">
-                                        Renato lindo
+                                        2
                                     </li>
                                 </a>
 
                                 <a href="../util/menu.do?menu=21">
                                     <li class="menu_21">
-                                        bregiurheigurhe
+                                        3
                                     </li>
                                 </a>
 
