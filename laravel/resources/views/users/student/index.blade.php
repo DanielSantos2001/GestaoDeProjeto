@@ -43,21 +43,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                            @php
+                                            $proposals = App\Http\Controllers\ProposalController::index()
+                                            @endphp
+
+                                            @foreach ($proposals as $proposal)
                                             <tr class="lightrow">
-                                                <td class="contentLeft">Empresa exemplo 1</td>
-                                                <td class="contentCenter" style="width: 50%">Configurar Redes</td>
+                                                <td class="contentLeft">{{$proposal->PROP_TITLE}}</td>
+                                                <td class="contentCenter" style="width: 50%">{{$proposal->PROP_DESCRIPTION}}</td>
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
                                             </tr>
-                                            <tr class="lightrow">
-                                                <td class="contentLeft">Empresa exemplo 2</td>
-                                                <td class="contentCenter" style="width: 50%">Gestão Organizacional do grupo de Armazenamento</td>
-                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
-                                            </tr>
-                                            <tr class="lightrow">
-                                                <td class="contentLeft">Empresa exemplo 3</td>
-                                                <td class="contentCenter" style="width: 50%">Contabilidade no mini-mercado local</td>
-                                                <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
-                                            </tr>
+                                            @endforeach
+                                            -->
                                         </tbody>
                                     </table>
                                 </td>

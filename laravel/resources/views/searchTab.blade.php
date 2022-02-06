@@ -5,7 +5,8 @@
                 <input type="text" name="filtro" size="30" value="" style="width: 100%" class="inputText">
             </td>
             <td>
-                <span id="spanSubmitTag" style="display:none;"><img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">&nbsp;&nbsp;A processar. Por favor aguarde.</span> <input type="submit" value="Pesquisar" onclick="escondeBotoesTagLib(this);" class="button buttonFront">
+                <span id="spanSubmitTag" style="display:none;"><img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">&nbsp;&nbsp;A processar. Por favor aguarde.</span>
+                <input type="submit" value="Pesquisar" placeholder="Search" onclick="escondeBotoesTagLib(this);" class="button buttonFront">
             </td>
             <td>
                 <a href="#">

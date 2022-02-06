@@ -71,6 +71,9 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- colocar no yield -->
+
         <div id="flxContainer" style="display: block;">
             <div class="flxContainer" id="areaMenuConteudo">
                 <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
@@ -78,6 +81,8 @@
                         <p>Menu</p>
                     </div>
                     <ul class="menuGroup">
+
+                        <!-- codigo a mais -->
 
                         @if(Session::get('usertype') == 'estudante')
                         @include('sidemenu.aluno')
@@ -113,6 +118,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- colocar no yield (fim)-->
+
         <div class="footer">
             <div class="footerTable">
                 <div class="footerTableBody">
