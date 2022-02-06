@@ -45,7 +45,7 @@
                                         <tbody>
 
                                             @php
-                                            $proposals = App\Http\Controllers\ProposalController::index()
+                                            $proposals = App\Http\Controllers\ProposalController::index();
                                             @endphp
 
                                             @foreach ($proposals as $proposal)
@@ -55,7 +55,7 @@
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#"> Detalhes</a></td>
                                             </tr>
                                             @endforeach
-                                            -->
+
                                         </tbody>
                                     </table>
                                 </td>

@@ -8,12 +8,12 @@ use App\Models\Proposal;
 
 class ProposalController extends Controller
 {
-  public function index()
+  public static function index()
   {
 
     $proposals = Proposal::all();
 
-    return view('main', ['proposals' => $proposals]);
+    return $proposals;
   }
 
   public function create()
