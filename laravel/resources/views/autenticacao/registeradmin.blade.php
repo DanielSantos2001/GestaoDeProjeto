@@ -64,6 +64,7 @@
 							@csrf
 							@php
 							$msgerror=$msgerror ?? 'Default value';
+							$msgpass = $msgpass ?? 'Default value';
 							@endphp
 
 							<table class="page" style="padding: 0px;">
@@ -126,8 +127,8 @@
 																			Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
+																			<input type="password" id="pass" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			<span id="spanPassword">
-																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
@@ -135,6 +136,12 @@
 																					*Campo Obrigatório
 																				</span>
 																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
+
 
 																		</td>
 																	</tr>
@@ -147,13 +154,19 @@
 																			Confirmação Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanCheckPassword">
-																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
+																			
+																				<input type="password" id="pass2" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
+																				<span id="spanCheckPassword">
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
 																				<span style="color: red">
 																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
 																				</span>
 																			@endif
 
@@ -178,15 +191,14 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<select name="cursoDocente" id="cursoDocente" class="inputText" onchange="saveValue()">
-																				<!--<option value=0></option>-->
-																				<option value="lsti">Sistemas e Tecnologias da Informação</option>
-																				<option value="lei">Engenharia Informática</option>
-																				<option value="lm">Marketing</option>
-																				<option value="lgb">Gestão Bioindústria</option>
-																				<option value="lg">Gestão</option>
-																				<option value="lca">Contabilidade</option>
-																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
-																				<option value="lii">Informática Industrial </option>
+																				<option value="LSTI">Sistemas e Tecnologias da Informação</option>
+																				<option value="LEI">Engenharia Informática</option>
+																				<option value="LM">Marketing</option>
+																				<option value="LGB">Gestão Bioindústria</option>
+																				<option value="LB">Gestão</option>
+																				<option value="LCA">Contabilidade</option>
+																				<option value="LDROT">Desenvolvimento Regional e Ordenamento do Território</option>
+																				<option value="LII">Informática Industrial </option>
 																			</select>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
@@ -246,7 +258,7 @@
 											<tr id="trBotaoPesquisar">
 												<td>
 
-													<input type="submit" value="Registar" class="button buttonFront">
+													<input type="submit" id= "register" value="Registar" class="button buttonFront" >
 													<a class="button buttonBack" href="/login">Cancelar</a>
 												</td>
 											</tr>
@@ -317,6 +329,16 @@
 		} else {
 			curso.style.display = "none";
 			typeUser.value = "admin"
+		}
+	}
+
+	function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("pass2").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("register").disable = true;
+			alert("pass não iguais");
 		}
 	}
 </script>

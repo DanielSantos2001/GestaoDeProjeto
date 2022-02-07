@@ -151,16 +151,25 @@ class AutenticationController extends Controller
         $user->USER_PWD = $request->passwd;
         //verificação de campos vazios de variaveis gerais
         if ($request->typeUser == "student") {
+            if(strcmp($request->passwd, $request->checkPasswd) != 0){
+                return view('/autenticacao.registerstudent')->with('msgpass', 'As passwords não coincidem!');
+            }
             if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
                 return view('/autenticacao.registerstudent')->with('msgerror', '*Campo Obrigatório');
             }
         }if ($request->typeUser == "empresa") {
+            if(strcmp($request->passwd, $request->checkPasswd) != 0){
+                return view('/autenticacao.registercompany')->with('msgpass', 'As passwords não coincidem!');
+            }
             if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
                 return view('/autenticacao.registercompany')->with('msgerror', '*Campo Obrigatório');
             }
         } else {
+            if(strcmp($request->passwd, $request->checkPasswd) != 0){
+                return view('/autenticacao.registeradmin')->with('msgpass', 'As passwords não coincidem!');
+            }
             if(strlen($request->pessNome) == 0 || strlen($request->passwd) == 0){
-                return view('/autenticacao.register')->with('msgerror', '*Campo Obrigatório');
+                return view('/autenticacao.registeradmin')->with('msgerror', '*Campo Obrigatório');
             }
         }
         //fim de verificação de campos vazios de variaveis gerais
@@ -199,7 +208,8 @@ class AutenticationController extends Controller
             $user->USER_CONTACT = $request->contact;
             $user->USER_ADMIN = 0;
             $user->USER_FPERM = 0;
-        } else if($request->typeUser == "admin"){ //campos especificos de admin não docente
+        } else if($request->typeUser == "admin"){
+             //campos especificos de admin não docente
             $user->USER_COURSE = "";
             $user->USER_TYPE = "admin";
             $user->USER_ADDRESS = "";
@@ -217,6 +227,7 @@ class AutenticationController extends Controller
             }
             if($value){
                 return view('/autenticacao.registeradmin')->with('msgerror', '*Campo Obrigatório');
+                
             }
             $user->USER_COURSE =  $request->cursoInput;
             $user->USER_TYPE = "admindocente";

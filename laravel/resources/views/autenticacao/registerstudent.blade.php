@@ -13,6 +13,16 @@
 			}
 			
 		}
+
+		function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("pass2").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("register").disable = true;
+			alert("pass não iguais");
+		}
+	}
 	</script>
 	<div id="master">
 		<div id="header">
@@ -77,6 +87,7 @@
 							@csrf
 							@php
 							$msgerror=$msgerror ?? 'Default value';
+							$msgpass = $msgpass ?? 'Default value';
 							@endphp
 							
 							<table class="page" style="padding: 0px;">
@@ -158,6 +169,11 @@
 																					*Campo Obrigatório
 																				</span>
 																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -171,12 +187,17 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanCheckPassword">
-																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
+																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
 																				<span style="color: red">
 																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
 																				</span>
 																			@endif
 
@@ -192,14 +213,14 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<select name="chosenCourse" id="idcourse" class="inputText">
-																				<option value="lsti" selected="selected">Sistemas e Tecnologias da Informação</option>
-																				<option value="lei">Engenharia Informática</option>
-																				<option value="lm">Marketing</option>
-																				<option value="lgb">Gestão Bioindústria</option>
-																				<option value="lg">Gestão</option>
-																				<option value="lca">Contabilidade</option>
-																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
-																				<option value="lii">Informática Industrial </option>
+																				<option value="LSTI" selected="selected">Sistemas e Tecnologias da Informação</option>
+																				<option value="LEI">Engenharia Informática</option>
+																				<option value="LM">Marketing</option>
+																				<option value="LGB">Gestão Bioindústria</option>
+																				<option value="LG">Gestão</option>
+																				<option value="LCA">Contabilidade</option>
+																				<option value="LDROT">Desenvolvimento Regional e Ordenamento do Território</option>
+																				<option value="LII">Informática Industrial </option>
 																			</select>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")

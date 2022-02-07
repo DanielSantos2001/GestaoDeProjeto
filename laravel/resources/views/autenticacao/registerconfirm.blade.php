@@ -165,28 +165,28 @@
 																			</td>
 																			<td class="cellcontent">
 																				<span id="spanTextCurso">
-																				@if($user->USER_COURSE == "lsti")
+																				@if($user->USER_COURSE == "LSTI")
 																					<p>	Sistemas e Tecnologias da Informação </p>
 																				@endif
-																				@if($user->USER_COURSE == "lei")
+																				@if($user->USER_COURSE == "LEI")
 																					<p>	Engenharia Informática </p>
 																				@endif
-																				@if($user->USER_COURSE == "lgb")
+																				@if($user->USER_COURSE == "LBG")
 																					<p>	Gestão Bioindústria </p>
 																				@endif
-																				@if($user->USER_COURSE == "lg")
+																				@if($user->USER_COURSE == "LG")
 																					<p>	Gestão </p>
 																				@endif
-																				@if($user->USER_COURSE == "lm")
+																				@if($user->USER_COURSE == "LM")
 																					<p>	Marketing </p>
 																				@endif
-																				@if($user->USER_COURSE == "ldrot")
+																				@if($user->USER_COURSE == "LDROT")
 																					<p>	Desenvolvimento Regional e Ordenamento do Território </p>
 																				@endif
-																				@if($user->USER_COURSE == "lii")
+																				@if($user->USER_COURSE == "LII")
 																					<p>	Informática Industrial </p>
 																				@endif
-																				@if($user->USER_COURSE == "lca")
+																				@if($user->USER_COURSE == "LCA")
 																					<p>	Contabilidade </p>
 																				@endif
 																				</span>

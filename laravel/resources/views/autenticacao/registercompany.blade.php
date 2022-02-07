@@ -64,6 +64,7 @@
 							@csrf
 							@php
 							$msgerror=$msgerror ?? 'Default value';
+							$msgpass = $msgpass ?? 'Default value';
 							@endphp
 							<table class="page" style="padding: 0px;">
 								<tbody>
@@ -133,6 +134,11 @@
 																					*Campo Obrigatório
 																				</span>
 																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -146,12 +152,17 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanCheckPassword">
-																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
+																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
 																				<span style="color: red">
 																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
 																				</span>
 																			@endif
 																		</td>
@@ -284,3 +295,15 @@
 	</div>
 	</div>
 </body>
+
+<script>
+function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("pass2").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("register").disable = true;
+			alert("pass não iguais");
+		}
+	}
+</script>
