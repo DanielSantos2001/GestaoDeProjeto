@@ -75,6 +75,10 @@
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
 							@csrf
+							@php
+							$msgerror=$msgerror ?? 'Default value';
+							@endphp
+							
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -96,13 +100,17 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
-																			@if(session('msgerror'))
-																			<span style="color: red">
-																				*Campo Obrigatório
-																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
 																			@endif
-
+																			
 																		</td>
+																		
+																		
+																		
 																	</tr>
 																	<tr>
 																		<td class="label">
@@ -124,6 +132,12 @@
 																					<br>*Use o seu E-mail institucional!
 																				</span>
 																			@endif
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -138,10 +152,11 @@
 																			<span id="spanPassword">
 																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
-																			@if(session('msgerror'))
-																			<span style="color: red">
-																				*Campo Obrigatório
-																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
 																			@endif
 
 																		</td>
@@ -158,10 +173,11 @@
 																			<span id="spanCheckPassword">
 																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
 																			</span>
-																			@if(session('msgerror'))
-																			<span style="color: red">
-																				*Campo Obrigatório
-																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
 																			@endif
 
 																		</td>
@@ -185,10 +201,11 @@
 																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
 																				<option value="lii">Informática Industrial </option>
 																			</select>
-																			@if(session('msgerror'))
-																			<span style="color: red">
-																				*Campo Obrigatório
-																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
 																			@endif
 
 																		</td>
@@ -204,10 +221,11 @@
 																				*
 																			</span>
 																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
-																			@if(session('msgerror'))
-																			<span style="color: red">
-																				*Campo Obrigatório
-																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
 																			@endif
 																		</td>
 																	</tr>

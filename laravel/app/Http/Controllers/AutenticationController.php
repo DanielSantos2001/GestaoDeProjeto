@@ -68,7 +68,7 @@ class AutenticationController extends Controller
         $user->USER_NAME = $request->username;
         $user->USER_MAIL = $request->email;
         $user->USER_PWD = $hashpass;
-        $user->USER_COURSE = "";
+        $user->USER_COURSE = $request->usercourse;
         $user->USER_TYPE = "estudante";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";

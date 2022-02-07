@@ -62,6 +62,9 @@
 					<div id="content" class="conteudo">
 						<form id="form" method="post" action="/registerconfirm">
 							@csrf
+							@php
+							$msgerror=$msgerror ?? 'Default value';
+							@endphp
 
 							<table class="page" style="padding: 0px;">
 								<tbody>
@@ -84,6 +87,12 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -98,6 +107,12 @@
 																			<span id="spanTextPessEmail">
 																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																			<br><a style="color:grey;">Principal forma de contacto utilizada pelo GEA.</a>
 																		</td>
@@ -114,6 +129,12 @@
 																			<span id="spanPassword">
 																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -129,6 +150,12 @@
 																			<span id="spanCheckPassword">
 																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -161,6 +188,12 @@
 																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
 																				<option value="lii">Informática Industrial </option>
 																			</select>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -174,6 +207,12 @@
 																			*
 																		</span>
 																		Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
+																		<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																	</td>
 													</tr>
 												</tbody>
