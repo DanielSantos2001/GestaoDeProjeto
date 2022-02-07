@@ -249,7 +249,7 @@
 														<td>
 															
 															<input type="submit" value="Registar" class="button buttonFront">
-															<a type="submit" class="button buttonBack" href="/login">Cancelar</a>
+															<a class="button buttonBack" href="/login">Cancelar</a>
 														</td>
 													</tr>
 												</tbody>
