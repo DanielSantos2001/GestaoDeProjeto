@@ -42,4 +42,6 @@ Route::post('/registercompany', [AutenticationController::class, 'registercompan
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
+Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
+
 

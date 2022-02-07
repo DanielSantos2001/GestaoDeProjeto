@@ -173,7 +173,7 @@
 																		<span class="mandatory" id="mandatorynome">
 																			*
 																		</span>
-																		Li e Aceito os <a href="#">termos e condições</a>
+																		Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
 																	</td>
 													</tr>
 												</tbody>
@@ -208,7 +208,7 @@
 												<td>
 
 													<input type="submit" value="Registar" class="button buttonFront">
-													<input type="button" name="cancelar" value="Cancelar" class="button buttonBack">
+													<a type="submit" class="button buttonBack" href="/login">Cancelar</a>
 												</td>
 											</tr>
 										</tbody>

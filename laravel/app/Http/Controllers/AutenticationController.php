@@ -164,12 +164,23 @@ class AutenticationController extends Controller
             }
         }
         //fim de verificação de campos vazios de variaveis gerais
-        
+        /**Neste caso o utilizador pode tentar utilizar o inspection para enviar algo diferente mas esta condição verifica */
         if ($request->typeUser == "student") { //campos especificos de estudante
-            if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){
+            $courses = ["lsti", "lei", "lm", "lgb", "lg", "lca", "ldrot", "lii"];
+            for($i = 0; $i<8 ; ++$i){
+                if(strcmp($request->chosenCourse, $courses[$i])){
+                    $value = false;
+                    break; //se o curso estiver correto o valor false é dado para na condição de redirecionamento não se concretize
+                }
+            }
+            if($value){
+                return view('/autenticacao.registerstudent')->with('msgerror', '*Campo Obrigatório');
+            }
+            //final da condição
+            if(!str_contains($request->pessEmail, '@alunos.estgoh.ipc.pt')){ //verifica se o email é institucional no servidor
                 return view('/autenticacao.registerstudent')->with('msgmail', 'Email de aluno tem de ser institucional');
             }
-            if(strlen($request->chosenCourse) == 0){
+            if(strlen($request->chosenCourse) == 0){ //mesmo que na primeira verifique a possibilidade de campo vazio esta opção fica por segunda segurança (layer security)
                 return view('/autenticacao.registerstudent')->with('msgerror', '*Campo Obrigatório');
             }
             $user->USER_COURSE = $request->chosenCourse;
@@ -197,6 +208,16 @@ class AutenticationController extends Controller
             $user->USER_FPERM = 0;
         } 
         else if($request->typeUser == "admindocente"){ //campos especificos de admin que é docente
+            $courses = ["lsti", "lei", "lm", "lgb", "lg", "lca", "ldrot", "lii"];
+            for($i = 0; $i<8 ; ++$i){
+                if(strcmp($request->cursoInput, $courses[$i])){
+                    $value = false;
+                    break; //se o curso estiver correto o valor false é dado para na condição de redirecionamento não se concretize
+                }
+            }
+            if($value){
+                return view('/autenticacao.registeradmin')->with('msgerror', '*Campo Obrigatório');
+            }
             $user->USER_COURSE =  $request->cursoInput;
             $user->USER_TYPE = "admindocente";
             $user->USER_ADDRESS = "";
@@ -238,4 +259,9 @@ class AutenticationController extends Controller
     {
         return view('main');
     }
+
+    public function termandconditions(){
+        return view("autenticacao.termandconditions");
+    }
+
 }

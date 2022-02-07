@@ -84,6 +84,11 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -98,7 +103,11 @@
 																			<span id="spanTextPessEmail">
 																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																			<br>Principal forma de contacto utilizada pelo GEA.
 																		</td>
 																	</tr>
@@ -114,6 +123,11 @@
 																			<span id="spanPassword">
 																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -129,7 +143,11 @@
 																			<span id="spanCheckPassword">
 																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -144,7 +162,11 @@
 																			<span id="spanTextContact">
 																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -159,7 +181,11 @@
 																			<span id="spanTextAddress">
 																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -167,13 +193,19 @@
 																		<td class="label" style="width:29%">
 																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
 																			</span>
+																			@if(session('msgerror'))
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
+																			@endif
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Li e Aceito os <a href="#">termos e condições</a>
+																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
 																		</td>
+
 																	</tr>
 																</tbody>
 															</table>
@@ -207,7 +239,7 @@
 														<td>
 															
 															<input type="submit" value="Registar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+															<a type="submit" class="button buttonBack" href="/login">Cancelar</a>
 														</td>
 													</tr>
 												</tbody>
