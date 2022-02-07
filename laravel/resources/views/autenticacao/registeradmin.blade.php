@@ -151,12 +151,14 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<select name="cursoDocente" id="cursoDocente" class="inputText" onchange="saveValue()">
-																				<option value="Sistemas e Tecnologias da Informação">Sistemas e Tecnologias da Informação</option>
-																				<option value="Engenharia Informática">Engenharia Informática</option>
-																				<option value="Marketing">Marketing</option>
-																				<option value="Finanças">Finanças</option>
-																				<option value="Gestão">Gestão</option>
-																				<option value="Contabilidade">Contabilidade</option>
+																				<option value="lsti">Sistemas e Tecnologias da Informação</option>
+																				<option value="lei">Engenharia Informática</option>
+																				<option value="lm">Marketing</option>
+																				<option value="lgb">Gestão Bioindústria</option>
+																				<option value="lg">Gestão</option>
+																				<option value="lca">Contabilidade</option>
+																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
+																				<option value="lii">Informática Industrial </option>
 																			</select>
 
 																		</td>
@@ -253,15 +255,19 @@
 
 		if(flag){
 			cursoInput.value = value;
+			console.log(cursoInput.value);
 		} else {
 			cursoInput.value = "";
 		}
 	}
 
+
 	function utilizadordocente() {
 		var cb = document.getElementById("checkTermDocente");
 		var curso = document.getElementById("tabelaEscondida");
 		var typeUser = document.getElementById("typeUser");
+		var cursoInput = document.getElementById("cursoInput");
+
 
 		if (cb.checked == true) {
 			curso.style.display = "";

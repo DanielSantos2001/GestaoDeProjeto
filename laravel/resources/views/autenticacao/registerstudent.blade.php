@@ -176,12 +176,14 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<select name="chosenCourse" id="idcourse" class="inputText">
-																				<option value="Sistemas e Tecnologias da Informação" selected="selected">Sistemas e Tecnologias da Informação</option>
-																				<option value="Engenharia Informática">Engenharia Informática</option>
-																				<option value="Marketing">Marketing</option>
-																				<option value="Finanças">Finanças</option>
-																				<option value="Gestão">Gestão</option>
-																				<option value="Contabilidade">Contabilidade</option>
+																				<option value="lsti" selected="selected">Sistemas e Tecnologias da Informação</option>
+																				<option value="lei">Engenharia Informática</option>
+																				<option value="lm">Marketing</option>
+																				<option value="lgb">Gestão Bioindústria</option>
+																				<option value="lg">Gestão</option>
+																				<option value="lca">Contabilidade</option>
+																				<option value="ldrot">Desenvolvimento Regional e Ordenamento do Território</option>
+																				<option value="lii">Informática Industrial </option>
 																			</select>
 																			@if(session('msgerror'))
 																			<span style="color: red">
