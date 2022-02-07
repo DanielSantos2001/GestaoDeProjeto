@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="navtableLight">
-    <a href="#">
+    <a href="/main">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
             Início
             <span class="arrow"></span>
@@ -62,22 +62,22 @@
                                     {{$user->USER_MAIL}}
                                 </td>
                             </tr>
-                            @if(Session::get('usertype') == 'estudante')
+                            @if($user->USER_TYPE == 'estudante')
                             <tr>
                                 <td class="label">
                                     Curso:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ Session::get('usercourse') }}
+                                    {{ $user->USER_COURSE }}
                                 </td>
                             </tr>
-                            @elseif(Session::get('usertype') == 'empresa')
+                            @elseif($user->USER_TYPE == 'empresa')
                             <tr>
                                 <td class="label">
                                     Contacto:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ $info['contacto'] }}
+                                    {{ $user->USER_CONTACT}}
                                 </td>
                             </tr>
                             <tr>
@@ -85,7 +85,7 @@
                                     Morada:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ $info['morada'] }}
+                                    {{ $user->USER_ADDRESS }}
                                 </td>
                             </tr>
                             @endif
