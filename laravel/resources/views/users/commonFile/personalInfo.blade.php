@@ -3,6 +3,18 @@
 @section('title', 'Informação Pessoal')
 
 @section('content')
+
+@php
+$course = ['LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
+          'LEI' => 'Licenciatura de Engenharia Informatica',
+          'LAM' => 'Licenciatura em Administração e Marketing',
+          'LGB' => 'Licenciatura de Gestão em Bioindústria',
+          'LG' => 'Licenciatura em Gestão',
+          'LCA' => 'Licenciatura em Contabilidade e Administração',
+          'LDROT' => 'Licenciatura em Desenvolvimento Regional e Ordenamento do Território',
+          'LII' => 'Licenciatura de Informática Industrial'];
+@endphp
+
 <div class="navtableLight">
     <a href="/main">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
@@ -27,7 +39,7 @@
                                     Informação Pessoal
                                 </td>
                                 <td class="zonelinks">
-                                    <a href="#" class="botaodetalhes"><span>Alterar Palavra-chave</span></a>
+                                    <a href="/main/perfil/changepassword" class="botaodetalhes"><span>Alterar Palavra-chave</span></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -43,7 +55,7 @@
                                     Nome Completo:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                    {{$user->USER_NAME}}
+                                    {{ $user->USER_NAME }}
                                 </td>
                             </tr>
                             <tr>
@@ -59,7 +71,7 @@
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                    {{$user->USER_MAIL}}
+                                    {{ $user->USER_MAIL }}
                                 </td>
                             </tr>
                             @if($user->USER_TYPE == 'estudante')
@@ -68,7 +80,7 @@
                                     Curso:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ $user->USER_COURSE }}
+                                    {{ $course[$user->USER_COURSE] }}
                                 </td>
                             </tr>
                             @elseif($user->USER_TYPE == 'empresa')

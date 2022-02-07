@@ -77,9 +77,8 @@
         <div id="flxContainer" style="display: block;">
             <div class="flxContainer" id="areaMenuConteudo">
                 <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
-                    <div class="menuTitle handMouseCursor" onclick="window.location ='../main'">
+                    <div class="menuTitle handMouseCursor" onclick="window.location ='/main'">
                         <p>Menu</p>
-                        <a></a>
                     </div>
                     <ul class="menuGroup">
 

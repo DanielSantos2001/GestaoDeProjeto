@@ -3,19 +3,14 @@
 @section('title', 'Alterar Palavra-Chave')
 
 @section('content')
-
-@php
-$info = ['nome' => 'Nome do utilizador exemplo']
-@endphp
-
 <div class="navtableLight">
-    <a href="#">
+    <a href="/main">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
             Início
             <span class="arrow"></span>
         </span>
     </a>
-    <a href="#">
+    <a href="/main/perfil">
         <span style="z-index: 2;" class="lightArrow clickArrow">
             Informação Pessoal
             <span class="arrow"></span>
@@ -54,7 +49,7 @@ $info = ['nome' => 'Nome do utilizador exemplo']
                                     Utilizador:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ $info['nome'] }}
+                                    {{ Session::get('username') }}
                                 </td>
                             </tr>
                             <tr>
@@ -120,8 +115,14 @@ $info = ['nome' => 'Nome do utilizador exemplo']
                         <tbody>
                             <tr>
                                 <td>
-                                    <span id="spanSubmitTag" style="display:none;"><img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">&nbsp;&nbsp;A processar. Por favor aguarde.</span> <input type="submit" value="Alterar" onclick="escondeBotoesTagLib(this);" class="button buttonFront">
-                                    <input type="submit" name="org.apache.struts.taglib.html.CANCEL" value="Voltar" onclick="bCancel=true;" class="button buttonBack">
+                                    <span id="spanSubmitTag" style="display:none;">
+                                        <img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">
+                                        &nbsp;
+                                        &nbsp;
+                                        A processar. Por favor aguarde.
+                                    </span>
+                                    <input type="submit" value="Alterar" onclick="" class="button buttonFront">
+                                    <input type="button" value="Voltar" onclick="window.location='/main/perfil'" class="button buttonBack">
                                 </td>
                             </tr>
                         </tbody>

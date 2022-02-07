@@ -54,6 +54,8 @@ Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
 Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 
+Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
+
 Route::get('/preview', function () {
     return view('/users/teacher/createAta');
 });

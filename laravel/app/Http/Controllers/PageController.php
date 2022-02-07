@@ -30,4 +30,9 @@ class PageController extends Controller
             return view('users.admin.index');
         }
     }
+
+    public function alterarPassword()
+    {
+        return view('users.commonFile.changePassword');
+    }
 }
