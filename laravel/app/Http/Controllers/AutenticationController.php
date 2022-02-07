@@ -96,7 +96,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 1;
         $user->USER_FPERM = 0;
-        $user->USER_STATE = 0;
+        $user->USER_STATE = 1;
 
 
         $user->save();
@@ -118,7 +118,7 @@ class AutenticationController extends Controller
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 1;
         $user->USER_FPERM = 0;
-        $user->USER_STATE = 0;
+        $user->USER_STATE = 1;
 
 
         $user->save();
@@ -175,7 +175,7 @@ class AutenticationController extends Controller
         //fim de verificação de campos vazios de variaveis gerais
         /**Neste caso o utilizador pode tentar utilizar o inspection para enviar algo diferente mas esta condição verifica */
         if ($request->typeUser == "student") { //campos especificos de estudante
-            $courses = ["lsti", "lei", "lm", "lgb", "lg", "lca", "ldrot", "lii"];
+            $courses = ["LSTI", "LEI", "LM", "LGB", "LG", "LCA", "LDROT", "LII"];
             for($i = 0; $i<8 ; ++$i){
                 if(strcmp($request->chosenCourse, $courses[$i])){
                     $value = false;
@@ -218,7 +218,7 @@ class AutenticationController extends Controller
             $user->USER_FPERM = 0;
         } 
         else if($request->typeUser == "admindocente"){ //campos especificos de admin que é docente
-            $courses = ["lsti", "lei", "lm", "lgb", "lg", "lca", "ldrot", "lii"];
+            $courses = ["LSTI", "LEI", "LM", "LGB", "LG", "LCA", "LDROT", "LII"];
             for($i = 0; $i<8 ; ++$i){
                 if(strcmp($request->cursoInput, $courses[$i])){
                     $value = false;

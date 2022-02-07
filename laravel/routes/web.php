@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticationController;
-
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +44,4 @@ Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
 Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
 
-
+Route::get('/send-Email@confirm_student12322322', [MailController::class, 'sendEmailConfirmAcc']);
