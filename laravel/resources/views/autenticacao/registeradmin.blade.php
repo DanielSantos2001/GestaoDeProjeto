@@ -151,6 +151,7 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<select name="cursoDocente" id="cursoDocente" class="inputText" onchange="saveValue()">
+																				<!--<option value=0></option>-->
 																				<option value="lsti">Sistemas e Tecnologias da Informação</option>
 																				<option value="lei">Engenharia Informática</option>
 																				<option value="lm">Marketing</option>
@@ -206,8 +207,8 @@
 											<tr id="trBotaoPesquisar">
 												<td>
 
-													<input type="submit" value="Registar" class="button buttonFront" >
-													<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+													<input type="submit" value="Registar" class="button buttonFront">
+													<input type="button" name="cancelar" value="Cancelar" class="button buttonBack">
 												</td>
 											</tr>
 										</tbody>
@@ -253,9 +254,8 @@
 		value = document.getElementById("cursoDocente").value;
 		var cursoInput = document.getElementById("cursoInput");
 
-		if(flag){
+		if (flag) {
 			cursoInput.value = value;
-			console.log(cursoInput.value);
 		} else {
 			cursoInput.value = "";
 		}
@@ -266,18 +266,18 @@
 		var cb = document.getElementById("checkTermDocente");
 		var curso = document.getElementById("tabelaEscondida");
 		var typeUser = document.getElementById("typeUser");
+		var cursoDocente = document.getElementById("cursoDocente");
 		var cursoInput = document.getElementById("cursoInput");
-
 
 		if (cb.checked == true) {
 			curso.style.display = "";
 			typeUser.value = "admindocente";
+			cursoDocente.value = "lsti";
+			cursoInput.value = cursoDocente.value;
 			flag = true;
 		} else {
 			curso.style.display = "none";
 			typeUser.value = "admin"
 		}
 	}
-
-	
 </script>
