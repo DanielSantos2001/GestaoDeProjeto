@@ -3,15 +3,8 @@
 @section('title', 'Adicionar Ata')
 
 @section('content')
-
-@php
-$info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
-['date' => '02-02-02', 'descricao' => 'Ata 2'],
-['date' => '03-03-03', 'descricao' => 'Ata 3']];
-@endphp
-
 <div class="navtableLight">
-    <a href="#">
+    <a href="/main">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
             Início
             <span class="arrow"></span>
@@ -56,11 +49,11 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                                     Titulo:
                                 </td>
                                 <td class="cellcontent cellcontentwithinputtext">
-                                    <input type="text" value="" style="width:100%;" class="inputText">
+                                    <input type="text" value="" style="width:90%;" class="inputText">
                                 </td>
                             </tr>
                             <tr>
-                            <td class="label">
+                                <td class="label">
                                     <span class="mandatory">*</span>
                                     Data:
                                 </td>
@@ -74,7 +67,41 @@ $info = [['date' => '01-01-01', 'descricao' => 'Ata 1'],
                                     Descrição:
                                 </td>
                                 <td class="cellcontent cellcontentwithinputtext">
-                                    <textarea class="mceContentBody inputText" id="exampleFormControlTextarea1" rows="10" style="min-width:100px; width : 100%"></textarea>
+                                    <textarea class="mceContentBody inputText" id="exampleFormControlTextarea1" rows="10" style="min-width:100px; width:90%"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    Ficheiros:
+                                </td>
+                                <td class="cellcontent cellcontentwithinputtext">
+                                    <div class="form-group">
+                                        <input class="form-control-file" type="file" name="anexos" id="anexos">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="page">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="zoneformbuttons">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span id="spanSubmitTag" style="display:none;">
+                                        <img src="../images/progressIndicator.svg?v=1643324203147" align="absmiddle">
+                                        &nbsp;
+                                        &nbsp;
+                                        A processar. Por favor aguarde.
+                                    </span>
+                                    <input type="submit" value="Adicionar" onclick="" class="button buttonFront">
+                                    <input type="button" value="Cancelar" onclick="" class="button buttonBack">
                                 </td>
                             </tr>
                         </tbody>

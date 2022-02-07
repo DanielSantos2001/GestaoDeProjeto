@@ -4,6 +4,7 @@
 
 @section('content')
 
+<!-- TESTE -->
 @php
 $info = ['tipo' => 'Aluno',
          'date' => '01-01-01',
