@@ -55,9 +55,12 @@ Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'detai
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
 
 Route::get('/proposals/createProposal', function () {
-    return view('/proposals/createProposal');
+   return view('/proposals/createProposal');
 });
 
+Route::get('/proposals/createProposal1', function () {
+   return view('/proposals/createProposalNew');
+});
 
 Route::post('/proposals', [ProposalController::class, 'store']);
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
@@ -68,8 +71,8 @@ Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
 
 Route::get('/preview', function () {
-    return view('/users/admin/createNonTeacher');
+   return view('/users/admin/createNonTeacher');
 });
 
-route::post('/proposals/proposalDetails/{id}',[ProposalController::class, 'proposalApprove']);
-route::post('/proposals/proposalDetails/{id}/r',[ProposalController::class, 'proposalReject']);
+route::post('/proposals/proposalDetails/{id}', [ProposalController::class, 'proposalApprove']);
+route::post('/proposals/proposalDetails/{id}/r', [ProposalController::class, 'proposalReject']);
