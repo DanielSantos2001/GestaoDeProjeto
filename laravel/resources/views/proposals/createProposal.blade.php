@@ -55,6 +55,14 @@
                               </tr>
                               <tr>
                                 <div class="input-group mb-3 gea_relative">
+                                  <span class="input-group-text" id="titulo" style="margin-right: 1vw;">
+                                    <p class="asterisk_red">*</p>email da empresa
+                                  </span>
+                                  <input type="text" class="form-control gea-title-form" placeholder="emailEmpresa" name="emailEmpresa" aria-describedby="basic-addon1">
+                                </div>
+                              </tr>
+                              <tr>
+                                <div class="input-group mb-3 gea_relative">
                                   <span class="input-group-text gea_left_top" id="titulo" style="margin-right: 1vw">
                                     <p class="asterisk_red_description">*</p>Descrição
                                   </span>

@@ -42,6 +42,15 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td class="label" id="lblnome">
+                                    <span class="mandatory">*</span>
+                                    Email da empresa:
+                                </td>
+                                <td class="cellcontent cellcontentwithinputtext">
+                                    <input type="text" name="emailEmpresa" class="inputText">
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="label" id="lbldataNascimento">
                                     <span class="mandatory">*</span>
                                     Descrição:

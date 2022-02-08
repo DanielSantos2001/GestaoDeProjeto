@@ -1,4 +1,4 @@
-@if($tipo == 'Docente')
+@if (Session::get('usertype') == 'docente')
 <li class="menuItem">
 <span class="menuItemTitle">
         Administrador
@@ -49,7 +49,7 @@
                 Minhas Propostas
             </li>
         </a>
-        <a href="">
+        <a href="/proposals/createProposal1">
             <li class="">
                 Criar Estágio
             </li>
