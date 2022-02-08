@@ -43,6 +43,8 @@ use App\Http\Controllers\ProposalController;
 //Route::get('/', [ProposalController::class, 'index']);
 
 
+Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'details']);
+
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
 
 Route::get('/proposals/createProposal', function () {
@@ -55,3 +57,6 @@ Route::get('/proposals/createProposal1', function () {
 
 Route::post('/proposals', [ProposalController::class, 'store']);
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
+
+route::post('/proposals/proposalDetails/{id}', [ProposalController::class, 'proposalApprove']);
+route::post('/proposals/proposalDetails/{id}/r', [ProposalController::class, 'proposalReject']);
