@@ -11,8 +11,14 @@
 }
 
 
-.contentLoginContainerA {
-    background-image: url("/img/uni.png");
+.fundo {
+    background-image: url("/img/uni.jpg");
+	opacity: 0.7;
+}
+
+.tituloSeccaoLoginA {
+	font-size: 3.3rem;
+
 }
 
 

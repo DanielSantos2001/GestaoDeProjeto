@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticationController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,8 @@ Route::get('/registeradmin', [AutenticationController::class, 'registeradmin']);
 
 Route::post('/users.create.acccompany', [AutenticationController::class, 'createAccCompany']);
 Route::post('/users.create.accstudent', [AutenticationController::class, 'createAccStudent']);
+Route::post('/users.create.accadmin', [AutenticationController::class, 'createAccAdmin']);
+Route::post('/users.create.accadmindocente', [AutenticationController::class, 'createAccAdminDocente']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
 Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
@@ -41,6 +43,10 @@ Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 use App\Http\Controllers\ProposalController;
 
 //Route::get('/', [ProposalController::class, 'index']);
+Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
+
+Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']); 
+
 
 
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);

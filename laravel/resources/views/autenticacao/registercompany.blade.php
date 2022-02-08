@@ -8,7 +8,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<a href="">
+							<a href="login">
 								<img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
 
 							</a>
@@ -41,7 +41,7 @@
 
 
 				<div class="navtableLight">
-					<a href="../security/init.do"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
+					<a href="login"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
 					<span style="z-index: 1;" class=" lastArrow">Registo<span class="arrow"></span></span>
 					<br>
 				</div>
@@ -62,7 +62,10 @@
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
 							@csrf
-							
+							@php
+							$msgerror=$msgerror ?? 'Default value';
+							$msgpass = $msgpass ?? 'Default value';
+							@endphp
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -84,6 +87,12 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -98,7 +107,12 @@
 																			<span id="spanTextPessEmail">
 																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																			<br>Principal forma de contacto utilizada pelo GEA.
 																		</td>
 																	</tr>
@@ -114,6 +128,17 @@
 																			<span id="spanPassword">
 																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -127,9 +152,19 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span id="spanCheckPassword">
-																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
+																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
 																			</span>
-
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -144,7 +179,12 @@
 																			<span id="spanTextContact">
 																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -159,7 +199,12 @@
 																			<span id="spanTextAddress">
 																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
 																			</span>
-
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																		</td>
 																	</tr>
 
@@ -167,13 +212,21 @@
 																		<td class="label" style="width:29%">
 																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
 																			</span>
+																			
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Li e Aceito os <a href="#">termos e condições</a>
+																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 																		</td>
+
 																	</tr>
 																</tbody>
 															</table>
@@ -207,7 +260,7 @@
 														<td>
 															
 															<input type="submit" value="Registar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+															<a class="button buttonBack" href="/login">Cancelar</a>
 														</td>
 													</tr>
 												</tbody>
@@ -242,3 +295,15 @@
 	</div>
 	</div>
 </body>
+
+<script>
+function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("pass2").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("register").disable = true;
+			alert("pass não iguais");
+		}
+	}
+</script>
