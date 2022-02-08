@@ -48,8 +48,6 @@ Route::get('/termandconditions', [AutenticationController::class, 'termandcondit
 
 Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']);
 
-
-
 Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'details']);
 
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
@@ -71,5 +69,5 @@ Route::get('/preview', function () {
     return view('/users/admin/createNonTeacher');
 });
 
-route::post('/proposals/proposalDetails/{id}',[ProposalController::class, 'proposalApprove']);
-route::post('/proposals/proposalDetails/{id}/r',[ProposalController::class, 'proposalReject']);
+route::post('/proposals/proposalDetails/{id}', [ProposalController::class, 'proposalApprove']);
+route::post('/proposals/proposalDetails/{id}/r', [ProposalController::class, 'proposalReject']);
