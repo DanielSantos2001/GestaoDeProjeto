@@ -15,12 +15,12 @@ class MailSender{
         $this->mail->isSMTP(); 
         $this->mail->Host = 'smtp.gmail.com'; 
         $this->mail->SMTPAuth = true; 
-        $this->mail->Username = 'gp2021grupob@gmail.com'; 
-        $this->mail->Password = 'exuvvsvbovlrojjy';
+        $this->mail->Username = 'gp2022grupob@gmail.com'; 
+        $this->mail->Password = 'hmgmtvulmrhzcxrc';
         $this->mail->SMTPSecure  = 'tls';
         $this->mail->SMTPSecure = 'tls'; 
         $this->mail->Port = 587;
-        $this->mail->setFrom('gp2021grupob@gmail.com', 'GEA'); 
+        $this->mail->setFrom('gp2022grupob@gmail.com', 'GEA'); 
         $this->mail->isHTML(true);
         $this->mail->addAddress($to); 
         $this->mail->Subject = $subject;

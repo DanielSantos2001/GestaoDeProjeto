@@ -44,4 +44,6 @@ Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
 Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
 
+Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']); 
+
 

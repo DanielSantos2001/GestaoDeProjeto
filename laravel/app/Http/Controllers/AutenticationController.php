@@ -83,14 +83,17 @@ class AutenticationController extends Controller
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 0;
-        $link = md5($request->email);
+            
+        $link = "<p>Informamos que foi criada uma conta com este email na plataforma GEA - Gestao de Estagios Academicos</p>
+        <br><p>Confirme no link este registo, caso não seja o responsavel por este registo entre em contato conosco e não ative a conta!</p>
+        <a href= http://127.0.0.1:8000/confirmlinkstudent/" . md5($request->email) . ">Clique aqui para ativar a sua conta</a>";
         $title = "Registo de Conta";
         
 
         $user->save();
         $mail = new MailSender();
-        //MailSenderFacade::mail("jorge.martins2323@gmail.com", $title, $link);
-        $mail->mail("gp2021grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
+        
+        $mail->mail("gp2022grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
        
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
@@ -286,6 +289,23 @@ class AutenticationController extends Controller
 
     public function termandconditions(){
         return view("autenticacao.termandconditions");
+    }
+
+    public function activateaccstudent($md5mail){ 
+        
+        $users = User::all();
+        
+        foreach($users as $user){
+            $md5usermail = md5($user->USER_MAIL);
+            if($md5usermail === $md5mail){
+                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_STATE'=>1));
+                
+                return redirect("/")->with('msg', 'Conta ativada com sucesso!');
+            }
+        }
+
+
+        return redirect("/")->with('msg', 'Ocorreu um Erro!');
     }
 
 }
