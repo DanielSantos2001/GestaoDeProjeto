@@ -55,10 +55,18 @@
                               </tr>
                               <tr>
                                 <div class="input-group mb-3 gea_relative">
+                                  <span class="input-group-text" id="titulo" style="margin-right: 1vw;">
+                                    <p class="asterisk_red">*</p>email da empresa
+                                  </span>
+                                  <input type="text" class="form-control gea-title-form" placeholder="emailEmpresa" name="emailEmpresa" aria-describedby="basic-addon1">
+                                </div>
+                              </tr>
+                              <tr>
+                                <div class="input-group mb-3 gea_relative">
                                   <span class="input-group-text gea_left_top" id="titulo" style="margin-right: 1vw">
                                     <p class="asterisk_red_description">*</p>Descrição
                                   </span>
-                                  <textarea name="descricao" rows="6" cols="30" style="resize: none;"></textarea>
+
                                   <!--<input type="text" class="form-control" placeholder="Descrição" name="descricao" aria-describedby="basic-addon1">-->
                                 </div>
                               </tr>
@@ -74,7 +82,11 @@
                               <tr>
 
                                 <div class="input-group mb-3">
-                                  <span class="input-group-text" id="vagas">Vagas</span>
+                                  <span class="input-group-text" id="vagas">
+                                    <span class="mandatory">
+                                      *
+                                    </span>Vagas
+                                  </span>
                                   <input type="number" class="form-control" placeholder="Numero de Vagas" name="vagas" aria-describedby="basic-addon1" min="1" step="1" max="20" data-bind="value:replyNumber">
                                 </div>
                               </tr>

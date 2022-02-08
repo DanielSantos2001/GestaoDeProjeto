@@ -25,11 +25,12 @@ class ProposalController extends Controller
   public function store(Request $request)
   {
     $proposals = new Proposal;
+    $idEmpresa = DB::table('users')->where('USER_MAIL',$request->emailEmpresa )->value('USER_ID');
 
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_APPROVED = 0;
     $proposals->PROP_USER_ID = Session('id');
-    $proposals->PROP_COMPANY_ID = Session('id');
+    $proposals->PROP_COMPANY_ID = $idEmpresa;
     $proposals->PROP_JOBS = $request->vagas;
     $proposals->PROP_COURSE = $request->curso;
     $proposals->PROP_DESCRIPTION = $request->descricao;

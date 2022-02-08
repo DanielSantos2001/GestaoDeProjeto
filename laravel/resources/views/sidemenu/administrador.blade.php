@@ -49,7 +49,7 @@
                 Minhas Propostas
             </li>
         </a>
-        <a href="">
+        <a href="/proposals/createProposal1">
             <li class="">
                 Criar Estágio
             </li>

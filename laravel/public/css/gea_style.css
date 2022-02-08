@@ -27,3 +27,12 @@
     margin-bottom: 15px;
     margin-top: 15px;
 }
+
+.text_area_descr {
+    width: 48vw;
+    height: 10vh;
+}
+
+#background_none {
+    background-color: #eef3f6;
+}
