@@ -1,39 +1,36 @@
 @extends('header')
-
 <body>
 	<script>
-		function verifyRegex(){
-			
+		function verifyRegex() {
+
 			var mail = String(document.getElementById("pessEmail").value);
-			if(String(mail).includes("@alunos.estgoh.ipc.pt")){
+			if (String(mail).includes("@alunos.estgoh.ipc.pt")) {
 				document.getElementById("warningJS").style.display = "none";
-			}else{
+			} else {
 				document.getElementById("warningJS").style.display = "inline";
 				document.getElementById("warningJS").style.color = "red";
 			}
-			
+
 		}
 
 		function checkPass() {
-		var pass = document.getElementById("pass").value;
-		var checkpass = document.getElementById("pass2").value;
+			var pass = document.getElementById("pass").value;
+			var checkpass = document.getElementById("pass2").value;
 
-		if(pass !== checkpass) {
-			document.getElementById("register").disable = true;
-			alert("pass não iguais");
+			if (pass !== checkpass) {
+				document.getElementById("register").disable = true;
+				alert("pass não iguais");
+			}
 		}
-	}
 	</script>
 	<div id="master">
 		<div id="header">
-
 			<table class="headerTable">
 				<tbody>
 					<tr>
 						<td>
 							<a href="login">
 								<img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
-
 							</a>
 						</td>
 						<td>
@@ -43,11 +40,9 @@
 										<td class="hidden-tablet hidden-phone">
 										</td>
 										<td class="hidden-phone">
-
 										</td>
 										<td>
 										</td>
-
 									</tr>
 								</tbody>
 							</table>
@@ -56,13 +51,8 @@
 				</tbody>
 			</table>
 		</div>
-
 		<div id="container" style="display: block;">
-
 			<div id="navigation">
-
-
-
 				<div class="navtableLight">
 					<a href="/"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
 					<span style="z-index: 1;" class=" lastArrow">Registo<span class="arrow"></span></span>
@@ -70,17 +60,12 @@
 				</div>
 				<br>
 			</div>
-
 			<div id="centralarea">
-
 				<div id="contextWithoutMenuWithContacts">
-
 				</div>
-
 				<div id="separatorsArea" class="separadorNoMenu">
 					<div id="separators">Registo On-line - Gestão de Estágios Académicos - Utilizador Estudante</div>
 				</div>
-
 				<div id="contentGlobal">
 					<div id="content" class="conteudo">
 						<form id="" method="post" action="/registerconfirm">
@@ -89,7 +74,6 @@
 							$msgerror=$msgerror ?? 'Default value';
 							$msgpass = $msgpass ?? 'Default value';
 							@endphp
-							
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -113,15 +97,12 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
-																			
+
 																		</td>
-																		
-																		
-																		
 																	</tr>
 																	<tr>
 																		<td class="label">
@@ -136,22 +117,21 @@
 																			</span>
 																			<br>Principal forma de contacto utilizada pelo GEA.
 																			<span id="warningJS" style="display: none">
-																			<br>*Use o seu E-mail institucional!
+																				<br>*Use o seu E-mail institucional!
 																			</span>
 																			@if(session('msgmail'))
-																				<span style="color: red">
-																					<br>*Use o seu E-mail institucional!
-																				</span>
+																			<span style="color: red">
+																				<br>*Use o seu E-mail institucional!
+																			</span>
 																			@endif
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																		</td>
 																	</tr>
-
 																	<tr>
 																		<td class="label" style="width:29%">
 																			<span class="mandatory" id="mandatorynome">
@@ -165,19 +145,18 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																			@if($msgpass == "As passwords não coincidem!")
-																				<span style="color: red">
+																			<span style="color: red">
 																				As passwords não coincidem!
-																				</span>
+																			</span>
 																			@endif
 
 																		</td>
 																	</tr>
-
 																	<tr>
 																		<td class="label" style="width:29%">
 																			<span class="mandatory" id="mandatorynome">
@@ -191,19 +170,18 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																			@if($msgpass == "As passwords não coincidem!")
-																				<span style="color: red">
+																			<span style="color: red">
 																				As passwords não coincidem!
-																				</span>
+																			</span>
 																			@endif
 
 																		</td>
 																	</tr>
-
 																	<tr>
 																		<td class="label" style="width:29%">
 																			<span class="mandatory" id="mandatorynome">
@@ -224,9 +202,9 @@
 																			</select>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 
 																		</td>
@@ -244,9 +222,9 @@
 																			Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																		</td>
 																	</tr>
@@ -280,7 +258,6 @@
 												<tbody>
 													<tr id="trBotaoPesquisar">
 														<td>
-															
 															<input type="submit" value="Registar" class="button buttonFront">
 															<a class="button buttonBack" href="/login">Cancelar</a>
 														</td>
@@ -302,7 +279,6 @@
 									<td>
 										<div style="margin-bottom: 10px;">Caso necessite de ajuda, por favor não hesite em contactar-nos:</div>
 										<div>gp2021grupob@gmail.com</div>
-
 									</td>
 								</tr>
 							</tbody>
@@ -311,10 +287,7 @@
 				</div>
 				<div class="clear">&nbsp;</div>
 			</div>
-
 		</div>
-
 	</div>
 	</div>
-	
 </body>
