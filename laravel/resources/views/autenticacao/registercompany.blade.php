@@ -269,7 +269,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="company">
+							<input type="hidden" name="typeUser" value="empresa">
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>
