@@ -35,4 +35,20 @@ class PageController extends Controller
     {
         return view('users.commonFile.changePassword');
     }
+
+    public static function cursoExtenso($c)
+    {
+        $course = [
+            'LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
+            'LEI' => 'Licenciatura de Engenharia Informatica',
+            'LAM' => 'Licenciatura em Administração e Marketing',
+            'LGB' => 'Licenciatura de Gestão em Bioindústria',
+            'LG' => 'Licenciatura em Gestão',
+            'LCA' => 'Licenciatura em Contabilidade e Administração',
+            'LDROT' => 'Licenciatura em Desenvolvimento Regional e Ordenamento do Território',
+            'LII' => 'Licenciatura de Informática Industrial'
+        ];
+
+        return $course[$c];
+    }
 }

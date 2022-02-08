@@ -4,17 +4,6 @@
 
 @section('content')
 
-@php
-$course = ['LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
-          'LEI' => 'Licenciatura de Engenharia Informatica',
-          'LAM' => 'Licenciatura em Administração e Marketing',
-          'LGB' => 'Licenciatura de Gestão em Bioindústria',
-          'LG' => 'Licenciatura em Gestão',
-          'LCA' => 'Licenciatura em Contabilidade e Administração',
-          'LDROT' => 'Licenciatura em Desenvolvimento Regional e Ordenamento do Território',
-          'LII' => 'Licenciatura de Informática Industrial'];
-@endphp
-
 <div class="navtableLight">
     <a href="/main">
         <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
@@ -80,7 +69,7 @@ $course = ['LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
                                     Curso:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    {{ $course[$user->USER_COURSE] }}
+                                    {{ App\Http\Controllers\PageController::cursoExtenso($user->USER_COURSE) }}
                                 </td>
                             </tr>
                             @elseif($user->USER_TYPE == 'empresa')
