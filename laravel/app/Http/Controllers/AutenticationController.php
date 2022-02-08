@@ -8,8 +8,15 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Session as FacadesSession;
 
+use App\Mail\MailSender;
+use App\Mail\MailSenderFacade;
+
+
+
 class AutenticationController extends Controller
 {
+    
+
     public function inspect()
     { //basicamente é para verificar se existe conta já com login iniciado ou não para enviar para a pagina inicial
         if (FacadesSession::get('id')!= null && FacadesSession::get('id') > 0) {
@@ -62,6 +69,7 @@ class AutenticationController extends Controller
 
     public function createAccStudent(Request $request)
     {
+        
         $user = new User;
         $hashpass = md5($request->userpass);
 
@@ -75,10 +83,15 @@ class AutenticationController extends Controller
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 0;
-
+        $link = md5($request->email);
+        $title = "Registo de Conta";
+        
 
         $user->save();
-
+        $mail = new MailSender();
+        //MailSenderFacade::mail("jorge.martins2323@gmail.com", $title, $link);
+        $mail->mail("gp2021grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
+       
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
 
