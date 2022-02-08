@@ -171,7 +171,7 @@
 																				@if($user->USER_COURSE == "LEI")
 																					<p>	Engenharia Informática </p>
 																				@endif
-																				@if($user->USER_COURSE == "LBG")
+																				@if($user->USER_COURSE == "LGB")
 																					<p>	Gestão Bioindústria </p>
 																				@endif
 																				@if($user->USER_COURSE == "LG")
@@ -211,7 +211,7 @@
 														<td>
 															
 															<input type="submit" value="Confirmar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+															<a class="button buttonBack" href="/login">Cancelar</a>
 														</td>
 													</tr>
 												</tbody>

@@ -31,7 +31,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<a href="">
+							<a href="login">
 								<img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
 
 							</a>
@@ -64,7 +64,7 @@
 
 
 				<div class="navtableLight">
-					<a href="../security/init.do"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
+					<a href="/"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
 					<span style="z-index: 1;" class=" lastArrow">Registo<span class="arrow"></span></span>
 					<br>
 				</div>
