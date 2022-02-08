@@ -48,17 +48,11 @@ Route::get('/termandconditions', [AutenticationController::class, 'termandcondit
 
 Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']);
 
-
-
 Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'details']);
 
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
 
 Route::get('/proposals/createProposal', function () {
-   return view('/proposals/createProposal');
-});
-
-Route::get('/proposals/createProposal1', function () {
    return view('/proposals/createProposalNew');
 });
 

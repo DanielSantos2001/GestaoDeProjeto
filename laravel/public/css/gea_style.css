@@ -1,38 +1,41 @@
-.asterisk_red {
-    color: red;
-    float: left;
-    margin: 0;
-    margin-top: 5px;
-    margin-right: 7px;
+.gea_flex_end {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.asterisk_red_description {
-    color: red;
-    float: left;
-    margin: 0;
-    margin-right: 7px;
+.img_prop {
+    border-radius: 10px;
+    width: 10vw;
+    height: auto;
 }
 
-.gea-title-form {
-    width: 50vw;
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    border-radius: 0.25em;
+    padding: 0.2em 0.8em;
+    font-weight: 600;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
 }
 
-.gea_left_top {
-    top: 0;
-    float: left;
+.custom-file-upload a:link,
+.custom-file-upload a:hover {
+    color: #000;
 }
 
-.gea_relative {
-    position: relative;
-    margin-bottom: 15px;
-    margin-top: 15px;
+.custom-file-upload {
+    color: #000;
+    background-color: #aabfc8;
 }
 
-.text_area_descr {
-    width: 48vw;
-    height: 10vh;
-}
-
-#background_none {
-    background-color: #eef3f6;
+.custom-file-upload:hover {
+    background-color: #839ba5;
+    color: #000;
 }

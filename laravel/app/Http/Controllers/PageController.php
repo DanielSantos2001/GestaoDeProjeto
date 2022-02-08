@@ -15,19 +15,25 @@ class PageController extends Controller
         return view('users.commonFile.personalInfo', ['user' => $user]);
     }
 
+    public static function buscarUtil($id)
+    {
+        $user = User::where('USER_ID', $id)->first();
+
+        return $user;
+    }
 
     public function definirPagina()
     {
+        if (Session::get('useradmin')) {
+            return view('users.admin.index');
+        }
+
         if (Session::get('usertype') == 'estudante') {
             return view('users.student.index');
         } elseif (Session::get('usertype') == 'docente') {
             return view('users.teacher.index');
         } elseif (Session::get('usertype') == 'empresa') {
             return view('users.business.index');
-        }
-
-        if (Session::get('useradmin')) {
-            return view('users.admin.index');
         }
     }
 
