@@ -50,8 +50,6 @@ Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'ac
 
 Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'details']);
 
-Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
-
 Route::get('/proposals/createProposal', function () {
    return view('/proposals/createProposalNew');
 });
