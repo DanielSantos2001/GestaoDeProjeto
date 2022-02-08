@@ -307,6 +307,7 @@ class AutenticationController extends Controller
                 return redirect("/")->with('msg', 'Conta ativada com sucesso!');
             }
         }
+        
 
 
         return redirect("/")->with('msg', 'Ocorreu um Erro!');
