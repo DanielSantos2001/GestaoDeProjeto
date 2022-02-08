@@ -49,5 +49,9 @@ Route::get('/proposals/createProposal', function () {
    return view('/proposals/createProposal');
 });
 
+Route::get('/proposals/createProposal1', function () {
+   return view('/proposals/createProposalNew');
+});
+
 Route::post('/proposals', [ProposalController::class, 'store']);
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
