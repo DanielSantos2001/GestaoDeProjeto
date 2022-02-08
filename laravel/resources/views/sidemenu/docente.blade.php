@@ -10,7 +10,7 @@
                 Acompanhamento de Estágio
             </li>
         </a>
-        <a href="">
+        <a href="/proposals/createProposal">
             <li class="">
                 Criar Proposta de Estágio
             </li>
