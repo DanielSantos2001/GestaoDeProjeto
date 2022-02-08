@@ -16,6 +16,7 @@ class ProposalController extends Controller
     return view('main', ['proposals' => $proposals]);
   }
 
+
   public function create()
   {
     return view('proposal.createProposal');
@@ -26,6 +27,9 @@ class ProposalController extends Controller
     $proposals = new Proposal;
 
     $proposals->PROP_TITLE = $request->titulo;
+    $proposals->PROP_APPROVED = 0;
+    $proposals->PROP_USER_ID = Session('id');
+    $proposals->PROP_COMPANY_ID = Session('id');
     $proposals->PROP_JOBS = $request->vagas;
     $proposals->PROP_COURSE = $request->curso;
     $proposals->PROP_DESCRIPTION = $request->descricao;
@@ -54,6 +58,30 @@ class ProposalController extends Controller
 
     $proposals->save();
 
-    return redirect('/');
+    return redirect('/main');
   }
+
+
+  public function details($id)
+  {
+
+    $proposal = Proposal::where('PROP_ID','=', $id)->first();
+
+    return view('proposals.proposalDetails', ['proposal' => $proposal]);
+  }
+
+    public function proposalApprove($id)
+    {
+        $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED'=>1]);
+
+        return redirect('/main')->with('msg','Proposta Aprovada!');
+    }
+
+    public function proposalReject($id)
+    {
+        $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED'=>2]);
+
+        return redirect('/main')->with('msg','Proposta Rejeitada.');
+    }
+
 }
