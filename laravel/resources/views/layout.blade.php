@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/mensagens.css">
     <link rel="stylesheet" href="/css/nonio_alunos.css">
     <link rel="stylesheet" href="/css/nonio_alunos2.css">
+    <link rel="stylesheet" href="/css/gea_style.css">
     <link rel="stylesheet" href="/css/obtemConteudoTextoLayoutInstituicao.css">
     <!-- Styles -->
 
