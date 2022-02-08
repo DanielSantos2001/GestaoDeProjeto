@@ -38,15 +38,15 @@ class ProposalController extends Controller
     $proposals->PROP_INTERESTED = 0;
 
 
-    if ($request->hasFile('image') && $request->file('image')->isValid()) {
+    if ($request->hasFile('imagecp') && $request->file('imagecp')->isValid()) {
 
-      $requestImage = $request->image;
+      $requestImage = $request->imagecp;
 
       $extension = $requestImage->extension();
 
       $imgName = $requestImage->getClientOriginalName() . "." . $extension;
 
-      $request->image->move(public_path('/img/proposals/'), $imgName);
+      $request->imagecp->move(public_path('/img/proposals/'), $imgName);
 
       $imgName = "/img/proposals/" . "$imgName";
 
@@ -55,7 +55,7 @@ class ProposalController extends Controller
       $proposals->PROP_PHOTO = "/img/proposals/default.jpg";
     }
 
-
+    //FILE
 
     $proposals->save();
 
@@ -66,23 +66,22 @@ class ProposalController extends Controller
   public function details($id)
   {
 
-    $proposal = Proposal::where('PROP_ID','=', $id)->first();
+    $proposal = Proposal::where('PROP_ID', '=', $id)->first();
 
     return view('proposals.proposalDetails', ['proposal' => $proposal]);
   }
 
-    public function proposalApprove($id)
-    {
-        $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED'=>1]);
+  public function proposalApprove($id)
+  {
+    $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED' => 1]);
 
-        return redirect('/main')->with('msg','Proposta Aprovada!');
-    }
+    return redirect('/main')->with('msg', 'Proposta Aprovada!');
+  }
 
-    public function proposalReject($id)
-    {
-        $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED'=>2]);
+  public function proposalReject($id)
+  {
+    $proposal = Proposal::where('PROP_ID', $id)->update(['PROP_APPROVED' => 2]);
 
-        return redirect('/main')->with('msg','Proposta Rejeitada.');
-    }
-
+    return redirect('/main')->with('msg', 'Proposta Rejeitada.');
+  }
 }
