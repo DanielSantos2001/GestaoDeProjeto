@@ -169,7 +169,12 @@ class AutenticationController extends Controller
         $user->USER_NAME = $request->pessNome;
         $user->USER_MAIL = $request->pessEmail;
         $user->USER_PWD = $request->passwd;
+        $usermail = User::where('USER_MAIL', $request->pessEmail)->first();
         //verificação de campos vazios de variaveis gerais
+        if($usermail !== null) {
+            return redirect("/")->with('msg', 'O Email que inseriu já tem conta!');
+
+        }
         if ($request->typeUser == "student") {
             if (strcmp($request->passwd, $request->checkPasswd) != 0) {
                 return view('/autenticacao.registerstudent')->with('msgpass', 'As passwords não coincidem!');
