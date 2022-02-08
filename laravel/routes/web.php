@@ -15,6 +15,12 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/forgotpassword2', [AutenticationController::class, 'pagemailforgotpass']);
+Route::get('/forgotpassword/{md5mail}', [AutenticationController::class, 'forgotpassword']);
+Route::post('/submitnewpassLinkMail', [AutenticationController::class, 'submitnewpassLinkMail']);
+Route::post('/submitlinkforgotpass', [AutenticationController::class, 'submitlinkforgotpass']);
+
+
 
 Route::get('/', [AutenticationController::class, 'inspect']);
 

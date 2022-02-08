@@ -313,4 +313,56 @@ class AutenticationController extends Controller
         return redirect("/")->with('msg', 'Ocorreu um Erro!');
     }
 
+    public function forgotpassword($md5mail){
+
+        $users = User::all();
+        
+        foreach($users as $user){
+            $md5usermail = md5($user->USER_MAIL);
+            if($md5usermail === $md5mail){ 
+                return view("/autenticacao.forgotpassword", ['tokerino'=>$md5mail]); //envio de email cripto
+            }
+
+        }
+        return redirect("/")->with('msg', 'Ocorreu um Erro!');
+    }
+
+    public function submitnewpassLinkMail(Request $request){
+
+        $users = User::all();
+        
+        foreach($users as $user){
+            $md5usermail = md5($user->USER_MAIL);
+            if($md5usermail === $request->token){ 
+                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_PWD'=>md5($request->novaPassword)));
+                return redirect("/")->with('msg', 'Alteração Realizada com Sucesso');
+            }
+
+        }
+        return redirect("/")->with('msg', 'Ocorreu um Erro!');
+    }
+
+    public function submitlinkforgotpass(Request $request){
+
+        $link = "<p>Informamos que foi solicitada uma nova password para este email na plataforma GEA - Gestao de Estagios Academicos</p>
+        <br><p>Ao clicar no link será redirecionado para a alteracao da mesma, caso não seja o responsavel por este pedido entre em contato conosco imediatamente!</p>
+        <a href= http://127.0.0.1:8000/forgotpassword/" . md5($request->mail) . ">Clique aqui para alterar a password da sua conta</a>";
+        $title = "Recuperar a sua password";
+
+        $mail = new MailSender();
+        
+        $mail->mail("gp2022grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
+       
+        return redirect("/")->with('msg', 'Link de recuperação enviado para o seu Email de autenticacão!');
+
+
+    }
+
+    public function pagemailforgotpass(){
+        return view("/autenticacao.forgotpasswordsendemail");
+    }
+
+    
+
+    
 }

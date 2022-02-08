@@ -76,7 +76,7 @@
                                                     <tr>
                                                         <td><br>
                                                             <input type="password" name="password" value="" id="password1" style="width: 100%" class="inputText" placeholder="Palavra-chave" required><br>
-                                                            <span class="logintableSpan"><a href="#" class="" bis_skin_checked="1"><span>Esqueceu-se da
+                                                            <span class="logintableSpan"><a href="/forgotpassword2" class="" bis_skin_checked="1"><span>Esqueceu-se da
                                                                         palavra-chave?</span></a></span>
 
                                                         </td>
