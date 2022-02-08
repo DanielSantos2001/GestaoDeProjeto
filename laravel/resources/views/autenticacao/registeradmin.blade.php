@@ -41,7 +41,7 @@
 
 
 				<div class="navtableLight">
-					<a href="../security/init.do"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
+					<a href="/"><span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">Início<span class="arrow"></span></span></a>
 					<span style="z-index: 1;" class=" lastArrow">Registo<span class="arrow"></span></span>
 					<br>
 				</div>
@@ -60,9 +60,13 @@
 
 				<div id="contentGlobal">
 					<div id="content" class="conteudo">
-						<form id="" method="post" action="/registerconfirm">
+						<form id="form" method="post" action="/registerconfirm">
 							@csrf
-							
+							@php
+							$msgerror=$msgerror ?? 'Default value';
+							$msgpass = $msgpass ?? 'Default value';
+							@endphp
+
 							<table class="page" style="padding: 0px;">
 								<tbody>
 									<tr>
@@ -84,6 +88,12 @@
 																			<span id="spanTextPessNome">
 																				<input type="text" name="pessNome" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
@@ -98,8 +108,14 @@
 																			<span id="spanTextPessEmail">
 																				<input type="text" name="pessEmail" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
-																			<br>Principal forma de contacto utilizada pelo GEA.
+																			<br><a style="color:grey;">Principal forma de contacto utilizada pelo GEA.</a>
 																		</td>
 																	</tr>
 
@@ -111,9 +127,21 @@
 																			Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
+																			<input type="password" id="pass" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			<span id="spanPassword">
-																				<input type="password" name="passwd" value="" style="width:80%;" class="inputText" required>
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
+
 
 																		</td>
 																	</tr>
@@ -126,89 +154,78 @@
 																			Confirmação Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanCheckPassword">
-																				<input type="password" name="checkPasswd" value="" style="width:80%;" class="inputText" required>
+																			
+																				<input type="password" id="pass2" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
+																				<span id="spanCheckPassword">
 																			</span>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
+																			@if($msgpass == "As passwords não coincidem!")
+																				<span style="color: red">
+																				As passwords não coincidem!
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
 
 																	<tr>
 																		<td class="label" style="width:29%">
-																			<span class="mandatory" id="mandatorynome">
-																				*
+																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTermDocente" onclick="utilizadordocente()">
 																			</span>
-																			Contacto:
 																		</td>
-																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanTextContact">
-																				<input type="text" name="contact" placeholder="eg. 919693238" style="width:80%;" class="inputText" required>
-																			</span>
-
+																		<td class="cellcontent cellcontentwithinputtext"> <br style="line-height:7px;">
+																			É um Utilizador Docente
 																		</td>
 																	</tr>
-
-																	<tr>
+																	<tr id="tabelaEscondida" style="display:none;">
 																		<td class="label" style="width:29%">
 																			<span class="mandatory" id="mandatorynome">
 																				*
 																			</span>
-																			Morada:
+																			Curso:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<span id="spanTextAddress">
-																				<input type="text" name="address" placeholder="eg. Rua Serafim Dias nº7" style="width:80%;" class="inputText" required>
-																			</span>
+																			<select name="cursoDocente" id="cursoDocente" class="inputText" onchange="saveValue()">
+																				<option value="LSTI">Sistemas e Tecnologias da Informação</option>
+																				<option value="LEI">Engenharia Informática</option>
+																				<option value="LM">Marketing</option>
+																				<option value="LGB">Gestão Bioindústria</option>
+																				<option value="LG">Gestão</option>
+																				<option value="LCA">Contabilidade</option>
+																				<option value="LDROT">Desenvolvimento Regional e Ordenamento do Território</option>
+																				<option value="LII">Informática Industrial </option>
+																			</select>
+																			<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
 
 																		</td>
 																	</tr>
 
-																	
-																		<td class="label" style="width:29%">
-																			<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
-																			</span>
-																		</td>
-																		<td class="cellcontent cellcontentwithinputtext">
-																			<span class="mandatory" id="mandatorynome">
-																				*
-																			</span>
-																			Li e Aceito os <a href="#">termos e condições</a>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table class="zonemandatory" style="margin-left: 29%;">
-												<tbody>
-													<tr>
-														<td>
-															<span class="mandatory" id="lblmandatorySymbol">
-																*
-															</span>
-															<label id="lblmandatory">Campos de preenchimento obrigatório.</label>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table class="zoneformbuttons" style="margin-left: 29%;">
-												<tbody>
-													<tr id="trBotaoPesquisar">
-														<td>
-															
-															<input type="submit" value="Registar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
-														</td>
+																	<td class="label" style="width:29%">
+																		<span><input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
+																		</span>
+																	</td>
+																	<td class="cellcontent cellcontentwithinputtext"> <br style="line-height:8px;">
+																		<span class="mandatory" id="mandatorynome">
+																			*
+																		</span>
+																		Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
+																		<br>
+																			@if($msgerror == "*Campo Obrigatório")
+																				<span style="color: red">
+																					*Campo Obrigatório
+																				</span>
+																			@endif
+																	</td>
 													</tr>
 												</tbody>
 											</table>
@@ -216,7 +233,44 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="typeUser" value="company">
+							</td>
+							</tr>
+							<tr>
+								<td>
+									<table class="zonemandatory" style="margin-left: 29%;">
+										<tbody>
+											<tr>
+												<td>
+													<span class="mandatory" id="lblmandatorySymbol">
+														*
+													</span>
+													<label id="lblmandatory">Campos de preenchimento obrigatório.</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table class="zoneformbuttons" style="margin-left: 29%;">
+										<tbody>
+											<tr id="trBotaoPesquisar">
+												<td>
+
+													<input type="submit" id= "register" value="Registar" class="button buttonFront" >
+													<a class="button buttonBack" href="/login">Cancelar</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							</tbody>
+							</table>
+							<input id="typeUser" type="hidden" name="typeUser" value="admin">
+							<input id="cursoInput" type="hidden" name="cursoInput" value="">
+
 						</form>
 						<div id="calendar" style="visibility: hidden;"></div>
 					</div>
@@ -242,3 +296,49 @@
 	</div>
 	</div>
 </body>
+
+<script>
+	var value = "";
+	var flag = false;
+
+	function saveValue() {
+		value = document.getElementById("cursoDocente").value;
+		var cursoInput = document.getElementById("cursoInput");
+
+		if (flag) {
+			cursoInput.value = value;
+		} else {
+			cursoInput.value = "";
+		}
+	}
+
+
+	function utilizadordocente() {
+		var cb = document.getElementById("checkTermDocente");
+		var curso = document.getElementById("tabelaEscondida");
+		var typeUser = document.getElementById("typeUser");
+		var cursoDocente = document.getElementById("cursoDocente");
+		var cursoInput = document.getElementById("cursoInput");
+
+		if (cb.checked == true) {
+			curso.style.display = "";
+			typeUser.value = "admindocente";
+			cursoDocente.value = "lsti";
+			cursoInput.value = cursoDocente.value;
+			flag = true;
+		} else {
+			curso.style.display = "none";
+			typeUser.value = "admin"
+		}
+	}
+
+	function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("pass2").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("register").disable = true;
+			alert("pass não iguais");
+		}
+	}
+</script>
