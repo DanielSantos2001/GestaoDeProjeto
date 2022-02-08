@@ -1,6 +1,6 @@
-@if (Session::get('usertype') == 'docente')
+@if(Session::get('usertype') == 'docente' )
 <li class="menuItem">
-<span class="menuItemTitle">
+    <span class="menuItemTitle">
         Administrador
     </span>
     <ul class="menu-list">

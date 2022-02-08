@@ -15,6 +15,12 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/forgotpassword2', [AutenticationController::class, 'pagemailforgotpass']);
+Route::get('/forgotpassword/{md5mail}', [AutenticationController::class, 'forgotpassword']);
+Route::post('/submitnewpassLinkMail', [AutenticationController::class, 'submitnewpassLinkMail']);
+Route::post('/submitlinkforgotpass', [AutenticationController::class, 'submitlinkforgotpass']);
+
+
 
 Route::get('/', [AutenticationController::class, 'inspect']);
 
@@ -48,17 +54,11 @@ Route::get('/termandconditions', [AutenticationController::class, 'termandcondit
 
 Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']);
 
-
-
 Route::get('/proposals/proposalDetails/{id}', [ProposalController::class, 'details']);
 
 Route::get('/proposals/createProposal', [ProposalController::class, 'create']);
 
 Route::get('/proposals/createProposal', function () {
-   return view('/proposals/createProposal');
-});
-
-Route::get('/proposals/createProposal1', function () {
    return view('/proposals/createProposalNew');
 });
 
