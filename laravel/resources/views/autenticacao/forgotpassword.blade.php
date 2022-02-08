@@ -1,25 +1,8 @@
-@extends('main')
+@extends('header')
 
-@section('title', 'Criar Não Docente')
-
-@section('content')
-<div class="navtableLight">
-    <a href="/main">
-        <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
-            Início
-            <span class="arrow"></span>
-        </span>
-    </a>
-    <span style="z-index: 1;" class=" lastArrow">
-        Criar Não Docente
-        <span class="arrow"></span>
-    </span>
-    <br>
-</div>
-<br>
 <div id="context" class="contextOverflow"></div>
 <div id="content">
-    <form id="" method="post" action="">
+    <form action="/submitnewpassLinkMail" method="post">
         @csrf
         <table class="page zone">
             <tbody>
@@ -29,7 +12,7 @@
                             <tbody>
                                 <tr>
                                     <td class="subtitle">
-                                        Criar Não Docente
+                                        Alterar Palavra-Chave
                                     </td>
                                 </tr>
                             </tbody>
@@ -42,35 +25,16 @@
                             <tbody>
                                 <tr>
                                     <td class="label">
-                                        <span class="mandatory" id="mandatorycodigo4">
-                                            *
-                                        </span>
-                                        Nome Completo:
-                                    </td>
-                                    <td class="cellcontent cellcontentwithinputtext">
-                                        <input type="text" name="name" value="" style="width:70%;" class="inputText">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label">
-                                        <span class="mandatory" id="mandatorycodigo4">
-                                            *
-                                        </span>
-                                        E-mail:
-                                    </td>
-                                    <td class="cellcontent cellcontentwithinputtext">
-                                        <input type="text" name="email" value="" style="width:50%;" class="inputText">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label">
                                         <span class="mandatory" id="mandatorycodigo3">
                                             *
                                         </span>
-                                        Palavra-chave:
+                                        Nova Palavra-chave:
                                     </td>
                                     <td class="cellcontent cellcontentwithinputtext">
-                                        <input type="password" name="password" value="" style="width:40%;" class="inputText">
+                                        <input type="password" name="novaPassword" value="" style="width:100%;"
+                                            class="inputText">
+                                        Deve ter 8 ou mais caracteres, pelo menos uma letra maiúscula, uma minúscula e
+                                        pelo menos um número.
                                     </td>
                                 </tr>
                                 <tr>
@@ -81,17 +45,8 @@
                                         Confirme a Palavra-chave:
                                     </td>
                                     <td class="cellcontent cellcontentwithinputtext">
-                                        <input type="password" name="confirmacaoPassword" value="" style="width:40%;" class="inputText">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="label">
-                                        <span>
-                                            <input type="checkbox" name="checkTerms" value="true" id="checkTerm" required>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        Premissões de Administrador
+                                        <input type="password" name="confirmacaoPassword" value="" style="width:100%;"
+                                            class="inputText">
                                     </td>
                                 </tr>
                             </tbody>
@@ -122,8 +77,8 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="submit" value="Registar" onclick="" class="button buttonFront">
-                                        <input type="button" value="Cancelar" onclick="" class="button buttonBack">
+                                        <input type="submit" value="Alterar" onclick="" class="button buttonFront">
+                                        <a href="\login" class="button buttonBack">Voltar</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -132,6 +87,6 @@
                 </tr>
             </tbody>
         </table>
+        <input type="hidden" name="token" value="{{$tokerino}}">
     </form>
 </div>
-@endsection
