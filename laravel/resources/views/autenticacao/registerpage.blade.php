@@ -7,7 +7,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href="">
+                        <a href="login">
                             <img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
                         </a>
                     </td>

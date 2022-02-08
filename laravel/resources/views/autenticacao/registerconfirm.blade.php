@@ -211,7 +211,7 @@
 														<td>
 															
 															<input type="submit" value="Confirmar" class="button buttonFront">
-															<input type="submit" name="CANCEL" value="Cancelar" onclick="bCancel=true;" class="button buttonBack">
+															<a class="button buttonBack" href="/login">Cancelar</a>
 														</td>
 													</tr>
 												</tbody>
