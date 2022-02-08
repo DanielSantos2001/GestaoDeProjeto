@@ -58,7 +58,7 @@
                                   <span class="input-group-text gea_left_top" id="titulo" style="margin-right: 1vw">
                                     <p class="asterisk_red_description">*</p>Descrição
                                   </span>
-                                  <textarea name="descricao" rows="6" cols="30" style="resize: none;" class="text_area_descr"></textarea>
+
                                   <!--<input type="text" class="form-control" placeholder="Descrição" name="descricao" aria-describedby="basic-addon1">-->
                                 </div>
                               </tr>
