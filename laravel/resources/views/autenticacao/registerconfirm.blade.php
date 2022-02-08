@@ -171,7 +171,7 @@
 																				@if($user->USER_COURSE == "LEI")
 																					<p>	Engenharia Informática </p>
 																				@endif
-																				@if($user->USER_COURSE == "LBG")
+																				@if($user->USER_COURSE == "LGB")
 																					<p>	Gestão Bioindústria </p>
 																				@endif
 																				@if($user->USER_COURSE == "LG")

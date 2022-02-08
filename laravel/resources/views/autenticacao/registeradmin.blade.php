@@ -195,7 +195,7 @@
 																				<option value="LEI">Engenharia Informática</option>
 																				<option value="LM">Marketing</option>
 																				<option value="LGB">Gestão Bioindústria</option>
-																				<option value="LB">Gestão</option>
+																				<option value="LG">Gestão</option>
 																				<option value="LCA">Contabilidade</option>
 																				<option value="LDROT">Desenvolvimento Regional e Ordenamento do Território</option>
 																				<option value="LII">Informática Industrial </option>
