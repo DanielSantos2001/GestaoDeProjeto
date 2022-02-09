@@ -61,7 +61,7 @@ Route::get('/proposals/createProposal', function () {
 
 Route::post('/proposals', [ProposalController::class, 'store']);
 
-Route::post('/destalhes', [ProposalController::class, 'details']);
+Route::post('/detalhes', [ProposalController::class, 'details']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
@@ -74,5 +74,5 @@ Route::get('/preview', function () {
    return view('/users/admin/createNonTeacher');
 });
 
-route::post('/proposals/proposalDetails/{id}', [ProposalController::class, 'proposalApprove']);
-route::post('/proposals/proposalDetails/{id}/r', [ProposalController::class, 'proposalReject']);
+route::post('/{id}', [ProposalController::class, 'proposalApprove']);
+route::post('/{id}/r', [ProposalController::class, 'proposalReject']);

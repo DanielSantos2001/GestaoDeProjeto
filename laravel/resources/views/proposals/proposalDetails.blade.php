@@ -1,94 +1,112 @@
-@extends('layout')
+@extends('main')
 
-@section('title', 'Detalhes da Proposta de Estágio')
+@section('title', 'Criar Proposta de Estágio ')
 
 @section('content')
-<div class="containermain">
 
-  <table class="page">
-    <tbody>
-      <tr>
-        <td>
-          <table style="width: 70%" class="zone">
+<div class="navtableLight">
+    <a href="/main">
+        <span id="spanPrimeiroElementoBarraNavegacao" class="darkArrow clickArrow" style="z-index: 100;">
+            Início
+            <span class="arrow"></span>
+        </span>
+    </a>
+    <span style="z-index: 1;" class=" lastArrow">
+        Detalhes de Proposta de Estágio
+        <span class="arrow"></span>
+    </span>
+    <br>
+</div>
+<br>
+<div id="context" class="contextOverflow"></div>
+<div id="content">
+
+        <table class="page zone">
             <tbody>
-              <tr>
-                <td>
-                  <table class="horizontalline">
-                    <tbody>
-                      <tr>
-                        <td class="subtitle">
-                          <label>{{$proposal->PROP_TITLE}}</label>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table class="zonecontent">
-                    <tbody>
-                      <tr>
-                        <td>
-
-                          <table cellpadding="8" cellspacing="8" style="width: 100%" class="displaytable">
-
+                <tr>
+                    <td>
+                        <table class="horizontalline">
                             <tbody>
                               <tr>
-                                <td class="label">ESTADO:</td>
-                                <td class="cellcontentLarge">
-                                  @if ($proposal->PROP_APPROVED == 0) Pendente
-                                  @elseif ($proposal->PROP_APPROVED == 1) Aprovada
-                                  @else Rejeitada
-                                  @endif </td>
-                                <td rowspan="6" class="cellcontentSmall"> <img src="{{$proposal->PROP_PHOTO}}" width="128" height="128"></td>
-
+                                <td class="subtitle">{{$proposal->PROP_TITLE}}</td>
                               </tr>
-
-                              <tr>
-                                <td class="label">Número de Interessados:</td>
-                                <td class="cellcontentLarge">{{$proposal->PROP_INTERESTED}}</td>
-                              </tr>
-
-                              <tr>
-                                <td class="label">Descrição:</td>
-                                <td class="cellcontentLarge">{{$proposal->PROP_DESCRIPTION}}</td>
-                              </tr>
-                              @if ($proposal->PROP_APPROVED==0)
-
-
-                              <tr>
-                                <td rowspan="1" class="zoneLinks">
-                                  <form class="" action="{{$proposal->PROP_ID}}" method="post">
-                                    @csrf
-                                    <button type="submit" name="button" class="botaodetalhes">Aceitar</button>
-                                  </form>
-                                  <!--<a href="#" class="botaodetalhes"><span>Aceitar</span></a>-->
-                                </td>
-                                <td rowspan="1" class="zoneLinks">
-                                  <form class="" action="{{$proposal->PROP_ID}}/r" method="post">
-                                    @csrf
-                                    <button type="submit" name="button" class="botaodetalhes">Rejeitar</button>
-                                  </form>
-                                  <!--<a href="#" class="botaodetalhes"><span>Rejeitar</span></a> -->
-                                </td>
-                              </tr>
-                              @endif
                             </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="zonecontent">
+                            <tbody>
+
+                                <tr>
+                                    <td class="label">
+                                        Estado:
+                                    </td>
+                                    <td class="cellcontent cellcontentwithinputtext">
+                                        <span class="mandatory">
+                                          Pendente
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">
+                                        Número de Interessados:
+                                    </td>
+                                    <td class="cellcontent cellcontentwithinputtext">
+                                      {{$proposal->PROP_INTERESTED}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">
+                                        Descrição:
+                                    </td>
+                                    <td class="cellcontent cellcontentwithinputtext">
+                                      {{$proposal->PROP_DESCRIPTION}}
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="gea_flex_end">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="{{$proposal->PROP_PHOTO}}" id="prop_img_c" class="img_prop">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="gea_flex_end">
+                        <table class="zoneformbuttons ">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                      <form action="{{$proposal->PROP_ID}}" method="POST" >
+                                          @csrf
+                                        <input type="submit" value="Aprovar" class="button buttonFront">
+                                        </form>
+                                      </td>
+
+                                      <td>
+                                        <form action="{{$proposal->PROP_ID}}/r" method="POST" >
+                                            @csrf
+                                        <input type="submit" value="Rejeitar" action="{{$proposal->PROP_ID}}/r" class="button buttonBack">
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
             </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </table>
+
+
+
 </div>
-
-
 @endsection
