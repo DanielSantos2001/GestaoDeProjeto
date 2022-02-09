@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Proposal extends Model
 {
   public $timestamps = false;
-    use HasFactory;
+  use HasFactory;
+}
+
+class Attachments extends Model
+{
+  public $timestamps = false;
+  use HasFactory;
 }
