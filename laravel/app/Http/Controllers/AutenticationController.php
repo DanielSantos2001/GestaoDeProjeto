@@ -112,7 +112,7 @@ class AutenticationController extends Controller
         $user->USER_MAIL = $request->email;
         $user->USER_PWD = $hashpass;
         $user->USER_COURSE = "";
-        $user->USER_TYPE = "admin";
+        $user->USER_TYPE = "ndocente";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 1;
@@ -134,7 +134,7 @@ class AutenticationController extends Controller
         $user->USER_MAIL = $request->email;
         $user->USER_PWD = $hashpass;
         $user->USER_COURSE = $request->usercourse;
-        $user->USER_TYPE = "admindocente";
+        $user->USER_TYPE = "docente";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
         $user->USER_ADMIN = 1;
