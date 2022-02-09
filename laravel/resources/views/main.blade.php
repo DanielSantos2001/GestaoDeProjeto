@@ -73,7 +73,48 @@
             </table>
         </div>
 
-        @yield('content')
+        <div id="flxContainer" style="display: block;">
+            <div class="flxContainer" id="areaMenuConteudo">
+                <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
+                    <div class="menuTitle handMouseCursor" onclick="window.location ='/main'">
+                        <p>Menu</p>
+                    </div>
+                    <ul class="menuGroup">
+
+                        @if(Session::get('useradmin'))
+                        @include('sideMenu.admin')
+                        @endif
+
+                        @if(Session::get('usertype') == 'estudante')
+                        @include('sideMenu.aluno')
+                        @elseif(Session::get('usertype') == 'docente' && !Session::get('useradmin'))
+                        @include('sideMenu.docente')
+                        @elseif(Session::get('usertype') == 'empresa')
+                        @include('sideMenu.empresa')
+                        @endif
+
+                        <div style="position: relative; bottom:0;">
+                            <ul class="menuGroup">
+                                <li class="menuItem">
+                                    <ul class="menu-list" style="list-style: none;">
+                                        <li>
+                                            <a onclick="abrirEcraModalPrivacidade();">
+                                                <span class="hand" id="politicaPrivacidade">Política de Privacidade</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+                <div class="containermain">
+                    <div class="wrap">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="footer">
             <div class="footerTable">
