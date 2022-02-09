@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 use App\Models\Proposal;
 
+use App\Models\Attachments;
+
+use Illuminate\Support\Facades\DB;
 
 class ProposalController extends Controller
 {
@@ -18,17 +20,18 @@ class ProposalController extends Controller
     return $proposals;
   }
 
+
   public function create()
   {
     return view('proposal.createProposal');
   }
 
+
+
   public function store(Request $request)
   {
     $proposals = new Proposal;
     $idEmpresa = DB::table('users')->where('USER_MAIL', $request->emailEmpresa)->value('USER_ID');
-    if (!empty($idEmpresa)){
-
 
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_APPROVED = 0;
@@ -60,16 +63,47 @@ class ProposalController extends Controller
 
     //FILE
 
+
+
     $proposals->save();
+
+
+    $id = $proposals->id;
+
+    if ($request->hasFile('fileSaver')) {
+
+      $files = $request->file('fileSaver');
+
+      foreach ($files as $file) {
+
+        $att = new Attachments;
+
+        $requestFile = $file;
+
+        $fileName = $requestFile->getClientOriginalName() . "." . $requestFile->extension();;
+
+        $file->move(public_path('/img/proposals/'), $fileName);
+
+        $fileName = "/img/proposals/" . "$fileName";
+
+        $att->ATT_PATH = $fileName;
+        $att->PROP_ID = $id;
+        $att->save();
+      }
+    }
+
+
 
     return redirect('/main');
   }
-  }
 
-  public function details(Request $request)
+
+
+
+  public function details($id)
   {
 
-    $proposal = Proposal::where('PROP_ID', $request->idProposal)->first();
+    $proposal = Proposal::where('PROP_ID', '=', $id)->first();
 
     return view('proposals.proposalDetails', ['proposal' => $proposal]);
   }
