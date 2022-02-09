@@ -127,8 +127,10 @@
 																			Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			<input type="password" id="pass" name="passwd" value="" style="width:80%;" class="inputText" required>
-																			<span id="spanPassword">
+																			<input type="password" id="pass" name="passwd" style="width:80%;" class="inputText" required>
+																			<br>
+																			<span style="color: red;display:none;" id="span1">
+																				As passwords não coincidem!
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
@@ -155,10 +157,10 @@
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
 																			
-																				<input type="password" id="pass2" name="checkPasswd" value="" style="width:80%;" class="inputText" onchange="checkPass()" required>
-																				<span id="spanCheckPassword">
-																			</span>
-																			<br>
+																				<input type="password" id="pass2" name="checkPasswd" style="width:80%;" class="inputText" onblur="checkPass()" required>
+																				<br><span style="color: red;display:none;" id="span2">
+																					As passwords não coincidem!
+																				</span>
 																			@if($msgerror == "*Campo Obrigatório")
 																				<span style="color: red">
 																					*Campo Obrigatório
@@ -332,13 +334,21 @@
 		}
 	}
 
-	function checkPass() {
+		
+        function checkPass() {
 		var pass = document.getElementById("pass").value;
 		var checkpass = document.getElementById("pass2").value;
 
 		if(pass !== checkpass) {
-			document.getElementById("register").disable = true;
-			alert("pass não iguais");
+			document.getElementById("span1").style.display="block";
+            document.getElementById("span2").style.display="block";
+            document.getElementById("register").setAttribute("disabled","disabled");
+		}else{
+            document.getElementById("span1").style.display="none";
+            document.getElementById("span2").style.display="none";
+            document.getElementById("register").removeAttribute("disabled");
+        }
 		}
-	}
+    
+	
 </script>
