@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Proposal;
 
+use Illuminate\Support\Facades\DB;
+
 class ProposalController extends Controller
 {
   public static function index()
@@ -25,7 +27,7 @@ class ProposalController extends Controller
   public function store(Request $request)
   {
     $proposals = new Proposal;
-    $idEmpresa = DB::table('users')->where('USER_MAIL',$request->emailEmpresa )->value('USER_ID');
+    $idEmpresa = DB::table('users')->where('USER_MAIL', $request->emailEmpresa)->value('USER_ID');
 
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_APPROVED = 0;
