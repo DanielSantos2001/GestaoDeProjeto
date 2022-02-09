@@ -19,7 +19,7 @@ class PageController extends Controller
     {
         $user = User::where('USER_ID', $id)->first();
 
-        return $user;
+        return $user->USER_NAME;
     }
 
     public function definirPagina()
