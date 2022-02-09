@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Proposal;
 
+use Illuminate\Support\Facades\DB;
+
 class ProposalController extends Controller
 {
   public static function index()
