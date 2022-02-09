@@ -80,11 +80,11 @@
                                                                                 value="{{ $proposal->PROP_ID }}">
                                                                         </td>
 
-
                                                                         <td class="contentRight" style="width: 10%">
                                                                             <button class="botaodetalhes" type="submit">
                                                                                 Detalhes</button>
                                                                         </td>
+                                                                        
                                                                     </form>
                                                                 </tr>
                                                             @endif
