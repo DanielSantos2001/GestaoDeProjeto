@@ -10,7 +10,6 @@
 						<td>
 							<a href="">
 								<img src="/img/IPC-PRETO.png" class="hidden-phone hidden-tablet header-normal" border="0">
-
 							</a>
 						</td>
 						<td>
@@ -87,6 +86,7 @@
 							<input type="hidden" name="username" value="{{$user->USER_NAME}}">
 							<input type="hidden" name="email" value="{{$user->USER_MAIL}}">
 							<input type="hidden" name="userpass" value="{{$user->USER_PWD}}">
+							<input type="hidden" name="admin" value="{{$user->USER_ADMIN}}">
 							@if($user->USER_TYPE == "estudante")
 								<input type="hidden" name="usercourse" value="{{$user->USER_COURSE}}">
 							@endif

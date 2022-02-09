@@ -44,6 +44,10 @@ Route::post('/users.create.accadmin', [AutenticationController::class, 'createAc
 Route::post('/users.create.accadmindocente', [AutenticationController::class, 'createAccAdminDocente']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
+Route::post('/users.registerconfirm', [AutenticationController::class, 'registerconfirmMain']);
+
+Route::post('/users.create.docente', [AutenticationController::class, 'createAccAdminDocente']);
+
 Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
@@ -71,8 +75,10 @@ Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
 
 Route::get('/preview', function () {
-   return view('/users/admin/createNonTeacher');
+   return view('users/admin/createNonTeacher');
 });
 
 route::post('/{id}', [ProposalController::class, 'proposalApprove']);
 route::post('/{id}/r', [ProposalController::class, 'proposalReject']);
+
+Route::get('/createDocente', [PageController::class, 'createDocente']);

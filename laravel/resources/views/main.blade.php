@@ -81,16 +81,16 @@
                     </div>
                     <ul class="menuGroup">
 
-                        @if(Session::get('useradmin'))
-                        @include('sideMenu.admin')
-                        @endif
-
                         @if(Session::get('usertype') == 'estudante')
                         @include('sideMenu.aluno')
-                        @elseif(Session::get('usertype') == 'docente' && !Session::get('useradmin'))
+                        @elseif(Session::get('usertype') == 'docente')
                         @include('sideMenu.docente')
                         @elseif(Session::get('usertype') == 'empresa')
                         @include('sideMenu.empresa')
+                        @endif
+
+                        @if(Session::get('useradmin'))
+                        @include('sideMenu.admin')
                         @endif
 
                         <div style="position: relative; bottom:0;">

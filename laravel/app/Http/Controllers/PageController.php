@@ -24,16 +24,16 @@ class PageController extends Controller
 
     public function definirPagina()
     {
-        if (Session::get('useradmin')) {
-            return view('users.admin.index');
-        }
-
         if (Session::get('usertype') == 'estudante') {
             return view('users.student.index');
         } elseif (Session::get('usertype') == 'docente') {
             return view('users.teacher.index');
         } elseif (Session::get('usertype') == 'empresa') {
             return view('users.business.index');
+        }
+
+        if (Session::get('useradmin')) {
+            return view('users.admin.index');
         }
     }
 
@@ -56,5 +56,9 @@ class PageController extends Controller
         ];
 
         return $course[$c];
+    }
+
+    public function createDocente() {
+        return view('users/admin/createTeacher');
     }
 }

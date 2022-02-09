@@ -90,9 +90,9 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 
 																		</td>
@@ -110,9 +110,9 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 
 																			<br><a style="color:grey;">Principal forma de contacto utilizada pelo GEA.</a>
@@ -134,14 +134,14 @@
 																			</span>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																			@if($msgpass == "As passwords não coincidem!")
-																				<span style="color: red">
+																			<span style="color: red">
 																				As passwords não coincidem!
-																				</span>
+																			</span>
 																			@endif
 
 
@@ -156,20 +156,20 @@
 																			Confirmação Palavra-Chave:
 																		</td>
 																		<td class="cellcontent cellcontentwithinputtext">
-																			
-																				<input type="password" id="pass2" name="checkPasswd" style="width:80%;" class="inputText" onblur="checkPass()" required>
-																				<br><span style="color: red;display:none;" id="span2">
-																					As passwords não coincidem!
-																				</span>
+
+																			<input type="password" id="pass2" name="checkPasswd" style="width:80%;" class="inputText" onblur="checkPass()" required>
+																			<br><span style="color: red;display:none;" id="span2">
+																				As passwords não coincidem!
+																			</span>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 																			@if($msgpass == "As passwords não coincidem!")
-																				<span style="color: red">
+																			<span style="color: red">
 																				As passwords não coincidem!
-																				</span>
+																			</span>
 																			@endif
 
 																		</td>
@@ -204,9 +204,9 @@
 																			</select>
 																			<br>
 																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
+																			<span style="color: red">
+																				*Campo Obrigatório
+																			</span>
 																			@endif
 
 																		</td>
@@ -222,11 +222,11 @@
 																		</span>
 																		Li e Aceito os <a href="/termandconditions" target="_black">termos e condições</a>
 																		<br>
-																			@if($msgerror == "*Campo Obrigatório")
-																				<span style="color: red">
-																					*Campo Obrigatório
-																				</span>
-																			@endif
+																		@if($msgerror == "*Campo Obrigatório")
+																		<span style="color: red">
+																			*Campo Obrigatório
+																		</span>
+																		@endif
 																	</td>
 													</tr>
 												</tbody>
@@ -260,7 +260,7 @@
 											<tr id="trBotaoPesquisar">
 												<td>
 
-													<input type="submit" id= "register" value="Registar" class="button buttonFront" >
+													<input type="submit" id="register" value="Registar" class="button buttonFront">
 													<a class="button buttonBack" href="/login">Cancelar</a>
 												</td>
 											</tr>
@@ -334,21 +334,19 @@
 		}
 	}
 
-		
-        function checkPass() {
+
+	function checkPass() {
 		var pass = document.getElementById("pass").value;
 		var checkpass = document.getElementById("pass2").value;
 
-		if(pass !== checkpass) {
-			document.getElementById("span1").style.display="block";
-            document.getElementById("span2").style.display="block";
-            document.getElementById("register").setAttribute("disabled","disabled");
-		}else{
-            document.getElementById("span1").style.display="none";
-            document.getElementById("span2").style.display="none";
-            document.getElementById("register").removeAttribute("disabled");
-        }
+		if (pass !== checkpass) {
+			document.getElementById("span1").style.display = "block";
+			document.getElementById("span2").style.display = "block";
+			document.getElementById("register").setAttribute("disabled", "disabled");
+		} else {
+			document.getElementById("span1").style.display = "none";
+			document.getElementById("span2").style.display = "none";
+			document.getElementById("register").removeAttribute("disabled");
 		}
-    
-	
+	}
 </script>

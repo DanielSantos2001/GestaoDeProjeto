@@ -53,6 +53,7 @@ $info = [['nome' => 'Configurar Redes', 'alunos' => 3],
                                             <tr>
                                                 <th class="cellheaderleft">Estágio</th>
                                                 <th class="cellheader">Interessados</th>
+                                                <th class="cellheader">Estado</th>
                                                 <th class="cellheader">&nbsp;</th> <!-- Para botão de detalhes -->
                                             </tr>
                                         </thead>
@@ -60,7 +61,8 @@ $info = [['nome' => 'Configurar Redes', 'alunos' => 3],
                                             @foreach($info as $data)
                                             <tr class="lightrow">
                                                 <td class="contentLeft">{{ $data['nome'] }}</td>
-                                                <td class="contentCenter" style="width: 30%">{{ $data['alunos'] }} Alunos</td>
+                                                <td class="contentCenter" style="width: 20%">{{ $data['alunos'] }} Alunos</td>
+                                                <td class="contentCenter" style="width: 15%;">Ativo</td>
                                                 <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="#">Detalhes</a></td>
                                             </tr>
                                             @endforeach
