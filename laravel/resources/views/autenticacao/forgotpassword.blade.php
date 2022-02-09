@@ -32,9 +32,12 @@
                                     </td>
                                     <td class="cellcontent cellcontentwithinputtext">
                                         <input type="password" name="novaPassword" value="" style="width:100%;"
-                                            class="inputText">
-                                        Deve ter 8 ou mais caracteres, pelo menos uma letra maiúscula, uma minúscula e
-                                        pelo menos um número.
+                                            class="inputText" id="pass">
+                                            <br>
+                                            <span style="color: red;display: none;" id="span1">
+                                                *Palavras Pass não Coincidem
+                                            </span>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -46,7 +49,11 @@
                                     </td>
                                     <td class="cellcontent cellcontentwithinputtext">
                                         <input type="password" name="confirmacaoPassword" value="" style="width:100%;"
-                                            class="inputText">
+                                            class="inputText" id="confirmpass" onblur="checkPass()">
+                                            <br>
+                                            <span style="color: red; display: none;" id="span2">
+                                                *Palavras Pass não Coincidem
+                                            </span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -77,7 +84,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="submit" value="Alterar" onclick="" class="button buttonFront">
+                                        <input type="submit" value="Alterar" onclick="" class="button buttonFront" id="buttonSubmit">
                                         <a href="\login" class="button buttonBack">Voltar</a>
                                     </td>
                                 </tr>
@@ -89,4 +96,20 @@
         </table>
         <input type="hidden" name="token" value="{{$tokerino}}">
     </form>
+    <script>
+        function checkPass() {
+		var pass = document.getElementById("pass").value;
+		var checkpass = document.getElementById("confirmpass").value;
+
+		if(pass !== checkpass) {
+			document.getElementById("span1").style.display="block";
+            document.getElementById("span2").style.display="block";
+            document.getElementById("buttonSubmit").setAttribute("disabled","disabled");
+		}else{
+            document.getElementById("span1").style.display="none";
+            document.getElementById("span2").style.display="none";
+            document.getElementById("buttonSubmit").removeAttribute("disabled");
+        }
+	}
+    </script>
 </div>
