@@ -73,54 +73,7 @@
             </table>
         </div>
 
-        <!-- colocar no yield -->
-
-        <div id="flxContainer" style="display: block;">
-            <div class="flxContainer" id="areaMenuConteudo">
-                <div class="menu hidden-tablet hidden-phone" style="min-height: 900px;">
-                    <div class="menuTitle handMouseCursor" onclick="window.location ='/main'">
-                        <p>Menu</p>
-                    </div>
-                    <ul class="menuGroup">
-
-                        <!-- codigo a mais -->
-
-                        @if(Session::get('usertype') == 'estudante')
-                        @include('sidemenu.aluno')
-                        @elseif(Session::get('usertype') == 'docente')
-                        @include('sidemenu.docente')
-                        @elseif(Session::get('usertype') == 'empresa')
-                        @include('sidemenu.empresa')
-                        @endif
-
-                        @if(Session::get('useradmin'))
-                        @include('sidemenu.administrador')
-                        @endif
-
-                        <div style="position: relative; bottom:0;">
-                            <ul class="menuGroup">
-                                <li class="menuItem">
-                                    <ul class="menu-list" style="list-style: none;">
-                                        <li>
-                                            <a onclick="abrirEcraModalPrivacidade();">
-                                                <span class="hand" id="politicaPrivacidade">Política de Privacidade</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </ul>
-                </div>
-                <div class="containermain">
-                    <div class="wrap">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- colocar no yield (fim)-->
+        @yield('content')
 
         <div class="footer">
             <div class="footerTable">

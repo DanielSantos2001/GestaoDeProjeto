@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Proposal;
+
+use Illuminate\Support\Facades\DB;
 
 class ProposalController extends Controller
 {
@@ -16,7 +19,6 @@ class ProposalController extends Controller
     return $proposals;
   }
 
-
   public function create()
   {
     return view('proposal.createProposal');
@@ -25,7 +27,7 @@ class ProposalController extends Controller
   public function store(Request $request)
   {
     $proposals = new Proposal;
-    $idEmpresa = DB::table('users')->where('USER_MAIL',$request->emailEmpresa )->value('USER_ID');
+    $idEmpresa = DB::table('users')->where('USER_MAIL', $request->emailEmpresa)->value('USER_ID');
 
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_APPROVED = 0;
@@ -62,11 +64,10 @@ class ProposalController extends Controller
     return redirect('/main');
   }
 
-
-  public function details($id)
+  public function details(Request $request)
   {
 
-    $proposal = Proposal::where('PROP_ID', '=', $id)->first();
+    $proposal = Proposal::where('PROP_ID', $request->id)->first();
 
     return view('proposals.proposalDetails', ['proposal' => $proposal]);
   }

@@ -17,13 +17,13 @@ class AutenticationController extends Controller
 
     public function inspect()
     { //basicamente é para verificar se existe conta já com login iniciado ou não para enviar para a pagina inicial
-       
+
         $count = User::count();
-      
-        
+
+
         if (FacadesSession::get('id') != null && FacadesSession::get('id') > 0) {
             return view('main');
-        } else if($count === 0){
+        } else if ($count === 0) {
             return view("autenticacao.registeradmin");
         } else {
             return view('autenticacao.log');
@@ -88,7 +88,7 @@ class AutenticationController extends Controller
         $user->USER_ADMIN = 0;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 0;
-            
+
         $link = "<p>Informamos que foi criada uma conta com este email na plataforma GEA - Gestao de Estagios Academicos</p>
         <br><p>Confirme no link este registo, caso não seja o responsavel por este registo entre em contato conosco e não ative a conta!</p>
         <a href= http://127.0.0.1:8000/confirmlinkstudent/" . md5($request->email) . ">Clique aqui para ativar a sua conta</a>";
@@ -97,9 +97,9 @@ class AutenticationController extends Controller
 
         $user->save();
         $mail = new MailSender();
-        
+
         $mail->mail("gp2022grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
-       
+
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
 
@@ -171,9 +171,8 @@ class AutenticationController extends Controller
         $user->USER_PWD = $request->passwd;
         $usermail = User::where('USER_MAIL', $request->pessEmail)->first();
         //verificação de campos vazios de variaveis gerais
-        if($usermail !== null) {
+        if ($usermail !== null) {
             return redirect("/")->with('msg', 'O Email que inseriu já tem conta!');
-
         }
         if ($request->typeUser == "student") {
             if (strcmp($request->passwd, $request->checkPasswd) != 0) {
@@ -303,54 +302,56 @@ class AutenticationController extends Controller
         return view("autenticacao.termandconditions");
     }
 
-    public function activateaccstudent($md5mail){ 
-        
+    public function activateaccstudent($md5mail)
+    {
+
         $users = User::all();
-        
-        foreach($users as $user){
+
+        foreach ($users as $user) {
             $md5usermail = md5($user->USER_MAIL);
-            if($md5usermail === $md5mail){
-                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_STATE'=>1));
-                
+            if ($md5usermail === $md5mail) {
+                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_STATE' => 1));
+
                 return redirect("/")->with('msg', 'Conta ativada com sucesso!');
             }
         }
-        
+
 
 
         return redirect("/")->with('msg', 'Ocorreu um Erro!');
     }
 
-    public function forgotpassword($md5mail){
+    public function forgotpassword($md5mail)
+    {
 
         $users = User::all();
-        
-        foreach($users as $user){
-            $md5usermail = md5($user->USER_MAIL);
-            if($md5usermail === $md5mail){ 
-                return view("/autenticacao.forgotpassword", ['tokerino'=>$md5mail]); //envio de email cripto
-            }
 
+        foreach ($users as $user) {
+            $md5usermail = md5($user->USER_MAIL);
+            if ($md5usermail === $md5mail) {
+                return view("/autenticacao.forgotpassword", ['tokerino' => $md5mail]); //envio de email cripto
+            }
         }
         return redirect("/")->with('msg', 'Ocorreu um Erro!');
     }
 
-    public function submitnewpassLinkMail(Request $request){
+    public function submitnewpassLinkMail(Request $request)
+    {
 
         $users = User::all();
-        
-        foreach($users as $user){
+
+        foreach ($users as $user) {
             $md5usermail = md5($user->USER_MAIL);
-            if($md5usermail === $request->token){ 
-                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_PWD'=>md5($request->novaPassword)));
+            if ($md5usermail === $request->token) {
+                User::where('USER_MAIL', $user->USER_MAIL)->update(array('USER_PWD' => md5($request->novaPassword)));
                 return redirect("/")->with('msg', 'Alteração Realizada com Sucesso');
             }
-
         }
         return redirect("/")->with('msg', 'Ocorreu um Erro!');
     }
 
-    public function submitlinkforgotpass(Request $request){
+    public function submitlinkforgotpass(Request $request)
+    {
 
         $link = "<p>Informamos que foi solicitada uma nova password para este email na plataforma GEA - Gestao de Estagios Academicos</p>
         <br><p>Ao clicar no link será redirecionado para a alteracao da mesma, caso não seja o responsavel por este pedido entre em contato conosco imediatamente!</p>
@@ -358,19 +359,14 @@ class AutenticationController extends Controller
         $title = "Recuperar a sua password";
 
         $mail = new MailSender();
-        
+
         $mail->mail("gp2022grupob@gmail.com", $title, $link); //está a enviar para gp apenas por teste, no primeiro campo será inserido o email $request->email <<<<-------- 
-       
+
         return redirect("/")->with('msg', 'Link de recuperação enviado para o seu Email de autenticacão!');
-
-
     }
 
-    public function pagemailforgotpass(){
+    public function pagemailforgotpass()
+    {
         return view("/autenticacao.forgotpasswordsendemail");
     }
-
-    
-
-    
 }
