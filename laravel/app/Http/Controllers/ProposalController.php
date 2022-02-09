@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Proposal;
 
-use Illuminate\Support\Facades\DB;
 
 class ProposalController extends Controller
 {
@@ -28,6 +27,8 @@ class ProposalController extends Controller
   {
     $proposals = new Proposal;
     $idEmpresa = DB::table('users')->where('USER_MAIL', $request->emailEmpresa)->value('USER_ID');
+    if (!empty($idEmpresa)){
+
 
     $proposals->PROP_TITLE = $request->titulo;
     $proposals->PROP_APPROVED = 0;
@@ -63,11 +64,12 @@ class ProposalController extends Controller
 
     return redirect('/main');
   }
+  }
 
   public function details(Request $request)
   {
 
-    $proposal = Proposal::where('PROP_ID', $request->id)->first();
+    $proposal = Proposal::where('PROP_ID', $request->idProposal)->first();
 
     return view('proposals.proposalDetails', ['proposal' => $proposal]);
   }

@@ -149,7 +149,7 @@
                                                             </thead>
                                                             <tbody>
 
-                                                                <form id="destalhesEstagio" method="post" action="/destalhes">
+                                                                <form id="detalhesEstagio" method="POST" action="/detalhes">
                                                                     @csrf
 
                                                                     @foreach ($proposals as $proposal)
@@ -160,11 +160,11 @@
                                                                             {{App\Http\Controllers\PageController::buscarUtil($proposal->PROP_COMPANY_ID)}}
                                                                         </td>
                                                                         <td class="contentCenter" style="width: 30%">{{$proposal->PROP_DESCRIPTION}}</td>
-                                                                        <td class="contentCenter" style="width: 30%">Pendete</td>
+                                                                        <td class="contentCenter" style="width: 30%">Pendente</td>
                                                                         <td class="contentCenter" style="width: 30%">
-                                                                            <input type="hidden" name="id" value="{{$proposal->PROP_ID}}">
+                                                                            <input type="hidden" name="idProposal" value="{{$proposal->PROP_ID}}">
                                                                         </td>
-                                                                        <td class="contentRight" style="width: 10%"><a class="botaodetalhes" href="/destalhes"> Detalhes</a></td>
+                                                                        <td class="contentRight" style="width: 10%"><button class="botaodetalhes" href="/detalhes" type="submit"> Detalhes</buton></td>
                                                                     </tr>
                                                                     @endif
                                                                     @endforeach
