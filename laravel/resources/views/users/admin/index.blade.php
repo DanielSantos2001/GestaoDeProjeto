@@ -15,7 +15,7 @@
                             <tbody>
                                 <tr>
                                     <td class="subtitle">
-                                        Propostas de Estágio
+                                        Propostas de Estágio (Pendente)
                                     </td>
                                     <td class="contentRight">
                                         <a href="">

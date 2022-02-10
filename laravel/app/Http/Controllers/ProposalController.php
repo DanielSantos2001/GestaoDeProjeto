@@ -14,7 +14,6 @@ class ProposalController extends Controller
 {
   public static function index()
   {
-
     $proposals = Proposal::all();
 
     return $proposals;
