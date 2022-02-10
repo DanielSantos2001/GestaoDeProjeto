@@ -53,6 +53,19 @@
                                             <input type="text" id="titulo" name="titulo" style="width:80%;" class="inputText">
                                         </td>
                                     </tr>
+                                    @if(Session::get('usertype') == 'empresa')
+                                    <tr>
+                                        <td class="label">
+                                            <span class="mandatory" id="mandatorycodigo4">
+                                                *
+                                            </span>
+                                            Email de Empresa:
+                                        </td>
+                                        <td class="cellcontent cellcontentwithinputtext">
+                                            <input type="text" name="emailEmpresa" value="{{Session::get('usermail')}}" id="emailEmpresa" style="width:80%;" class="inputText" disabled>
+                                        </td>
+                                    </tr>
+                                    @else
                                     <tr>
                                         <td class="label">
                                             <span class="mandatory" id="mandatorycodigo4">
@@ -64,6 +77,7 @@
                                             <input type="text" name="emailEmpresa" id="emailEmpresa" style="width:80%;" class="inputText">
                                         </td>
                                     </tr>
+                                    @endif
                                     <tr>
                                         <td class="label">
                                             <span class="mandatory" id="mandatorycodigo4">
