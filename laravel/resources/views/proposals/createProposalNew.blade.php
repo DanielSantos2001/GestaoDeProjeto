@@ -158,7 +158,7 @@
                                             Ficheiro(s):
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
-                                            <input class="form-control-file" type="file" name="fileSaver[]" id="fileSaver" multiple style="width:80%;">
+                                            <input class="form-control-file" type="file" name="fileSaver[]" id="fileSaver" multiple style="width:80%;" accept=".doc,.docx,.pdf">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -175,7 +175,7 @@
                                     <tr>
                                         <td style="text-align: center;">
                                             <label class="custom-file-upload">
-                                                <input type="file" name="imagecp" id="imagecp" style="display: none;" class="custom-file-upload">
+                                                <input type="file" name="imagecp" id="imagecp" style="display: none;" class="custom-file-upload" accept="image/png, image/gif, image/jpeg">
                                                 Adicionar Fotografia
                                             </label>
 

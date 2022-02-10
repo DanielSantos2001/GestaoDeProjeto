@@ -124,10 +124,10 @@ class ProposalController extends Controller
 
 
 
-  public function details($id)
+  public function details(Request $id)
   {
 
-    $proposal = Proposal::where('PROP_ID', '=', $id)->first();
+    $proposal = Proposal::where('PROP_ID', '=', $id->idProposal)->first();
 
     return view('proposals.proposalDetails', ['proposal' => $proposal]);
   }
