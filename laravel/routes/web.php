@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticationController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProposalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,6 @@ Route::post('/registercompany', [AutenticationController::class, 'registercompan
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
-use App\Http\Controllers\ProposalController;
-
-//Route::get('/', [ProposalController::class, 'index']);
 Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
 
 Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']);
@@ -69,10 +67,10 @@ Route::post('/detalhes', [ProposalController::class, 'details']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
-
 Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 
 Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
+Route::post('/main/perfil/changepassword/s', [PageController::class, 'updatePassword']);
 
 Route::get('/preview', function () {
    return view('users/admin/createNonTeacher');

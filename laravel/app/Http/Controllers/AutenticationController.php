@@ -272,7 +272,7 @@ class AutenticationController extends Controller
         $user->USER_NAME = $request->pessNome;
         $user->USER_MAIL = $request->pessEmail;
         $user->USER_PWD = $request->passwd;
-        if($request->checkTerms) {
+        if ($request->checkTerms) {
             $user->USER_ADMIN = 1;
         } else {
             $user->USER_ADMIN = 0;
@@ -315,11 +315,11 @@ class AutenticationController extends Controller
 
         $user = User::where('USER_MAIL', $request->username)->first();
         $hashpass = md5($request->password);
-        
-        
+
+
 
         if ($user != null) {
-            if($user->USER_STATE == 0){ //se a conta não estiver ativa é direcionado com um aviso de erro comum
+            if ($user->USER_STATE == 0) { //se a conta não estiver ativa é direcionado com um aviso de erro comum
                 return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
             }
             if ($user->USER_MAIL == $request->username && $user->USER_PWD == $hashpass) {
