@@ -80,5 +80,5 @@ route::post('/{id}/r', [ProposalController::class, 'proposalReject']);
 Route::get('/createDocente', [PageController::class, 'createDocente']);
 
 Route::get('/preview', function () {
-   return view('users/admin/premissaostudent');
+   return view('users/admin/gestaocontadetails');
 });
