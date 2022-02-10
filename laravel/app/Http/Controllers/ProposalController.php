@@ -27,14 +27,27 @@ class ProposalController extends Controller
   }
 
 
-
   public function store(Request $request)
   {
     $proposals = new Proposal;
+
+    $validated = $request->validate([
+      'titulo'=>'required|max:255',
+      'emailEmpresa'=>'required|max:255',
+      'vagas'=>'required',
+      'descricao'=>'required|max:500',
+      'perfil'=>'required|max:255',
+    ]);
+
+
     $idEmpresa = DB::table('users')->where('USER_MAIL', $request->emailEmpresa)->value('USER_ID');
+    if (!empty($idEmpresa)) {
+      if(DB::table('users')->where('USER_ID', $idEmpresa)->value('USER_TYPE')=='empresa'){
+
+
 
     $proposals->PROP_TITLE = $request->titulo;
-    $proposals->PROP_APPROVED = 0;
+    $proposals->PROP_APPROVED = $request->aprovado;
     $proposals->PROP_USER_ID = Session('id');
     $proposals->PROP_COMPANY_ID = $idEmpresa;
     $proposals->PROP_JOBS = $request->vagas;
@@ -95,6 +108,8 @@ class ProposalController extends Controller
 
 
     return redirect('/main');
+  }else{return redirect()->back()->withErrors(['O email inserido não é de uma empresa.','O email inserido não é de uma empresa.']);}
+}else{return redirect()->back()->withErrors(['O email inserido é inválido.','O email inserido é inválido.']);;}
   }
 
 
