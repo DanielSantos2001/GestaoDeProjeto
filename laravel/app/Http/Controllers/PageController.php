@@ -64,7 +64,7 @@ class PageController extends Controller
         $course = [
             'LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
             'LEI' => 'Licenciatura de Engenharia Informatica',
-            'LAM' => 'Licenciatura em Administração e Marketing',
+            'LM' => 'Licenciatura em Marketing',
             'LGB' => 'Licenciatura de Gestão em Bioindústria',
             'LG' => 'Licenciatura em Gestão',
             'LCA' => 'Licenciatura em Contabilidade e Administração',
@@ -78,5 +78,9 @@ class PageController extends Controller
     public function createDocente()
     {
         return view('users/admin/createTeacher');
+    }
+
+    public function createNDocente() {
+        return view('users/admin/createNonTeacher');
     }
 }

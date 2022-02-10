@@ -168,7 +168,7 @@ $msgpass = $msgpass ?? 'Default value';
                                         </span>
                                     </td>
                                     <td>
-                                        Premissões de Administrador
+                                        Permissões de Administrador
                                     </td>
                                 </tr>
                             </tbody>
