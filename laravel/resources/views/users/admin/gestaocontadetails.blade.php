@@ -10,13 +10,7 @@
             <span class="arrow"></span>
         </span>
     </a>
-    <a href="">
-        <span style="z-index: 3;" class="lightArrow clickArrow">
-            Registos
-            <span class="arrow"></span>
-        </span>
-    </a>
-    <a href="">
+    <a href="/gestaoconta">
         <span style="z-index: 2;" class="lightArrow clickArrow">
             Gestão de Contas
             <span class="arrow"></span>
@@ -39,7 +33,7 @@
                         <tbody>
                             <tr>
                                 <td class="subtitle">
-                                    Professor X
+                                    {{$user->USER_NAME}}
                                 </td>
                             </tr>
                         </tbody>
@@ -55,7 +49,7 @@
                                     Nome Completo:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                    Nome Exemplo
+                                {{$user->USER_NAME}}
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +65,7 @@
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                    email@exemplo.com
+                                {{$user->USER_MAIL}}
                                 </td>
                             </tr>
                             <tr>
@@ -79,7 +73,7 @@
                                     Curso:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    Engenharia Informática
+                                <!--{{$user->USER_COURSE}}-->
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +82,7 @@
                                 </td>
                                 <td class="cellcontentLarge">
                                     <br>
-                                    Sim
+                                    {{$user->USER_ADMIN}}
                                 </td>
                             </tr>
                         </tbody>
@@ -110,7 +104,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <input type="button" value="Voltar" onclick="window.location='/'" class="button buttonBack">
+                                    <input type="button" value="Voltar" onclick="window.location='/gestaoconta'" class="button buttonBack">
                                 </td>
                             </tr>
                         </tbody>

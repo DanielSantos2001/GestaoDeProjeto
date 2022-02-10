@@ -34,6 +34,13 @@
                                             Criar Proposta de Estágio
                                         </td>
                                     </tr>
+                                    <tr>
+                                        @if ($errors->any())
+                                        <span class="mandatory"> {{$errors->first();}}</span>
+
+
+                                        @endif
+                                    </tr>
                                 </tbody>
                             </table>
                         </td>
@@ -51,8 +58,15 @@
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
                                             <input type="text" id="titulo" name="titulo" style="width:80%;" class="inputText">
+                                            @if(Session::get('useradmin'))
+                                            <input type="hidden" name="aprovado" value="1">
+                                            @else
+                                            <input type="hidden" name="aprovado" value="0">
+                                            @endif
+
                                         </td>
                                     </tr>
+                                    @if(Session::get('usertype') == 'empresa')
                                     <tr>
                                         <td class="label">
                                             <span class="mandatory" id="mandatorycodigo4">
@@ -61,9 +75,33 @@
                                             Email de Empresa:
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
-                                            <input type="text" name="emailEmpresa" id="emailEmpresa" style="width:80%;" class="inputText">
+                                            <input type="text" name="emailEmpresa" value="{{Session::get('usermail')}}" id="emailEmpresa" style="width:80%;" class="inputText" hidden>
+                                            <input type="text" name="emailEmpresa1" value="{{Session::get('usermail')}}" id="emailEmpresa1" style="width:80%;" class="inputText" disabled>
                                         </td>
                                     </tr>
+                                    @else
+                                    <tr>
+                                        <td class="label">
+                                            <span class="mandatory" id="mandatorycodigo4">
+                                                *
+                                            </span>
+                                            Empresa:
+                                        </td>
+                                        <td class="cellcontent cellcontentwithinputtext">
+
+                                            @php
+                                            $mails = App\Http\Controllers\ProposalController::getEmails();
+                                            @endphp
+                                            <input list="emailEmpresa" name="emailEmpresa" style="width:50%;" autocomplete="off" />
+                                            <datalist id="emailEmpresa" name="emailEmpresa">
+                                                @foreach($mails as $mail)
+                                                <option value="{{$mail->USER_NAME}} - {{$mail->USER_MAIL}}">
+                                                    @endforeach
+
+                                            </datalist>
+                                        </td>
+                                    </tr>
+                                    @endif
                                     <tr>
                                         <td class="label">
                                             <span class="mandatory" id="mandatorycodigo4">
@@ -120,7 +158,7 @@
                                             Ficheiro(s):
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
-                                            <input class="form-control-file" type="file" name="fileSaver[]" id="fileSaver" multiple style="width:80%;">
+                                            <input class="form-control-file" type="file" name="fileSaver[]" id="fileSaver" multiple style="width:80%;" accept=".doc,.docx,.pdf">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -137,7 +175,7 @@
                                     <tr>
                                         <td style="text-align: center;">
                                             <label class="custom-file-upload">
-                                                <input type="file" name="imagecp" id="imagecp" style="display: none;" class="custom-file-upload">
+                                                <input type="file" name="imagecp" id="imagecp" style="display: none;" class="custom-file-upload" accept="image/png, image/gif, image/jpeg">
                                                 Adicionar Fotografia
                                             </label>
 

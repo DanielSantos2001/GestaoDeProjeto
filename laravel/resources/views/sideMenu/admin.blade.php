@@ -24,7 +24,7 @@
                 Criar Não Docente
             </li>
         </a>
-        <a href="">
+        <a href="/registoconta">
             <li class="">
                 Registos
             </li>
@@ -34,6 +34,11 @@
 @elseif(Session::get('usertype') == 'ndocente')
 <li class="menuItem">
     <ul class="menu-list">
+        <a href="/main/perfil">
+            <li class="">
+                Informação Pessoal
+            </li>
+        </a>
         <a href="">
             <li class="">
                 Propostas de Estágio
@@ -64,7 +69,7 @@
                 Criar Não Docente
             </li>
         </a>
-        <a href="">
+        <a href="/registoconta">
             <li class="">
                 Registos
             </li>

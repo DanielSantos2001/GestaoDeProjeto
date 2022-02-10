@@ -15,7 +15,7 @@
                             <tbody>
                                 <tr>
                                     <td class="subtitle">
-                                        Propostas de Estágio
+                                        Propostas de Estágio (Pendente)
                                     </td>
                                     <td class="contentRight">
                                         <a href="">
@@ -79,12 +79,11 @@
                                                                             <input type="hidden" name="idProposal"
                                                                                 value="{{ $proposal->PROP_ID }}">
                                                                         </td>
-
                                                                         <td class="contentRight" style="width: 10%">
                                                                             <button class="botaodetalhes" type="submit">
-                                                                                Detalhes</button>
+                                                                                Detalhes
+                                                                            </button>
                                                                         </td>
-                                                                        
                                                                     </form>
                                                                 </tr>
                                                             @endif

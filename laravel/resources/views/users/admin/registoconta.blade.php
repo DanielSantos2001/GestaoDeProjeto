@@ -26,14 +26,14 @@
                     Registos de Conta
                 </div>
             </span>
-            <a href="">
+            <a href="/gestaoconta">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal2">
                     Gestão de Contas
                 </span>
             </a>
             <a href="">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal3">
-                    Premissões de Estudantes
+                    Permissões de Estudantes
                 </span>
             </a>
         </div>
@@ -60,6 +60,9 @@
                             <tr>
                                 <td>
                                     <div id="notificacoes">
+                                        @if(count($empresas) == 0)
+                                            <p>Não existem utilizadores Empresa</p>
+                                        @else
                                         <table style="width: 100%" class="displaytable">
                                             <thead>
                                                 <tr>
@@ -71,14 +74,33 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($empresas as $empresa)
                                                 <tr class="lightrow">
-                                                    <td class="contentLeft">Empresa 1</td>
-                                                    <td class="contentCenter" style="width: 30%">Empresa</td>
-                                                    <td class="contentCenter" style="width: 30%">Ativo</td>
-                                                    <td class="contentRight" style="width: 5%"><a class="botaodetalhes" href="#">Detalhes</a></td>
+                                                    <form id="detalhesEmpresa" method="get" action="/registoconta/detalhes">
+                                                        @csrf
+                                                        <td class="contentLeft">{{ $empresa->USER_NAME }}</td>
+                                                        <td class="contentCenter" style="width: 30%">Empresa</td>
+                                                        <td class="contentCenter" style="width: 30%">
+                                                            @if($empresa->USER_STATE == 1)
+                                                            Ativo
+                                                            @else
+                                                            Inativo
+                                                            @endif
+                                                        </td>
+                                                        <td class="contentCenter" style="width: 0%;">
+                                                            <input type="hidden" name="idEmpresa" value="{{ $empresa->USER_ID }}">
+                                                        </td>
+                                                        <td class="contentRight" style="width: 5%">
+                                                            <button class="botaodetalhes" type="submit">
+                                                                Detalhes
+                                                            </button>
+                                                        </td>
+                                                    </form>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

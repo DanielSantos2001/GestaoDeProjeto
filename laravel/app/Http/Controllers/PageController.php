@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use SebastianBergmann\Environment\Console;
 
 class PageController extends Controller
 {
@@ -86,5 +87,48 @@ class PageController extends Controller
     public function createNDocente()
     {
         return view('users/admin/createNonTeacher');
+    }
+
+
+    public function registoconta()
+    {
+        $empresas = User::where('USER_TYPE', 'empresa')->get();
+
+        return view('users/admin/registoconta', ['empresas' => $empresas]);
+    }
+
+    public function registocontadetails(Request $request)
+    {
+        $empresas = User::where('USER_ID', $request->idEmpresa)->first();
+
+        return view('users/admin/registocontadetails', ['empresas' => $empresas]);
+    }
+
+    public function registocontachange(Request $request)
+    {
+        $empresas = User::where('USER_ID', $request->id)->first();
+
+        if($request->value == 1) {
+            $empresas->USER_STATE = 1;
+            $empresas->update();
+            return redirect('/registoconta');
+        } elseif($request->value == 0) {
+            $empresas->delete();
+            return redirect('/registoconta');
+        }
+    }
+
+    public function listarDocentesENDocentes()
+    {
+        $list = User::whereIn('USER_TYPE', ['docente','ndocente'])->get();
+
+        return view('users/admin/gestaoconta', ['list' => $list]);
+    }
+
+    public function gestaocontadetails(Request $request)
+    {
+        $user = User::where('USER_ID', $request->iddocente)->first();
+
+        return view('users/admin/gestaocontadetails', ['user' => $user]);
     }
 }
