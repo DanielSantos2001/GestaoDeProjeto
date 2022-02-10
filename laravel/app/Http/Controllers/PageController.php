@@ -80,7 +80,22 @@ class PageController extends Controller
         return view('users/admin/createTeacher');
     }
 
-    public function createNDocente() {
+    public function createNDocente()
+    {
         return view('users/admin/createNonTeacher');
+    }
+
+    public function registoconta()
+    {
+        $empresas = User::where('USER_TYPE', 'empresa')->get();
+
+        return view('users/admin/registoconta', ['empresas' => $empresas]);
+    }
+
+    public function registocontadetails(Request $request)
+    {
+        $empresas = User::where('USER_ID', $request->idEmpresa)->first();
+
+        return view('users/admin/registocontadetails', ['empresas' => $empresas]);
     }
 }

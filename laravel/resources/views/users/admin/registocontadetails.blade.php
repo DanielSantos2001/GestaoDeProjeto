@@ -10,13 +10,7 @@
             <span class="arrow"></span>
         </span>
     </a>
-    <a href="">
-        <span style="z-index: 3;" class="lightArrow clickArrow">
-            Registos
-            <span class="arrow"></span>
-        </span>
-    </a>
-    <a href="">
+    <a href="/registoconta">
         <span style="z-index: 2;" class="lightArrow clickArrow">
             Registos de Contas
             <span class="arrow"></span>
@@ -39,7 +33,7 @@
                         <tbody>
                             <tr>
                                 <td class="subtitle">
-                                    Empresa X
+                                    {{ $empresas->USER_NAME }}
                                 </td>
                             </tr>
                         </tbody>
@@ -55,7 +49,7 @@
                                     Nome da Empresa:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                    Nome Exemplo
+                                    {{ $empresas->USER_NAME }}
                                 </td>
                             </tr>
                             <tr>
@@ -63,7 +57,7 @@
                                     Contacto Telefónico:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    910 000 000
+                                    {{ $empresas->USER_CONTACT }}
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +65,7 @@
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                    email@exemplo.com
+                                    {{ $empresas->USER_MAIL }}
                                 </td>
                             </tr>
 
@@ -80,7 +74,7 @@
                                     Morada:
                                 </td>
                                 <td class="cellcontentLarge">
-                                    Rua Exemplo
+                                    {{ $empresas->USER_ADDRESS }}
                                 </td>
                             </tr>
                             <tr>
@@ -88,21 +82,30 @@
                                     Estado:
                                 </td>
                                 <td class="cellcontentLarge" id="estado">
-                                    Pendente
+                                    @if($empresas->USER_STATE == 1)
+                                    Ativo
+                                    @else
+                                    Inativo
+                                    @endif
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </td>
             </tr>
+            @if($empresas->USER_STATE == 0)
             <tr class="gea_flex_end">
-                <td>
-                    <input type="submit" value="Aceitar" onclick="" class="button buttonFront">
-                </td>
-                <td>
-                    <input type="button" value="Rejeitar" onclick="" class="button buttonBack">
-                </td>
+                <form id="estadoEmpresa" method="post" action="">
+                    <input type="hidden" name="value" value="">
+                    <td>
+                        <input type="submit" value="Aceitar" onclick="changeValueOne();" class="button buttonFront">
+                    </td>
+                    <td>
+                        <input type="submit" value="Rejeitar" onclick="changeValueZero();" class="button buttonBack">
+                    </td>
+                </form>
             </tr>
+            @endif
         </tbody>
     </table>
     <table class="page">
@@ -113,7 +116,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <input type="button" value="Voltar" onclick="window.location='/'" class="button buttonBack">
+                                    <input type="button" value="Voltar" onclick="window.location='/registoconta'" class="button buttonBack">
                                 </td>
                             </tr>
                         </tbody>
@@ -123,4 +126,14 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function changeValueZero() {
+        document.getElementById('estadoEmpresa').value = 0;
+    }
+
+    function changeValueOne() {
+        document.getElementById('estadoEmpresa').value = 1;
+    }
+</script>
 @endsection

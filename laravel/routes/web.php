@@ -78,9 +78,12 @@ route::post('/{id}/r', [ProposalController::class, 'proposalReject']);
 
 Route::get('/createDocente', [PageController::class, 'createDocente']);
 
+Route::get('/registoconta', [PageController::class, 'registoconta']);
+
+Route::get('/registoconta/detalhes', [PageController::class, 'registocontadetails']);
 
 Route::get('/preview', function () {
-   return view('users/admin/gestaocontadetails');
+   return view('users/admin/registoconta');
 });
 
 Route::get('/createNDocente', [PageController::class, 'createNDocente']);
