@@ -14,12 +14,12 @@
                 Candidatura Estágio
             </li>
         </a>
-        <a href="">
+        <a href="/createDocente">
             <li class="">
                 Criar Docente
             </li>
         </a>
-        <a href="">
+        <a href="/createNDocente">
             <li class="">
                 Criar Não Docente
             </li>
@@ -59,7 +59,7 @@
                 Criar Docente
             </li>
         </a>
-        <a href="">
+        <a href="/createNDocente">
             <li class="">
                 Criar Não Docente
             </li>
