@@ -35,11 +35,11 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                      @if ($errors->any())
+                                        @if ($errors->any())
                                         <span class="mandatory"> {{$errors->first();}}</span>
 
 
-                                      @endif
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>
@@ -59,9 +59,9 @@
                                         <td class="cellcontent cellcontentwithinputtext">
                                             <input type="text" id="titulo" name="titulo" style="width:80%;" class="inputText">
                                             @if(Session::get('useradmin'))
-                                              <input type="hidden" name="aprovado" value="1">
+                                            <input type="hidden" name="aprovado" value="1">
                                             @else
-                                              <input type="hidden" name="aprovado" value="0">
+                                            <input type="hidden" name="aprovado" value="0">
                                             @endif
 
                                         </td>
@@ -75,7 +75,8 @@
                                             Email de Empresa:
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
-                                            <input type="text" name="emailEmpresa" value="{{Session::get('usermail')}}" id="emailEmpresa" style="width:80%;" class="inputText" disabled>
+                                            <input type="text" name="emailEmpresa" value="{{Session::get('usermail')}}" id="emailEmpresa" style="width:80%;" class="inputText" hidden>
+                                            <input type="text" name="emailEmpresa1" value="{{Session::get('usermail')}}" id="emailEmpresa1" style="width:80%;" class="inputText" disabled>
                                         </td>
                                     </tr>
                                     @else
@@ -84,10 +85,20 @@
                                             <span class="mandatory" id="mandatorycodigo4">
                                                 *
                                             </span>
-                                            Email de Empresa:
+                                            Empresa:
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
-                                            <input type="text" name="emailEmpresa" id="emailEmpresa" style="width:80%;" class="inputText">
+
+                                            @php
+                                            $mails = App\Http\Controllers\ProposalController::getEmails();
+                                            @endphp
+                                            <input list="emailEmpresa" name="emailEmpresa" style="width:50%;" autocomplete="off" />
+                                            <datalist id="emailEmpresa" name="emailEmpresa">
+                                                @foreach($mails as $mail)
+                                                <option value="{{$mail->USER_NAME}} - {{$mail->USER_MAIL}}">
+                                                    @endforeach
+
+                                            </datalist>
                                         </td>
                                     </tr>
                                     @endif
