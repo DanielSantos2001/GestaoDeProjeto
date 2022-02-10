@@ -34,6 +34,13 @@
                                             Criar Proposta de Estágio
                                         </td>
                                     </tr>
+                                    <tr>
+                                      @if ($errors->any())
+                                        <span class="mandatory"> {{$errors->first();}}</span>
+
+
+                                      @endif
+                                    </tr>
                                 </tbody>
                             </table>
                         </td>
@@ -51,6 +58,12 @@
                                         </td>
                                         <td class="cellcontent cellcontentwithinputtext">
                                             <input type="text" id="titulo" name="titulo" style="width:80%;" class="inputText">
+                                            @if(Session::get('useradmin'))
+                                              <input type="hidden" name="aprovado" value="1">
+                                            @else
+                                              <input type="hidden" name="aprovado" value="0">
+                                            @endif
+
                                         </td>
                                     </tr>
                                     @if(Session::get('usertype') == 'empresa')

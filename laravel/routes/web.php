@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticationController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProposalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,13 +45,15 @@ Route::post('/users.create.accadmin', [AutenticationController::class, 'createAc
 Route::post('/users.create.accadmindocente', [AutenticationController::class, 'createAccAdminDocente']);
 Route::post('/registerconfirm', [AutenticationController::class, 'registerconfirm']);
 
+Route::post('/users.registerconfirm', [AutenticationController::class, 'registerconfirmMain']);
+
+Route::post('/users.create.docente', [AutenticationController::class, 'createAccAdminDocente']);
+Route::post('/users.create.ndocente', [AutenticationController::class, 'createAccAdmin']);
+
 Route::post('/registercompany', [AutenticationController::class, 'registercompany']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
-use App\Http\Controllers\ProposalController;
-
-//Route::get('/', [ProposalController::class, 'index']);
 Route::get('/termandconditions', [AutenticationController::class, 'termandconditions']);
 
 Route::get('/confirmlinkstudent/{md5mail}', [AutenticationController::class, 'activateaccstudent']);
@@ -65,14 +68,19 @@ Route::post('/detalhes', [ProposalController::class, 'details']);
 
 Route::post('/loginAuth', [AutenticationController::class, 'autentication']);
 
-
 Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 
 Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
-
-Route::get('/preview', function () {
-   return view('/users/admin/createNonTeacher');
-});
+Route::post('/main/perfil/changepassword/s', [PageController::class, 'updatePassword']);
 
 route::post('/{id}', [ProposalController::class, 'proposalApprove']);
 route::post('/{id}/r', [ProposalController::class, 'proposalReject']);
+
+Route::get('/createDocente', [PageController::class, 'createDocente']);
+
+
+Route::get('/preview', function () {
+   return view('users/admin/gestaocontadetails');
+});
+
+Route::get('/createNDocente', [PageController::class, 'createNDocente']);

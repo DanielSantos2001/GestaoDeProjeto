@@ -24,16 +24,16 @@ class PageController extends Controller
 
     public function definirPagina()
     {
-        if (Session::get('useradmin')) {
-            return view('users.admin.index');
-        }
-
         if (Session::get('usertype') == 'estudante') {
             return view('users.student.index');
         } elseif (Session::get('usertype') == 'docente') {
             return view('users.teacher.index');
         } elseif (Session::get('usertype') == 'empresa') {
             return view('users.business.index');
+        }
+
+        if (Session::get('useradmin')) {
+            return view('users.admin.index');
         }
     }
 
@@ -42,12 +42,29 @@ class PageController extends Controller
         return view('users.commonFile.changePassword');
     }
 
+    public function updatePassword(Request $request)
+    {
+        $user = User::where('USER_ID', Session::get('id'))->first();
+
+        $hashpass = md5($request->passwordOriginal);
+
+        if ($hashpass == $user->USER_PWD && $request->novaPassword == $request->confirmacaoPassword) {
+
+            $user->USER_PWD = md5($request->novaPassword);
+            $user->update();
+
+            return redirect("/main/perfil")->with('msg', 'Palavra-Chave atualizada com sucesso!');
+        } else {
+            return redirect("/main/perfil/changepassword")->with('msg', 'Palavra-Chave errada!');
+        }
+    }
+
     public static function cursoExtenso($c)
     {
         $course = [
             'LSTI' => 'Licenciatura em Sistemas e Tecnologias da Informação',
             'LEI' => 'Licenciatura de Engenharia Informatica',
-            'LAM' => 'Licenciatura em Administração e Marketing',
+            'LM' => 'Licenciatura em Marketing',
             'LGB' => 'Licenciatura de Gestão em Bioindústria',
             'LG' => 'Licenciatura em Gestão',
             'LCA' => 'Licenciatura em Contabilidade e Administração',
@@ -56,5 +73,14 @@ class PageController extends Controller
         ];
 
         return $course[$c];
+    }
+
+    public function createDocente()
+    {
+        return view('users/admin/createTeacher');
+    }
+
+    public function createNDocente() {
+        return view('users/admin/createNonTeacher');
     }
 }

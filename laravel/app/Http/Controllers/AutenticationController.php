@@ -20,7 +20,6 @@ class AutenticationController extends Controller
 
         $count = User::count();
 
-
         if (FacadesSession::get('id') != null && FacadesSession::get('id') > 0) {
             return view('main');
         } else if ($count === 0) {
@@ -103,6 +102,7 @@ class AutenticationController extends Controller
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
 
+    //Não Docente
     public function createAccAdmin(Request $request)
     {
         $user = new User;
@@ -115,7 +115,7 @@ class AutenticationController extends Controller
         $user->USER_TYPE = "ndocente";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
-        $user->USER_ADMIN = 1;
+        $user->USER_ADMIN = $request->admin;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 1;
 
@@ -125,6 +125,7 @@ class AutenticationController extends Controller
         return redirect("/")->with('msg', 'Registo criado com sucesso!');
     }
 
+    //Docente
     public function createAccAdminDocente(Request $request)
     {
         $user = new User;
@@ -137,7 +138,7 @@ class AutenticationController extends Controller
         $user->USER_TYPE = "docente";
         $user->USER_ADDRESS = "";
         $user->USER_CONTACT = "";
-        $user->USER_ADMIN = 1;
+        $user->USER_ADMIN = $request->admin;
         $user->USER_FPERM = 0;
         $user->USER_STATE = 1;
 
@@ -264,16 +265,61 @@ class AutenticationController extends Controller
         return view("/autenticacao.registerconfirm", ['user' => $user]);
     }
 
+    public function registerconfirmMain(Request $request)
+    {
+
+        $user = new User;
+        $user->USER_NAME = $request->pessNome;
+        $user->USER_MAIL = $request->pessEmail;
+        $user->USER_PWD = $request->passwd;
+        if ($request->checkTerms) {
+            $user->USER_ADMIN = 1;
+        } else {
+            $user->USER_ADMIN = 0;
+        }
+        $usermail = User::where('USER_MAIL', $request->pessEmail)->first();
+        if ($usermail !== null) {
+            return redirect("/")->with('msg', 'O Email que inseriu já tem conta!');
+        }
+        if ($request->typeUser == "admin") { //Não docente
+            $user->USER_COURSE = "";
+            $user->USER_TYPE = "admin";
+            $user->USER_ADDRESS = "";
+            $user->USER_CONTACT = "";
+            $user->USER_FPERM = 0;
+        } else if ($request->typeUser == "admindocente") { //Docente
+            $courses = ["LSTI", "LEI", "LM", "LGB", "LG", "LCA", "LDROT", "LII"];
+            for ($i = 0; $i < 8; ++$i) {
+                if (strcmp($request->cursoInput, $courses[$i])) {
+                    $value = false;
+                    break;
+                }
+            }
+            if ($value) {
+                return view('/users/admin/createTeacher')->with('msgerror', '*Campo Obrigatório');
+            }
+
+            $user->USER_COURSE =  $request->cursoInput;
+            $user->USER_TYPE = "admindocente";
+            $user->USER_ADDRESS = "";
+            $user->USER_CONTACT = "";
+            $user->USER_FPERM = 0;
+        }
+
+
+        return view("/users.commonFile.registerconfirm", ['user' => $user]);
+    }
+
     public function autentication(Request $request)
     {
 
         $user = User::where('USER_MAIL', $request->username)->first();
         $hashpass = md5($request->password);
-        
-        
+
+
 
         if ($user != null) {
-            if($user->USER_STATE == 0){ //se a conta não estiver ativa é direcionado com um aviso de erro comum
+            if ($user->USER_STATE == 0) { //se a conta não estiver ativa é direcionado com um aviso de erro comum
                 return redirect("/")->with('msg', 'Erro no Login, tente novamente!');
             }
             if ($user->USER_MAIL == $request->username && $user->USER_PWD == $hashpass) {
