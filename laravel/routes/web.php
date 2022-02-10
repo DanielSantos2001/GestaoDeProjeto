@@ -74,11 +74,11 @@ Route::get('/main/perfil', [PageController::class, 'verPerfil']);
 
 Route::get('/main/perfil/changepassword', [PageController::class, 'alterarPassword']);
 
-Route::get('/preview', function () {
-   return view('users/admin/createNonTeacher');
-});
-
 route::post('/{id}', [ProposalController::class, 'proposalApprove']);
 route::post('/{id}/r', [ProposalController::class, 'proposalReject']);
 
 Route::get('/createDocente', [PageController::class, 'createDocente']);
+
+Route::get('/preview', function () {
+   return view('users/admin/premissaostudent');
+});
