@@ -95,8 +95,10 @@
             </tr>
             @if($empresas->USER_STATE == 0)
             <tr class="gea_flex_end">
-                <form id="estadoEmpresa" method="post" action="">
-                    <input type="hidden" name="value" value="">
+                <form id="estadoEmpresa" method="post" action="/registoconta/detalhes/change">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $empresas->USER_ID }}">
+                    <input type="hidden" id="value" name="value" value="">
                     <td>
                         <input type="submit" value="Aceitar" onclick="changeValueOne();" class="button buttonFront">
                     </td>
@@ -128,12 +130,12 @@
 </div>
 
 <script>
-    function changeValueZero() {
-        document.getElementById('estadoEmpresa').value = 0;
-    }
-
     function changeValueOne() {
-        document.getElementById('estadoEmpresa').value = 1;
+        document.getElementById('value').value = 1;
+    }
+    
+    function changeValueZero() {
+        document.getElementById('value').value = 0;
     }
 </script>
 @endsection

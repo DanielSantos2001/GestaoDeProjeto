@@ -60,6 +60,9 @@
                             <tr>
                                 <td>
                                     <div id="notificacoes">
+                                        @if(count($empresas) == 0)
+                                            <p>Não existem utilizadores Empresa</p>
+                                        @else
                                         <table style="width: 100%" class="displaytable">
                                             <thead>
                                                 <tr>
@@ -97,6 +100,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
