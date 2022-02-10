@@ -48,14 +48,17 @@ class PageController extends Controller
 
         $hashpass = md5($request->passwordOriginal);
 
-        if ($hashpass == $user->USER_PWD && $request->novaPassword == $request->confirmacaoPassword) {
+        if (
+            $hashpass == $user->USER_PWD && $request->novaPassword == $request->confirmacaoPassword
+            && $request->passwordOriginal !== $request->novaPassword
+        ) {
 
             $user->USER_PWD = md5($request->novaPassword);
             $user->update();
 
             return redirect("/main/perfil")->with('msg', 'Palavra-Chave atualizada com sucesso!');
         } else {
-            return redirect("/main/perfil/changepassword")->with('msg', 'Palavra-Chave errada!');
+            return redirect("/main/perfil/changepassword")->with('msg', 'Palavra-Chave invalida!');
         }
     }
 
@@ -80,7 +83,8 @@ class PageController extends Controller
         return view('users/admin/createTeacher');
     }
 
-    public function createNDocente() {
+    public function createNDocente()
+    {
         return view('users/admin/createNonTeacher');
     }
 }

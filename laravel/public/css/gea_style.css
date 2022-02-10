@@ -45,3 +45,15 @@
     background-color: #839ba5;
     color: #000;
 }
+
+.gea_errorMessage {
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    color: #bc3a2d;
+}
+
+.gea_successMessage {
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    color: #0e6937;
+}

@@ -22,8 +22,6 @@ Route::get('/forgotpassword/{md5mail}', [AutenticationController::class, 'forgot
 Route::post('/submitnewpassLinkMail', [AutenticationController::class, 'submitnewpassLinkMail']);
 Route::post('/submitlinkforgotpass', [AutenticationController::class, 'submitlinkforgotpass']);
 
-
-
 Route::get('/', [AutenticationController::class, 'inspect']);
 
 Route::get('/login', [AutenticationController::class, 'login'])->name('login');

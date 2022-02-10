@@ -38,6 +38,13 @@
                                             Alterar Palavra-Chave
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            @if (session('msg'))
+                                                <span class="gea_errorMessage"><span>{{ session('msg') }}</span></span>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </td>
