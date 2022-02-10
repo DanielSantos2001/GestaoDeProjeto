@@ -82,8 +82,17 @@ Route::get('/registoconta', [PageController::class, 'registoconta']);
 
 Route::get('/registoconta/detalhes', [PageController::class, 'registocontadetails']);
 
+Route::get('/gestaoconta/detalhes', [PageController::class, 'gestaocontadetails']);
+
+
 Route::get('/preview', function () {
+
    return view('users/admin/registoconta');
+
+   return view('users/admin/gestaoconta');
+
 });
 
 Route::get('/createNDocente', [PageController::class, 'createNDocente']);
+
+Route::get('/gestaoconta', [PageController::class, 'listarDocentesENDocentes']);

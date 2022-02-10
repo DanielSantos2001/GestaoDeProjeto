@@ -85,6 +85,7 @@ class PageController extends Controller
         return view('users/admin/createNonTeacher');
     }
 
+
     public function registoconta()
     {
         $empresas = User::where('USER_TYPE', 'empresa')->get();
@@ -97,5 +98,17 @@ class PageController extends Controller
         $empresas = User::where('USER_ID', $request->idEmpresa)->first();
 
         return view('users/admin/registocontadetails', ['empresas' => $empresas]);
+    }
+
+    public function listarDocentesENDocentes(){
+        $list = User::whereIn('USER_TYPE', ['docente','ndocente'])->get();
+        return view('users/admin/gestaoconta', ['list' => $list]);
+
+    }
+
+    public function gestaocontadetails(Request $request){
+        $user = User::where('USER_ID', $request->iddocente)->first();
+
+        return view('users/admin/gestaocontadetails', ['user' => $user]);
     }
 }

@@ -21,7 +21,7 @@
     @include('searchTab')
     <div id="separatorsArea">
         <div id="separators">
-            <a href="">
+            <a href="/registoconta">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal1">
                     Registos de Conta
                 </span>
@@ -63,7 +63,7 @@
                                         <table style="width: 100%" class="displaytable">
                                             <thead>
                                                 <tr>
-                                                    <th class="cellheaderleft">Nome da Empresa</th>
+                                                    <th class="cellheaderleft">Nome Completo</th>
                                                     <th class="cellheader">Tipo de Utilizador</th>
                                                     <th class="cellheader">Estado</th>
                                                     <th class="cellheader">Admin. <br> Estado</th>
@@ -72,13 +72,35 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ( $list as $user)
                                                 <tr class="lightrow">
-                                                    <td class="contentLeft">Empresa 1</td>
-                                                    <td class="contentCenter" style="width: 30%">Empresa</td>
-                                                    <td class="contentCenter" style="width: 20%">Ativo</td>
-                                                    <td class="contentCenter" style="width: 10%"><input type="checkbox"></td>
-                                                    <td class="contentRight" style="width: 5%"><a class="botaodetalhes" href="#">Detalhes</a></td>
+                                                    <form id="detalhesGestaoConta" method="get" action="/gestaoconta/detalhes">
+                                                        <td class="contentLeft">{{$user->USER_NAME}}</td>
+                                                        <td class="contentCenter" style="width: 30%">
+                                                            @if($user->USER_TYPE == 'docente')
+                                                            Docente
+                                                            @else
+                                                            Não Docente
+                                                            @endif
+                                                        </td>
+                                                        <td class="contentCenter" style="width: 20%">
+                                                            @if($user->USER_STATE == 1)
+                                                            Ativo
+                                                            @else
+                                                            Inativo
+                                                            @endif
+                                                        </td>
+                                                        @if($user->USER_ADMIN == 1)
+                                                        <td id="checkbox" class="contentCenter" style="width: 10%"><input type="checkbox" checked value='tick' onclick="updateValues()">
+                                                            @else
+                                                        <td id="checkbox1" class="contentCenter" style="width: 10%"><input type="checkbox" value='nontick'>
+                                                            @endif
+                                                        </td>
+                                                        <td class="contentCenter" style="width: 0%"><input type="hidden" name="iddocente" value="{{$user->USER_ID}}"></td>
+                                                        <td class="contentRight" style="width: 5%"><input class="botaodetalhes" type="submit" value="Detalhes"></td>
+                                                    </form>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -92,3 +114,14 @@
     </table>
 </div>
 @endsection
+
+<script>
+    function updateValues() {
+        var checkbox = document.getElementById("checkbox");
+        var checkbox = document.getElementById("checkbox1");
+        if (checkbox.checked == true) {
+
+        }
+
+    }
+</script>

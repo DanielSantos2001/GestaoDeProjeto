@@ -26,14 +26,14 @@
                     Registos de Conta
                 </div>
             </span>
-            <a href="">
+            <a href="/gestaoconta">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal2">
                     Gestão de Contas
                 </span>
             </a>
             <a href="">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal3">
-                    Premissões de Estudantes
+                    Permissões de Estudantes
                 </span>
             </a>
         </div>
