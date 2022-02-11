@@ -161,8 +161,9 @@
     </body>
 
     </html>
+
 @else
-
-    //riderect para a pagina de login
-
+    @php
+        abort(404);
+    @endphp
 @endif
