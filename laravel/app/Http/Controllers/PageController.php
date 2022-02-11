@@ -108,11 +108,11 @@ class PageController extends Controller
     {
         $empresas = User::where('USER_ID', $request->id)->first();
 
-        if($request->value == 1) {
+        if ($request->value == 1) {
             $empresas->USER_STATE = 1;
             $empresas->update();
             return redirect('/registoconta');
-        } elseif($request->value == 0) {
+        } elseif ($request->value == 0) {
             $empresas->delete();
             return redirect('/registoconta');
         }
@@ -120,7 +120,7 @@ class PageController extends Controller
 
     public function listarDocentesENDocentes()
     {
-        $list = User::whereIn('USER_TYPE', ['docente','ndocente'])->get();
+        $list = User::whereIn('USER_TYPE', ['docente', 'ndocente'])->get();
 
         return view('users/admin/gestaoconta', ['list' => $list]);
     }
@@ -130,5 +130,62 @@ class PageController extends Controller
         $user = User::where('USER_ID', $request->iddocente)->first();
 
         return view('users/admin/gestaocontadetails', ['user' => $user]);
+    }
+
+    public function simNaoAdmin(Request $request)
+    {
+
+        $var = User::where('USER_ID', $request->id)->first();
+
+        if ($request->valoralterado == 1) {
+            $var->USER_ADMIN = 1;
+            $var->update();
+            return redirect('/gestaoconta');
+        } else if ($request->valoralterado == 0) {
+            $var->USER_ADMIN = 0;
+            $var->update();
+            return redirect('/gestaoconta');
+        }
+    }
+
+    public function estadoDocente(Request $request)
+    {
+
+        $var = User::where('USER_ID', $request->id)->first();
+
+        if ($request->valoralterado == 0) {
+            $var->USER_STATE = 0;
+            $var->update();
+            return redirect('/gestaoconta');
+        } elseif ($request->valoralterado == 1) {
+            $var->USER_STATE = 1;
+            $var->update();
+            return redirect('/gestaoconta');
+        }
+    }
+
+    public function premissaostudent()
+    {
+        $student = User::where('USER_TYPE', 'estudante')->get();
+
+        return view('users/admin/premissaostudent', ['student' => $student]);
+    }
+
+
+    public function estadoEstudante(Request $request)
+    {
+
+        $var = User::where('USER_ID', $request->id)->first();
+        dd($var);
+
+        if ($request->valoralterado == 0) {
+            $var->USER_STATE = 0;
+            $var->update();
+            return redirect('/premissaostudent');
+        } elseif ($request->valoralterado == 1) {
+            $var->USER_STATE = 1;
+            $var->update();
+            return redirect('/premissaostudent');
+        }
     }
 }

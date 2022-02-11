@@ -11,7 +11,7 @@
         </span>
     </a>
     <span style="z-index: 1;" class=" lastArrow">
-        Premissões de Estudantes
+        Permissões de Estudantes
         <span class="arrow"></span>
     </span>
     <br>
@@ -21,7 +21,7 @@
     @include('searchTab')
     <div id="separatorsArea">
         <div id="separators">
-            <a href="">
+            <a href="/registoconta">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal1">
                     Registos de Conta
                 </span>
@@ -63,7 +63,7 @@
                                         <table style="width: 100%" class="displaytable">
                                             <thead>
                                                 <tr>
-                                                    <th class="cellheaderleft">Nome da Empresa</th>
+                                                    <th class="cellheaderleft">Nome do Estudante</th>
                                                     <th class="cellheader">Curso</th>
                                                     <th class="cellheader">Estado</th>
                                                     <th class="cellheader">E-mail</th>
@@ -72,13 +72,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="lightrow">
-                                                    <td class="contentLeft">Empresa 1</td>
-                                                    <td class="contentCenter" style="width: 15%">Markting</td>
-                                                    <td class="contentCenter" style="width: 15%">Ativo</td>
-                                                    <td class="contentCenter" style="width: 30%">aluno1@exemplo.com</td>
-                                                    <td class="contentRight" style="width: 5%"><a class="botaodetalhes" href="#">Ativar</a></td>
-                                                </tr>
+                                                <form id="studentform" method="post" action="/premissaostudent/change">
+                                                    @csrf
+                                                    @foreach ($student as $aluno)
+                                                    <tr class="lightrow">
+                                                        <td class="contentLeft">{{$aluno->USER_NAME}}</td>
+                                                        <td class="contentCenter" style="width: 15%">{{$aluno->USER_COURSE}}</td>
+                                                        <td class="contentCenter" style="width: 15%">
+                                                            @if($aluno->USER_STATE == 1)
+                                                            Ativo
+                                                            @else
+                                                            Inativo
+                                                            @endif
+                                                        </td>
+                                                        <td class="contentCenter" style="width: 30%">{{$aluno->USER_MAIL}}</td>
+                                                        <input type="hidden" name="id" value="{{$aluno->USER_ID}}">
+                                                        <input type="hidden" name="valoralterado" id="valoralterado" value="">
+                                                        @if($aluno->USER_STATE == 0)
+                                                        <td class="contentRight" style="width: 5%">
+                                                            <input type="submit" class="botaodetalhes" value="Ativar" id="ativeinput" name="ativeinput" onclick="ativar()">
+                                                        </td>
+                                                        @else
+                                                        <td class="contentRight" style="width: 5%">
+                                                            <input type="submit" class="botaodetalhes" value="Desativar" id="desativeinput" name="desativeinput" onclick="desativar()">
+                                                        </td>
+                                                        @endif
+                                                    </tr>
+                                                    @endforeach
+                                                </form>
                                             </tbody>
                                         </table>
                                     </div>
@@ -91,4 +112,17 @@
         </tbody>
     </table>
 </div>
+
+<script>
+
+function desativar(){
+    document.getElementById('valoralterado').value = 0;
+}
+
+function ativar(){
+    document.getElementById('valoralterado').value = 1;
+}
+
+</script>
 @endsection
+

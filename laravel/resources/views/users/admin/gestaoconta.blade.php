@@ -31,9 +31,9 @@
                     Gestão de Contas
                 </div>
             </span>
-            <a href="">
+            <a href="/premissaostudent">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal3">
-                    Premissões de Estudantes
+                    Permissões de Estudantes
                 </span>
             </a>
         </div>
@@ -72,56 +72,74 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ( $list as $user)
-                                                <tr class="lightrow">
-                                                    <form id="detalhesGestaoConta" method="get" action="/gestaoconta/detalhes">
-                                                        <td class="contentLeft">{{$user->USER_NAME}}</td>
-                                                        <td class="contentCenter" style="width: 30%">
-                                                            @if($user->USER_TYPE == 'docente')
-                                                            Docente
-                                                            @else
-                                                            Não Docente
-                                                            @endif
+                                                @for ($i = 0; $i < count($list); $i++) <tr class="lightrow">
+
+                                                    <td class="contentLeft">{{$list[$i]->USER_NAME}}</td>
+                                                    <td class="contentCenter" style="width: 30%">
+                                                        @if($list[$i]->USER_TYPE == 'docente')
+                                                        Docente
+                                                        @else
+                                                        Não Docente
+                                                        @endif
+                                                    </td>
+                                                    <td class="contentCenter" style="width: 20%">
+                                                        @if($list[$i]->USER_STATE == 1)
+                                                        Ativo
+                                                        @else
+                                                        Inativo
+                                                        @endif
+                                                    </td>
+                                                    <form id="detalhesGestaoConta1{{$i}}" method="post" action="/gestaoconta/change">
+                                                        @csrf
+                                                        <td class="contentCenter" style="width: 10%">
+                                                            <input type="hidden" name="id" value="{{$list[$i]->USER_ID}}">
+                                                            <input type="hidden" name="valoralterado" id="valoralterado" value="">
+                                                            <input type="checkbox" id="check{{$i}}" @if($list[$i]->USER_ADMIN == 1) checked @endif onclick="updateValues('{{$i}}', '{{count($list)}}');">
                                                         </td>
-                                                        <td class="contentCenter" style="width: 20%">
-                                                            @if($user->USER_STATE == 1)
-                                                            Ativo
-                                                            @else
-                                                            Inativo
-                                                            @endif
-                                                        </td>
-                                                        @if($user->USER_ADMIN == 1)
-                                                        <td id="checkbox" class="contentCenter" style="width: 10%"><input type="checkbox" checked value='tick' onclick="updateValues()">
-                                                            @else
-                                                        <td id="checkbox1" class="contentCenter" style="width: 10%"><input type="checkbox" value='nontick'>
-                                                            @endif
-                                                        </td>
-                                                        <td class="contentCenter" style="width: 0%"><input type="hidden" name="iddocente" value="{{$user->USER_ID}}"></td>
+                                                    </form>
+                                                    <form id="detalhesGestaoConta2" method="get" action="/gestaoconta/detalhes">
+                                                        @csrf
+                                                        <td class="contentCenter" style="width: 0%"><input type="hidden" name="iddocente" value="{{$list[$i]->USER_ID}}"></td>
                                                         <td class="contentRight" style="width: 5%"><input class="botaodetalhes" type="submit" value="Detalhes"></td>
                                                     </form>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
                             </tr>
+                            @endfor
                         </tbody>
                     </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
-@endsection
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 <script>
-    function updateValues() {
-        var checkbox = document.getElementById("checkbox");
-        var checkbox = document.getElementById("checkbox1");
-        if (checkbox.checked == true) {
+    function updateValues(index, n) {
 
+        var check = "";
+        var hidden = document.getElementById("valoralterado").value;
+        var sub = "";
+
+        for (let $i = 0; $i < n; $i++) {
+            if ($i == index) {
+                check = document.getElementById("check" + $i);
+               sub = document.getElementById("detalhesGestaoConta1" + $i);
+            }
         }
 
+
+        if (check.checked) {
+            hidden = 1;
+           sub.submit();
+        } else {
+            hidden = 0;
+           sub.submit();
+        }
     }
 </script>
+
+@endsection

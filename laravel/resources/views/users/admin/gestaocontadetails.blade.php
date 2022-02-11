@@ -49,7 +49,7 @@
                                     Nome Completo:
                                 </td>
                                 <td class="cellcontentLarge" id="nome">
-                                {{$user->USER_NAME}}
+                                    {{$user->USER_NAME}}
                                 </td>
                             </tr>
                             <tr>
@@ -65,17 +65,19 @@
                                     Email:
                                 </td>
                                 <td class="cellcontentLarge" id="mailOficial">
-                                {{$user->USER_MAIL}}
+                                    {{$user->USER_MAIL}}
                                 </td>
                             </tr>
+                            @if($user->USER_TYPE== 'docente')
                             <tr>
                                 <td class="label">
                                     Curso:
                                 </td>
                                 <td class="cellcontentLarge">
-                                <!--{{$user->USER_COURSE}}-->
+                                    {{ App\Http\Controllers\PageController::cursoExtenso($user->USER_COURSE) }}
                                 </td>
                             </tr>
+                            @endif
                             <tr>
                                 <td class="label">
                                     Premissões de <br> Administrador:
@@ -89,11 +91,24 @@
                     </table>
                 </td>
             </tr>
-            <tr class="gea_flex_end">
-                <td>
-                    <input type="submit" value="Desativar" onclick="" class="button buttonFront">
-                </td>
-            </tr>
+            <form id="estadogestao" method="post" action="/gestaoconta/detalhes/change">
+                @csrf 
+                <input type="hidden" name="id" value="{{$user->USER_ID}}">
+                <input type="hidden" name="valoralterado" id="valoralterado" value="">
+                @if($user->USER_STATE==1)
+                <tr class="gea_flex_end">
+                    <td>
+                        <input type="submit" value="Desativar" onclick="desativar()" class="button buttonFront">
+                    </td>
+                </tr>
+                @elseif ($user->USER_STATE==0)
+                <tr class="gea_flex_end">
+                    <td>
+                        <input type="submit" value="Ativar" onclick="ativar()" class="button buttonFront">
+                    </td>
+                </tr>
+                @endif
+            </form>
         </tbody>
     </table>
     <table class="page">
@@ -114,4 +129,17 @@
         </tbody>
     </table>
 </div>
+
+<script>
+
+function desativar(){
+    document.getElementById('valoralterado').value = 0;
+}
+
+function ativar(){
+    document.getElementById('valoralterado').value = 1;
+}
+
+</script>
 @endsection
+

@@ -82,7 +82,14 @@ Route::get('/registoconta/detalhes', [PageController::class, 'registocontadetail
 Route::post('/registoconta/detalhes/change', [PageController::class, 'registocontachange']);
 
 Route::get('/gestaoconta/detalhes', [PageController::class, 'gestaocontadetails']);
+Route::post('/gestaoconta/detalhes/change', [PageController::class, 'estadoDocente']);
+
+Route::post('/premissaostudent/change', [PageController::class, 'estadoEstudante']);
+
+Route::post('/gestaoconta/change', [PageController::class, 'simNaoAdmin']);
 
 Route::get('/createNDocente', [PageController::class, 'createNDocente']);
+
+Route::get('/premissaostudent', [PageController::class, 'premissaostudent']);
 
 Route::get('/gestaoconta', [PageController::class, 'listarDocentesENDocentes']);

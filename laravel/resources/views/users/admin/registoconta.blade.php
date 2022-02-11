@@ -31,7 +31,7 @@
                     Gestão de Contas
                 </span>
             </a>
-            <a href="">
+            <a href="/premissaostudent">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal3">
                     Permissões de Estudantes
                 </span>
