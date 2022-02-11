@@ -26,7 +26,7 @@
                     Registos de Conta
                 </span>
             </a>
-            <a href="">
+            <a href="/gestaoconta">
                 <span class="openedtab_sl" id="tabtab_resumoPessoal3">
                     Gestão de Contas
                 </span>

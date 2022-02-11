@@ -73,7 +73,6 @@
                                             </thead>
                                             <tbody>
                                                 @for ($i = 0; $i < count($list); $i++) <tr class="lightrow">
-
                                                     <td class="contentLeft">{{$list[$i]->USER_NAME}}</td>
                                                     <td class="contentCenter" style="width: 30%">
                                                         @if($list[$i]->USER_TYPE == 'docente')
@@ -93,8 +92,8 @@
                                                         @csrf
                                                         <td class="contentCenter" style="width: 10%">
                                                             <input type="hidden" name="id" value="{{$list[$i]->USER_ID}}">
-                                                            <input type="hidden" name="valoralterado" id="valoralterado" value="">
-                                                            <input type="checkbox" id="check{{$i}}" @if($list[$i]->USER_ADMIN == 1) checked @endif onclick="updateValues('{{$i}}', '{{count($list)}}');">
+                                                            <input type="hidden" name="value" id="value{{$list[$i]->USER_ID}}" value="">
+                                                            <input type="checkbox" id="check{{$i}}" @if($list[$i]->USER_ADMIN == 1) checked @endif onclick="updateValues('{{$i}}', '{{count($list)}}', '{{$list[$i]->USER_ID}}');">
                                                         </td>
                                                     </form>
                                                     <form id="detalhesGestaoConta2" method="get" action="/gestaoconta/detalhes">
@@ -102,29 +101,28 @@
                                                         <td class="contentCenter" style="width: 0%"><input type="hidden" name="iddocente" value="{{$list[$i]->USER_ID}}"></td>
                                                         <td class="contentRight" style="width: 5%"><input class="botaodetalhes" type="submit" value="Detalhes"></td>
                                                     </form>
+                                                </tr>
+                                                @endfor
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
                             </tr>
-                            @endfor
                         </tbody>
                     </table>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <script>
-    function updateValues(index, n) {
+    function updateValues(index, num, id) {
 
         var check = "";
-        var hidden = document.getElementById("valoralterado").value;
         var sub = "";
 
-        for (let $i = 0; $i < n; $i++) {
+        for (let $i = 0; $i < num; $i++) {
             if ($i == index) {
                 check = document.getElementById("check" + $i);
                sub = document.getElementById("detalhesGestaoConta1" + $i);
@@ -132,12 +130,12 @@
         }
 
 
-        if (check.checked) {
-            hidden = 1;
-           sub.submit();
+        if (check.checked == true) {
+            document.getElementById("value"+id).value = 1;
+            sub.submit();
         } else {
-            hidden = 0;
-           sub.submit();
+            document.getElementById("value"+id).value = 0;
+            sub.submit();
         }
     }
 </script>

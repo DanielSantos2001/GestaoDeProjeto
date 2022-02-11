@@ -135,15 +135,15 @@ class PageController extends Controller
     public function simNaoAdmin(Request $request)
     {
 
-        $var = User::where('USER_ID', $request->id)->first();
+        $user = User::where('USER_ID', $request->id)->first();
 
-        if ($request->valoralterado == 1) {
-            $var->USER_ADMIN = 1;
-            $var->update();
+        if ($request->value == 1) {
+            $user->USER_ADMIN = 1;
+            $user->update();
             return redirect('/gestaoconta');
-        } else if ($request->valoralterado == 0) {
-            $var->USER_ADMIN = 0;
-            $var->update();
+        } else {
+            $user->USER_ADMIN = 0;
+            $user->update();
             return redirect('/gestaoconta');
         }
     }
