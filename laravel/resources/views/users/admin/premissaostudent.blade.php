@@ -72,10 +72,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <form id="studentform" method="post" action="/premissaostudent/change">
-                                                    @csrf
-                                                    @foreach ($student as $aluno)
-                                                    <tr class="lightrow">
+                                                @foreach ($student as $aluno)
+                                                <tr class="lightrow">
+                                                    <form id="studentform" method="post" action="/premissaostudent/change">
+                                                        @csrf
                                                         <td class="contentLeft">{{$aluno->USER_NAME}}</td>
                                                         <td class="contentCenter" style="width: 15%">{{$aluno->USER_COURSE}}</td>
                                                         <td class="contentCenter" style="width: 15%">
@@ -87,19 +87,19 @@
                                                         </td>
                                                         <td class="contentCenter" style="width: 30%">{{$aluno->USER_MAIL}}</td>
                                                         <input type="hidden" name="id" value="{{$aluno->USER_ID}}">
-                                                        <input type="hidden" name="valoralterado" id="valoralterado" value="">
+                                                        <input type="hidden" name="valoralterado" id="valoralterado{{$aluno->USER_ID}}" value="">
                                                         @if($aluno->USER_STATE == 0)
                                                         <td class="contentRight" style="width: 5%">
-                                                            <input type="submit" class="botaodetalhes" value="Ativar" id="ativeinput" name="ativeinput" onclick="ativar()">
+                                                            <input type="submit" class="botaodetalhes" value="Ativar" id="ativeinput" name="ativeinput" onclick="ativar('{{$aluno->USER_ID}}')">
                                                         </td>
                                                         @else
                                                         <td class="contentRight" style="width: 5%">
-                                                            <input type="submit" class="botaodetalhes" value="Desativar" id="desativeinput" name="desativeinput" onclick="desativar()">
+                                                            <input type="submit" class="botaodetalhes" value="Desativar" id="desativeinput" name="desativeinput" onclick="desativar('{{$aluno->USER_ID}}')">
                                                         </td>
                                                         @endif
-                                                    </tr>
-                                                    @endforeach
-                                                </form>
+                                                    </form>
+                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -114,15 +114,12 @@
 </div>
 
 <script>
+    function desativar(id) {
+        document.getElementById('valoralterado'+id).value = 0;
+    }
 
-function desativar(){
-    document.getElementById('valoralterado').value = 0;
-}
-
-function ativar(){
-    document.getElementById('valoralterado').value = 1;
-}
-
+    function ativar(id) {
+        document.getElementById('valoralterado'+id).value = 1;
+    }
 </script>
 @endsection
-

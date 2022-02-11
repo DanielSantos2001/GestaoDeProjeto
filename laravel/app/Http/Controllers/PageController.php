@@ -175,16 +175,15 @@ class PageController extends Controller
     public function estadoEstudante(Request $request)
     {
 
-        $var = User::where('USER_ID', $request->id)->first();
-        dd($var);
+        $user = User::where('USER_ID', $request->id)->first();
 
-        if ($request->valoralterado == 0) {
-            $var->USER_STATE = 0;
-            $var->update();
+        if ($request->valoralterado == 1) {
+            $user->USER_STATE = 1;
+            $user->update();
             return redirect('/premissaostudent');
-        } elseif ($request->valoralterado == 1) {
-            $var->USER_STATE = 1;
-            $var->update();
+        } else {
+            $user->USER_STATE = 0;
+            $user->update();
             return redirect('/premissaostudent');
         }
     }
